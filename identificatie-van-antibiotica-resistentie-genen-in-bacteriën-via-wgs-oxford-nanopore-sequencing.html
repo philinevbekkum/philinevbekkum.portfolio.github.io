@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Curriculum Vitae | Portfolio Data Science for Biology</title>
-  <meta name="description" content="Curriculum Vitae | Portfolio Data Science for Biology" />
+  <title>Identificatie van antibiotica resistentie genen in bacteriën via WGS Oxford Nanopore sequencing | Portfolio Data Science for Biology</title>
+  <meta name="description" content="Identificatie van antibiotica resistentie genen in bacteriën via WGS Oxford Nanopore sequencing | Portfolio Data Science for Biology" />
   <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Curriculum Vitae | Portfolio Data Science for Biology" />
+  <meta property="og:title" content="Identificatie van antibiotica resistentie genen in bacteriën via WGS Oxford Nanopore sequencing | Portfolio Data Science for Biology" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Curriculum Vitae | Portfolio Data Science for Biology" />
+  <meta name="twitter:title" content="Identificatie van antibiotica resistentie genen in bacteriën via WGS Oxford Nanopore sequencing | Portfolio Data Science for Biology" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="identificatie-van-antibiotica-resistentie-genen-in-bacteriën-via-wgs-oxford-nanopore-sequencing.html"/>
+<link rel="prev" href="curriculum-vitae.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -105,100 +105,35 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="curriculum-vitae" class="section level1">
-<h1>Curriculum Vitae</h1>
-<div id="personal-information" class="section level2 unnumbered">
-<h2>Personal Information</h2>
-<ul>
-<li><strong>Name</strong>: Philine van Bekkum</li>
-<li><strong>Address</strong>: [Your Address]</li>
-<li><strong>Phone</strong>: [Your Phone Number]</li>
-<li><strong>E-mail</strong>: [<a href="mailto:your.email@example.com" class="email">your.email@example.com</a>]</li>
-<li><strong>DOB/POB</strong>: [Your DOB/POB]</li>
-<li><strong>Nationality</strong>: [Your Nationality]</li>
-</ul>
+<div id="identificatie-van-antibiotica-resistentie-genen-in-bacteriën-via-wgs-oxford-nanopore-sequencing" class="section level1">
+<h1>Identificatie van antibiotica resistentie genen in bacteriën via WGS Oxford Nanopore sequencing</h1>
+<p>Tijdens mijn stage ga ik bacteriën whole genome sequencen met de Oxford Nanopore om antibiotica resistentie genen in deze bacteriën te identificeren. Het doel van dit project is daarom om een data analyse pipeline te maken die gebruik maakt van Oxford Nanopore whole genome sequencing (WGS) data om antibiotica resistentie genen in bacteriën te identificeren. Dit dient als voorbereiding op mijn toekomstige stage, zodat ik later deze pipeline kan gebruiken om de data die ik tijdens mijn stage heb verkregen te analyseren.</p>
+<div id="stap-1-selecteren-van-de-dataset" class="section level2 unnumbered">
+<h2>Stap 1: Selecteren van de dataset</h2>
+<p>De eerste stap is om een dataset op te zoeken via bijv. NCBI Sequence Read Archive (SRA) of European Nucleotide Archive (ENA). De geselecteerde dataset moet een FastQ format zijn en afkomstig zijn van whole genome sequencing met Oxford Nanopore technology.</p>
 </div>
-<div id="education" class="section level2 unnumbered">
-<h2>Education</h2>
-<p><strong>BSc Life Sciences</strong>
-<strong>University of Applied Sciences Utrecht</strong>, Utrecht, Netherlands<br />
-<em>2020 - Present</em></p>
-<ul>
-<li><p><strong>Specialisation</strong>: Biomolecular Research</p>
-<ul>
-<li>Project BMR: The Influence of an Angle on 3D Extrusion-Based Bioprinting</li>
-</ul></li>
-<li><p><strong>Minors</strong>:</p>
-<ul>
-<li>Data Science for Biology<br />
-</li>
-<li>Finance for Non-Financials</li>
-</ul></li>
-</ul>
-<p><strong>HAVO</strong>
-<strong>Revius Lyceum</strong>, Doorn, Netherlands<br />
-<em>2015 - 2020</em></p>
-<p>Senior General Secondary Education</p>
-<ul>
-<li>Curriculum: “Nature &amp; Technology” and “Nature &amp; Health”</li>
-</ul>
+<div id="stap-2-kwaliteitscontrole" class="section level2 unnumbered">
+<h2>Stap 2: Kwaliteitscontrole</h2>
+<p>Na het selecteren van de dataset kan een kwaliteitscontrole worden uitgevoerd. Hiervoor kan gebruik gemaakt worden van FastQC in bash. FastQC geeft inzicht in kwaliteitscores en de aanwezigheid van adaptersequenties. Na het gebruik van FastQC kan Nanoplot worden gebruikt voor meer gedetailleerde informatie over de kwaliteit van de sequencing reads die specifiek zijn voor Nanopore data. Vervolgens kan Nanofilt worden gebruikt om korte sequencing reads of reads van lage kwaliteit te verwijderen.</p>
 </div>
-<div id="work-experience" class="section level2 unnumbered">
-<h2>Work Experience</h2>
-<p><strong>Student Assistant in Medical Microbiology, Molecular Diagnostics</strong>
-<strong>UMC Utrecht</strong>, Utrecht, Netherlands<br />
-<em>2022 - Present</em></p>
-<ul>
-<li>Performing supportive lab tasks (inventory management, maintenance, and cleaning duties).</li>
-</ul>
+<div id="stap-3-identificatie-van-antibiotica-resistentie-genen" class="section level2 unnumbered">
+<h2>Stap 3: Identificatie van antibiotica resistentie genen</h2>
+<p>Na de kwaliteitscontrole kunnen de reads worden geanalyseerd met behulp van de AMR package in R. De AMR package wordt gebruikt om antibiotica resistentie genen te identificeren in sequencing reads. Dit wordt gedaan door de sequencing reads te vergelijken met een database die bekende resistentie genen bevat.</p>
 </div>
-<div id="skills" class="section level2 unnumbered">
-<h2>Skills</h2>
-<div id="laboratory-skills" class="section level4 unnumbered">
-<h4>Laboratory Skills</h4>
-<ul>
-<li>Molecular Biology: PCR (Colony, Quantitative, Real-Time), Agarose Gel Electrophoresis, Miniprep, Transfection, SDS-PAGE, Western Blot</li>
-<li>Genes &amp; Proteins: ELISA, Cell Fractionation, Liquid Chromatography</li>
-<li>Experimental Design in Cell Culture: Cell Culture</li>
-</ul>
+<div id="stap-4-data-visualisatie" class="section level2 unnumbered">
+<h2>Stap 4: Data visualisatie</h2>
+<p>Als laatste kunnen de resulteren worden weergegeven in bijv. een bar plot met de antibiotica resistentie genen en een heatmap met de genen die aanwezig of afwezig zijn.</p>
 </div>
-<div id="data-science-skills" class="section level4 unnumbered">
-<h4>Data Science Skills</h4>
-<ul>
-<li>Programming &amp; Tools: R, RStudio, RMarkdown, RBookdown, RPackage, Git/GitHub, Bash</li>
-<li>Data Analysis: SQL, Frequentist Statistics</li>
-<li>Bioinformatics Pipelines: RNAseq pipeline in R, Metagenomics pipeline in R</li>
-</ul>
-</div>
-</div>
-<div id="theoretical-knowledge" class="section level2 unnumbered">
-<h2>Theoretical Knowledge</h2>
-<ul>
-<li>Immunology</li>
-<li>Molecular Biology</li>
-<li>Biotechnology</li>
-<li>Advanced Labtools</li>
-<li>Tumor Cell Biology</li>
-</ul>
-</div>
-<div id="languages" class="section level2 unnumbered">
-<h2>Languages</h2>
-<ul>
-<li><strong>Dutch</strong>: Native</li>
-<li><strong>English</strong>: Intermediate</li>
-</ul>
-</div>
-<div id="hobbies" class="section level2 unnumbered">
-<h2>Hobbies</h2>
-<ul>
-<li>Running</li>
-<li>Reading</li>
-<li>Drawing</li>
-<li>Playing the piano</li>
-</ul>
-<p>Below you can also find a pdf file of my CV.</p>
-<iframe src="C:\Users\phbek\OneDrive\Documenten\dsfb2\dsfb2_workflows_portfolio\data\CV_PhilinevanBekkum_Portfolio.pdf" width="100%" height="600px">
-</iframe>
+<div id="references" class="section level2 unnumbered">
+<h2>References</h2>
+<p>Antimicrobial Resistance data analysis. (z.d.). <a href="https://msberends.github.io/AMR/" class="uri">https://msberends.github.io/AMR/</a></p>
+<p>Bioinformatics for Beginners. (2023, 22 juni). Quality Control of Long Reads Data using NanoPlot and FiltLong [Video]. YouTube. <a href="https://www.youtube.com/watch?v=Zf0xX2CqkLw" class="uri">https://www.youtube.com/watch?v=Zf0xX2CqkLw</a></p>
+<p>De Coster, W., D’Hert, S., Schultz, D. T., Cruts, M., &amp; Van Broeckhoven, C. (2018). NanoPack: visualizing and processing long-read sequencing data. Bioinformatics, 34(15), 2666–2669. <a href="https://doi.org/10.1093/bioinformatics/bty149" class="uri">https://doi.org/10.1093/bioinformatics/bty149</a></p>
+<p>Embl-Ebi. (z.d.). ENA Browser. <a href="https://www.ebi.ac.uk/ena/browser/home" class="uri">https://www.ebi.ac.uk/ena/browser/home</a></p>
+<p>Galaxy Training Network. (2024, 13 maart). Assembly / Genome Assembly of MRSA from Oxford Nanopore MinION data (and optionally Illumina data) / Hands-on: Genome Assembly of MRSA from Oxford Nanopore MinION data (and optionally Illumina data). <a href="https://training.galaxyproject.org/training-material/topics/assembly/tutorials/mrsa-nanopore/tutorial.html#assembly" class="uri">https://training.galaxyproject.org/training-material/topics/assembly/tutorials/mrsa-nanopore/tutorial.html#assembly</a></p>
+<p>Home - SRA - NCBI. (z.d.). <a href="https://www.ncbi.nlm.nih.gov/sra" class="uri">https://www.ncbi.nlm.nih.gov/sra</a></p>
+<p>NanoFilt | Anaconda.org. (z.d.). <a href="https://anaconda.org/bioconda/nanofilt" class="uri">https://anaconda.org/bioconda/nanofilt</a></p>
+<p>Nanoplot | Anaconda.org. (z.d.). <a href="https://anaconda.org/bioconda/nanoplot" class="uri">https://anaconda.org/bioconda/nanoplot</a></p>
 
 </div>
 </div>
@@ -207,8 +142,8 @@
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="identificatie-van-antibiotica-resistentie-genen-in-bacteriën-via-wgs-oxford-nanopore-sequencing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="curriculum-vitae.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
