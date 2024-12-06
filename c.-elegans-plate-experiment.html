@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>C. elegans Plate Experiment | C. elegans plate experiment</title>
-  <meta name="description" content="C. elegans Plate Experiment | C. elegans plate experiment" />
+  <title>C. elegans Plate Experiment | Portfolio Data Science for Biology</title>
+  <meta name="description" content="C. elegans Plate Experiment | Portfolio Data Science for Biology" />
   <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="C. elegans Plate Experiment | C. elegans plate experiment" />
+  <meta property="og:title" content="C. elegans Plate Experiment | Portfolio Data Science for Biology" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="C. elegans Plate Experiment | C. elegans plate experiment" />
+  <meta name="twitter:title" content="C. elegans Plate Experiment | Portfolio Data Science for Biology" />
   
   
   
@@ -23,14 +23,13 @@
 <meta name="author" content="Philine van Bekkum" />
 
 
-<meta name="date" content="2024-11-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="identificatie-van-antibiotica-resistentie-genen-in-bacteriën-via-wgs-oxford-nanopore-sequencing.html"/>
+<link rel="prev" href="guerilla-analytics.html"/>
 <link rel="next" href="open-peer-review.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -153,6 +152,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="identificatie-van-antibiotica-resistentie-genen-in-bacteriën-via-wgs-oxford-nanopore-sequencing.html"><a href="identificatie-van-antibiotica-resistentie-genen-in-bacteriën-via-wgs-oxford-nanopore-sequencing.html#stap-4-data-visualisatie"><i class="fa fa-check"></i>Stap 4: Data visualisatie</a></li>
 <li class="chapter" data-level="" data-path="identificatie-van-antibiotica-resistentie-genen-in-bacteriën-via-wgs-oxford-nanopore-sequencing.html"><a href="identificatie-van-antibiotica-resistentie-genen-in-bacteriën-via-wgs-oxford-nanopore-sequencing.html#references"><i class="fa fa-check"></i>References</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="guerilla-analytics.html"><a href="guerilla-analytics.html"><i class="fa fa-check"></i>Guerilla analytics</a></li>
 <li class="chapter" data-level="" data-path="c.-elegans-plate-experiment.html"><a href="c.-elegans-plate-experiment.html"><i class="fa fa-check"></i><em>C. elegans</em> Plate Experiment</a>
 <ul>
 <li class="chapter" data-level="" data-path="c.-elegans-plate-experiment.html"><a href="c.-elegans-plate-experiment.html#introduction-1"><i class="fa fa-check"></i>Introduction</a></li>
@@ -178,6 +178,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="open-peer-review.html"><a href="open-peer-review.html#vaccine-by-country-by-education"><i class="fa fa-check"></i>Vaccine by country by education</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="references-1.html"><a href="references-1.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
 
       </nav>
@@ -187,7 +188,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">C. elegans plate experiment</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Portfolio Data Science for Biology</a>
           </h1>
         </div>
 
@@ -210,34 +211,57 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="set-up" class="section level2 unnumbered">
 <h2>Set up</h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="c.-elegans-plate-experiment.html#cb1-1" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb1-2"><a href="c.-elegans-plate-experiment.html#cb1-2" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-3"><a href="c.-elegans-plate-experiment.html#cb1-3" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-4"><a href="c.-elegans-plate-experiment.html#cb1-4" tabindex="-1"></a><span class="fu">library</span>(drc)</span>
-<span id="cb1-5"><a href="c.-elegans-plate-experiment.html#cb1-5" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb1-6"><a href="c.-elegans-plate-experiment.html#cb1-6" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
-<span id="cb1-7"><a href="c.-elegans-plate-experiment.html#cb1-7" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span></code></pre></div>
+<span id="cb1-2"><a href="c.-elegans-plate-experiment.html#cb1-2" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="c.-elegans-plate-experiment.html#cb5-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb5-2"><a href="c.-elegans-plate-experiment.html#cb5-2" tabindex="-1"></a><span class="fu">library</span>(drc)</span></code></pre></div>
+<pre><code>## Loading required package: MASS</code></pre>
+<pre><code>## 
+## Attaching package: &#39;MASS&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     select</code></pre>
+<pre><code>## 
+## &#39;drc&#39; has been loaded.</code></pre>
+<pre><code>## Please cite R and &#39;drc&#39; if used for a publication,</code></pre>
+<pre><code>## for references type &#39;citation()&#39; and &#39;citation(&#39;drc&#39;)&#39;.</code></pre>
+<pre><code>## 
+## Attaching package: &#39;drc&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     gaussian, getInitial</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="c.-elegans-plate-experiment.html#cb14-1" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb14-2"><a href="c.-elegans-plate-experiment.html#cb14-2" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb14-3"><a href="c.-elegans-plate-experiment.html#cb14-3" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span></code></pre></div>
 </div>
 <div id="importing-the-data" class="section level2 unnumbered">
 <h2>Importing the data</h2>
 <p>The first step is to import the data from the provided Excel file, which contains the results of the experiment.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="c.-elegans-plate-experiment.html#cb2-1" tabindex="-1"></a><span class="co"># Import data from C. elegans plate experiment </span></span>
-<span id="cb2-2"><a href="c.-elegans-plate-experiment.html#cb2-2" tabindex="-1"></a>plate_experiment_data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;data/CE.LIQ.FLOW.062_Tidydata.xlsx&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="c.-elegans-plate-experiment.html#cb15-1" tabindex="-1"></a><span class="co"># Import data from C. elegans plate experiment </span></span>
+<span id="cb15-2"><a href="c.-elegans-plate-experiment.html#cb15-2" tabindex="-1"></a>plate_experiment_data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;data/CE.LIQ.FLOW.062_Tidydata.xlsx&quot;</span>)</span></code></pre></div>
 </div>
 <div id="inspecting-the-data-types" class="section level2 unnumbered">
 <h2>Inspecting the data types</h2>
 <p>Next, we inspect the structure of the data to ensure it has been imported correctly. We also check for the data types of key columns.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="c.-elegans-plate-experiment.html#cb3-1" tabindex="-1"></a><span class="co"># Check the structure of the data. </span></span>
-<span id="cb3-2"><a href="c.-elegans-plate-experiment.html#cb3-2" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">class</span>(plate_experiment_data<span class="sc">$</span>RawData))</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="c.-elegans-plate-experiment.html#cb16-1" tabindex="-1"></a><span class="co"># Check the structure of the data. </span></span>
+<span id="cb16-2"><a href="c.-elegans-plate-experiment.html#cb16-2" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">class</span>(plate_experiment_data<span class="sc">$</span>RawData))</span></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="c.-elegans-plate-experiment.html#cb5-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">class</span>(plate_experiment_data<span class="sc">$</span>compName))</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="c.-elegans-plate-experiment.html#cb18-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">class</span>(plate_experiment_data<span class="sc">$</span>compName))</span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="c.-elegans-plate-experiment.html#cb7-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">class</span>(plate_experiment_data<span class="sc">$</span>compConcentration))</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="c.-elegans-plate-experiment.html#cb20-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">class</span>(plate_experiment_data<span class="sc">$</span>compConcentration))</span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="c.-elegans-plate-experiment.html#cb9-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">class</span>(plate_experiment_data<span class="sc">$</span>expType))</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="c.-elegans-plate-experiment.html#cb22-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">class</span>(plate_experiment_data<span class="sc">$</span>expType))</span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="c.-elegans-plate-experiment.html#cb11-1" tabindex="-1"></a><span class="co"># Check if data is correctly imported. </span></span>
-<span id="cb11-2"><a href="c.-elegans-plate-experiment.html#cb11-2" tabindex="-1"></a>plate_experiment_data <span class="sc">%&gt;%</span> </span>
-<span id="cb11-3"><a href="c.-elegans-plate-experiment.html#cb11-3" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(RawData, compName, compConcentration, expType) </span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="c.-elegans-plate-experiment.html#cb24-1" tabindex="-1"></a><span class="co"># Check if data is correctly imported. </span></span>
+<span id="cb24-2"><a href="c.-elegans-plate-experiment.html#cb24-2" tabindex="-1"></a>plate_experiment_data <span class="sc">%&gt;%</span> </span>
+<span id="cb24-3"><a href="c.-elegans-plate-experiment.html#cb24-3" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(RawData, compName, compConcentration, expType) </span></code></pre></div>
 <pre><code>## # A tibble: 360 × 4
 ##    RawData compName                   compConcentration expType   
 ##      &lt;dbl&gt; &lt;chr&gt;                      &lt;chr&gt;             &lt;chr&gt;     
@@ -252,42 +276,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9      40 2,6-diisopropylnaphthalene 4.99              experiment
 ## 10      38 2,6-diisopropylnaphthalene 4.99              experiment
 ## # ℹ 350 more rows</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="c.-elegans-plate-experiment.html#cb13-1" tabindex="-1"></a>plate_experiment_tidydata <span class="ot">&lt;-</span> plate_experiment_data</span>
-<span id="cb13-2"><a href="c.-elegans-plate-experiment.html#cb13-2" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="c.-elegans-plate-experiment.html#cb13-3" tabindex="-1"></a>plate_experiment_tidydata<span class="sc">$</span>compConcentration <span class="ot">&lt;-</span> </span>
-<span id="cb13-4"><a href="c.-elegans-plate-experiment.html#cb13-4" tabindex="-1"></a>  <span class="fu">as.numeric</span>(plate_experiment_tidydata<span class="sc">$</span>compConcentration)</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="c.-elegans-plate-experiment.html#cb26-1" tabindex="-1"></a>plate_experiment_tidydata <span class="ot">&lt;-</span> plate_experiment_data</span>
+<span id="cb26-2"><a href="c.-elegans-plate-experiment.html#cb26-2" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="c.-elegans-plate-experiment.html#cb26-3" tabindex="-1"></a>plate_experiment_tidydata<span class="sc">$</span>compConcentration <span class="ot">&lt;-</span> </span>
+<span id="cb26-4"><a href="c.-elegans-plate-experiment.html#cb26-4" tabindex="-1"></a>  <span class="fu">as.numeric</span>(plate_experiment_tidydata<span class="sc">$</span>compConcentration)</span></code></pre></div>
+<pre><code>## Warning: NAs introduced by coercion</code></pre>
 <p>There is a small issue with the compConcentration column where a comma (,) was mistakenly used instead of a period (.), resulting in NA values. We correct this by replacing the comma with a period and ensuring all values are numeric.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="c.-elegans-plate-experiment.html#cb14-1" tabindex="-1"></a><span class="co"># Locate the NA value in the compConcentration column.</span></span>
-<span id="cb14-2"><a href="c.-elegans-plate-experiment.html#cb14-2" tabindex="-1"></a>character_placement <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="fu">is.na</span>(plate_experiment_tidydata<span class="sc">$</span>compConcentration))</span>
-<span id="cb14-3"><a href="c.-elegans-plate-experiment.html#cb14-3" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="c.-elegans-plate-experiment.html#cb14-4" tabindex="-1"></a><span class="co"># Convert the character value to numeric, handling commas. </span></span>
-<span id="cb14-5"><a href="c.-elegans-plate-experiment.html#cb14-5" tabindex="-1"></a>character_value <span class="ot">&lt;-</span> plate_experiment_data<span class="sc">$</span>compConcentration[character_placement] <span class="sc">%&gt;%</span></span>
-<span id="cb14-6"><a href="c.-elegans-plate-experiment.html#cb14-6" tabindex="-1"></a>  <span class="fu">str_replace</span>(<span class="st">&quot;,&quot;</span>, <span class="st">&quot;.&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">parse_number</span>()</span>
-<span id="cb14-7"><a href="c.-elegans-plate-experiment.html#cb14-7" tabindex="-1"></a></span>
-<span id="cb14-8"><a href="c.-elegans-plate-experiment.html#cb14-8" tabindex="-1"></a><span class="co"># Update the compConcentration column </span></span>
-<span id="cb14-9"><a href="c.-elegans-plate-experiment.html#cb14-9" tabindex="-1"></a>plate_experiment_tidydata<span class="sc">$</span>compConcentration[character_placement] <span class="ot">&lt;-</span> character_value</span>
-<span id="cb14-10"><a href="c.-elegans-plate-experiment.html#cb14-10" tabindex="-1"></a></span>
-<span id="cb14-11"><a href="c.-elegans-plate-experiment.html#cb14-11" tabindex="-1"></a><span class="co"># Check the class of compConcentration after conversion. </span></span>
-<span id="cb14-12"><a href="c.-elegans-plate-experiment.html#cb14-12" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">class</span>(plate_experiment_tidydata<span class="sc">$</span>compConcentration))</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="c.-elegans-plate-experiment.html#cb28-1" tabindex="-1"></a><span class="co"># Locate the NA value in the compConcentration column.</span></span>
+<span id="cb28-2"><a href="c.-elegans-plate-experiment.html#cb28-2" tabindex="-1"></a>character_placement <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="fu">is.na</span>(plate_experiment_tidydata<span class="sc">$</span>compConcentration))</span>
+<span id="cb28-3"><a href="c.-elegans-plate-experiment.html#cb28-3" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="c.-elegans-plate-experiment.html#cb28-4" tabindex="-1"></a><span class="co"># Convert the character value to numeric, handling commas. </span></span>
+<span id="cb28-5"><a href="c.-elegans-plate-experiment.html#cb28-5" tabindex="-1"></a>character_value <span class="ot">&lt;-</span> plate_experiment_data<span class="sc">$</span>compConcentration[character_placement] <span class="sc">%&gt;%</span></span>
+<span id="cb28-6"><a href="c.-elegans-plate-experiment.html#cb28-6" tabindex="-1"></a>  <span class="fu">str_replace</span>(<span class="st">&quot;,&quot;</span>, <span class="st">&quot;.&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">parse_number</span>()</span>
+<span id="cb28-7"><a href="c.-elegans-plate-experiment.html#cb28-7" tabindex="-1"></a></span>
+<span id="cb28-8"><a href="c.-elegans-plate-experiment.html#cb28-8" tabindex="-1"></a><span class="co"># Update the compConcentration column </span></span>
+<span id="cb28-9"><a href="c.-elegans-plate-experiment.html#cb28-9" tabindex="-1"></a>plate_experiment_tidydata<span class="sc">$</span>compConcentration[character_placement] <span class="ot">&lt;-</span> character_value</span>
+<span id="cb28-10"><a href="c.-elegans-plate-experiment.html#cb28-10" tabindex="-1"></a></span>
+<span id="cb28-11"><a href="c.-elegans-plate-experiment.html#cb28-11" tabindex="-1"></a><span class="co"># Check the class of compConcentration after conversion. </span></span>
+<span id="cb28-12"><a href="c.-elegans-plate-experiment.html#cb28-12" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">class</span>(plate_experiment_tidydata<span class="sc">$</span>compConcentration))</span></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="c.-elegans-plate-experiment.html#cb16-1" tabindex="-1"></a><span class="co"># Check for any NA values after conversion </span></span>
-<span id="cb16-2"><a href="c.-elegans-plate-experiment.html#cb16-2" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(plate_experiment_tidydata<span class="sc">$</span>compConcentration))</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="c.-elegans-plate-experiment.html#cb30-1" tabindex="-1"></a><span class="co"># Check for any NA values after conversion </span></span>
+<span id="cb30-2"><a href="c.-elegans-plate-experiment.html#cb30-2" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(plate_experiment_tidydata<span class="sc">$</span>compConcentration))</span></code></pre></div>
 <pre><code>## [1] 0</code></pre>
 </div>
 <div id="scatterplot-of-c.-elegans-plate-experiment" class="section level2 unnumbered">
 <h2>Scatterplot of <em>C. elegans</em> plate experiment</h2>
 <p>To visualize the effect of compound concentration on offspring count, a scatterplot was created. The x-axis represents the log-transformed concentration of the compound (in nM), and the y-axis represents the raw number of offspring. The points are color-coded by the compound name and shaped by the experimental condition type.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="c.-elegans-plate-experiment.html#cb18-1" tabindex="-1"></a>plate_experiment_tidydata <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">log10</span>(compConcentration), <span class="at">y =</span> RawData, </span>
-<span id="cb18-2"><a href="c.-elegans-plate-experiment.html#cb18-2" tabindex="-1"></a>                                     <span class="at">color =</span> compName, <span class="at">shape =</span> expType)) <span class="sc">+</span> </span>
-<span id="cb18-3"><a href="c.-elegans-plate-experiment.html#cb18-3" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="fl">0.1</span>) <span class="sc">+</span> </span>
-<span id="cb18-4"><a href="c.-elegans-plate-experiment.html#cb18-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Log10 Concentration of Compound (in nM)&quot;</span>, </span>
-<span id="cb18-5"><a href="c.-elegans-plate-experiment.html#cb18-5" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Number of Offspring per C. elegans&quot;</span>, </span>
-<span id="cb18-6"><a href="c.-elegans-plate-experiment.html#cb18-6" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">&quot;Compound Name&quot;</span>, <span class="at">shape =</span> <span class="st">&quot;Experiment Type&quot;</span>, </span>
-<span id="cb18-7"><a href="c.-elegans-plate-experiment.html#cb18-7" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Effect of Compound Concentration on Offspring Count in C. elegans&quot;</span>, </span>
-<span id="cb18-8"><a href="c.-elegans-plate-experiment.html#cb18-8" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">&quot;Data provided by J. Louter (INT/ILC)&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb18-9"><a href="c.-elegans-plate-experiment.html#cb18-9" tabindex="-1"></a>  <span class="fu">scale_shape_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Negative Control&quot;</span>, <span class="st">&quot;Positive Control&quot;</span>, </span>
-<span id="cb18-10"><a href="c.-elegans-plate-experiment.html#cb18-10" tabindex="-1"></a>                                   <span class="st">&quot;Vehicle A Control&quot;</span>, <span class="st">&quot;Experiment&quot;</span>)) <span class="sc">+</span> </span>
-<span id="cb18-11"><a href="c.-elegans-plate-experiment.html#cb18-11" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="c.-elegans-plate-experiment.html#cb32-1" tabindex="-1"></a>plate_experiment_tidydata <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">log10</span>(compConcentration), <span class="at">y =</span> RawData, </span>
+<span id="cb32-2"><a href="c.-elegans-plate-experiment.html#cb32-2" tabindex="-1"></a>                                     <span class="at">color =</span> compName, <span class="at">shape =</span> expType)) <span class="sc">+</span> </span>
+<span id="cb32-3"><a href="c.-elegans-plate-experiment.html#cb32-3" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="fl">0.1</span>) <span class="sc">+</span> </span>
+<span id="cb32-4"><a href="c.-elegans-plate-experiment.html#cb32-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Log10 Concentration of Compound (in nM)&quot;</span>, </span>
+<span id="cb32-5"><a href="c.-elegans-plate-experiment.html#cb32-5" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Number of Offspring per C. elegans&quot;</span>, </span>
+<span id="cb32-6"><a href="c.-elegans-plate-experiment.html#cb32-6" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">&quot;Compound Name&quot;</span>, <span class="at">shape =</span> <span class="st">&quot;Experiment Type&quot;</span>, </span>
+<span id="cb32-7"><a href="c.-elegans-plate-experiment.html#cb32-7" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Effect of Compound Concentration on Offspring Count in C. elegans&quot;</span>, </span>
+<span id="cb32-8"><a href="c.-elegans-plate-experiment.html#cb32-8" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">&quot;Data provided by J. Louter (INT/ILC)&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb32-9"><a href="c.-elegans-plate-experiment.html#cb32-9" tabindex="-1"></a>  <span class="fu">scale_shape_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Negative Control&quot;</span>, <span class="st">&quot;Positive Control&quot;</span>, </span>
+<span id="cb32-10"><a href="c.-elegans-plate-experiment.html#cb32-10" tabindex="-1"></a>                                   <span class="st">&quot;Vehicle A Control&quot;</span>, <span class="st">&quot;Experiment&quot;</span>)) <span class="sc">+</span> </span>
+<span id="cb32-11"><a href="c.-elegans-plate-experiment.html#cb32-11" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
+<pre><code>## Warning: Removed 5 rows containing missing values or values outside the scale range
+## (`geom_point()`).</code></pre>
 <p><img src="_main_files/figure-html/scatterplot-1.png" width="672" /></p>
 <p><em>Figuur 1. Scatterplot showing the effect of compound concentration on offspring count in C. elegans across different experimental conditions.</em></p>
 <p>The positive control of this experiment is “Ethanol”. The negative control of this experiment is “No treatment”.</p>
@@ -295,35 +322,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="normalizing-the-data-for-the-negative-control" class="section level2">
 <h2>Normalizing the data for the negative control</h2>
 <p>To facilitate comparison across experimental conditions, we normalize the raw offspring counts relative to the negative control group (“S-medium”). This adjustment accounts for baseline variability and enables more accurate comparisons between experimental conditions.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="c.-elegans-plate-experiment.html#cb19-1" tabindex="-1"></a><span class="co"># Compute the mean for the negative control group &quot;S-medium&quot;. </span></span>
-<span id="cb19-2"><a href="c.-elegans-plate-experiment.html#cb19-2" tabindex="-1"></a>mean_controlNegative <span class="ot">&lt;-</span> <span class="fu">mean</span>(plate_experiment_tidydata<span class="sc">$</span>RawData</span>
-<span id="cb19-3"><a href="c.-elegans-plate-experiment.html#cb19-3" tabindex="-1"></a>                             [plate_experiment_tidydata<span class="sc">$</span>compName <span class="sc">==</span> <span class="st">&quot;S-medium&quot;</span>], </span>
-<span id="cb19-4"><a href="c.-elegans-plate-experiment.html#cb19-4" tabindex="-1"></a>                             <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb19-5"><a href="c.-elegans-plate-experiment.html#cb19-5" tabindex="-1"></a></span>
-<span id="cb19-6"><a href="c.-elegans-plate-experiment.html#cb19-6" tabindex="-1"></a><span class="co"># Create RawData_normalized column with the normalized raw data. </span></span>
-<span id="cb19-7"><a href="c.-elegans-plate-experiment.html#cb19-7" tabindex="-1"></a>plate_experiment_tidydata<span class="sc">$</span>RawData_normalized <span class="ot">&lt;-</span> </span>
-<span id="cb19-8"><a href="c.-elegans-plate-experiment.html#cb19-8" tabindex="-1"></a>  plate_experiment_tidydata<span class="sc">$</span>RawData <span class="sc">/</span> mean_controlNegative</span>
-<span id="cb19-9"><a href="c.-elegans-plate-experiment.html#cb19-9" tabindex="-1"></a></span>
-<span id="cb19-10"><a href="c.-elegans-plate-experiment.html#cb19-10" tabindex="-1"></a><span class="co"># Compute the mean of the normalized data for the negative control group. </span></span>
-<span id="cb19-11"><a href="c.-elegans-plate-experiment.html#cb19-11" tabindex="-1"></a><span class="fu">mean</span>(plate_experiment_tidydata<span class="sc">$</span>RawData</span>
-<span id="cb19-12"><a href="c.-elegans-plate-experiment.html#cb19-12" tabindex="-1"></a>     [plate_experiment_tidydata<span class="sc">$</span>compName <span class="sc">==</span> <span class="st">&quot;S-medium&quot;</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="c.-elegans-plate-experiment.html#cb34-1" tabindex="-1"></a><span class="co"># Compute the mean for the negative control group &quot;S-medium&quot;. </span></span>
+<span id="cb34-2"><a href="c.-elegans-plate-experiment.html#cb34-2" tabindex="-1"></a>mean_controlNegative <span class="ot">&lt;-</span> <span class="fu">mean</span>(plate_experiment_tidydata<span class="sc">$</span>RawData</span>
+<span id="cb34-3"><a href="c.-elegans-plate-experiment.html#cb34-3" tabindex="-1"></a>                             [plate_experiment_tidydata<span class="sc">$</span>compName <span class="sc">==</span> <span class="st">&quot;S-medium&quot;</span>], </span>
+<span id="cb34-4"><a href="c.-elegans-plate-experiment.html#cb34-4" tabindex="-1"></a>                             <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb34-5"><a href="c.-elegans-plate-experiment.html#cb34-5" tabindex="-1"></a></span>
+<span id="cb34-6"><a href="c.-elegans-plate-experiment.html#cb34-6" tabindex="-1"></a><span class="co"># Create RawData_normalized column with the normalized raw data. </span></span>
+<span id="cb34-7"><a href="c.-elegans-plate-experiment.html#cb34-7" tabindex="-1"></a>plate_experiment_tidydata<span class="sc">$</span>RawData_normalized <span class="ot">&lt;-</span> </span>
+<span id="cb34-8"><a href="c.-elegans-plate-experiment.html#cb34-8" tabindex="-1"></a>  plate_experiment_tidydata<span class="sc">$</span>RawData <span class="sc">/</span> mean_controlNegative</span>
+<span id="cb34-9"><a href="c.-elegans-plate-experiment.html#cb34-9" tabindex="-1"></a></span>
+<span id="cb34-10"><a href="c.-elegans-plate-experiment.html#cb34-10" tabindex="-1"></a><span class="co"># Compute the mean of the normalized data for the negative control group. </span></span>
+<span id="cb34-11"><a href="c.-elegans-plate-experiment.html#cb34-11" tabindex="-1"></a><span class="fu">mean</span>(plate_experiment_tidydata<span class="sc">$</span>RawData</span>
+<span id="cb34-12"><a href="c.-elegans-plate-experiment.html#cb34-12" tabindex="-1"></a>     [plate_experiment_tidydata<span class="sc">$</span>compName <span class="sc">==</span> <span class="st">&quot;S-medium&quot;</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 85.9</code></pre>
 </div>
 <div id="scatterplot-of-c.-elegans-plate-experiment-with-normalized-data" class="section level2">
 <h2>Scatterplot of <em>C. elegans</em> plate experiment with normalized data</h2>
 <p>With the data normalized, we can generate another scatterplot to visualize the relationship between compound concentration and offspring count. This time, the y-axis reflects the normalized number of offspring.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="c.-elegans-plate-experiment.html#cb21-1" tabindex="-1"></a>plate_experiment_tidydata <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">log10</span>(compConcentration), </span>
-<span id="cb21-2"><a href="c.-elegans-plate-experiment.html#cb21-2" tabindex="-1"></a>                                     <span class="at">y =</span> RawData_normalized, </span>
-<span id="cb21-3"><a href="c.-elegans-plate-experiment.html#cb21-3" tabindex="-1"></a>                                     <span class="at">color =</span> compName, <span class="at">shape =</span> expType)) <span class="sc">+</span></span>
-<span id="cb21-4"><a href="c.-elegans-plate-experiment.html#cb21-4" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
-<span id="cb21-5"><a href="c.-elegans-plate-experiment.html#cb21-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Log10 Concentration of Compound (in nM)&quot;</span>, </span>
-<span id="cb21-6"><a href="c.-elegans-plate-experiment.html#cb21-6" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Normalized Number of Offspring per C. elegans&quot;</span>, </span>
-<span id="cb21-7"><a href="c.-elegans-plate-experiment.html#cb21-7" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">&quot;Compound Name&quot;</span>, <span class="at">shape =</span> <span class="st">&quot;Experiment Type&quot;</span>, </span>
-<span id="cb21-8"><a href="c.-elegans-plate-experiment.html#cb21-8" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Effect of Compound Concentration on Offspring Count in C. elegans&quot;</span>, </span>
-<span id="cb21-9"><a href="c.-elegans-plate-experiment.html#cb21-9" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">&quot;Data provided by J. Louter (INT/ILC)&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb21-10"><a href="c.-elegans-plate-experiment.html#cb21-10" tabindex="-1"></a>  <span class="fu">scale_shape_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Negative Control&quot;</span>, <span class="st">&quot;Positive Control&quot;</span>, </span>
-<span id="cb21-11"><a href="c.-elegans-plate-experiment.html#cb21-11" tabindex="-1"></a>                                   <span class="st">&quot;Vehicle A Control&quot;</span>, <span class="st">&quot;Experiment&quot;</span>)) <span class="sc">+</span> </span>
-<span id="cb21-12"><a href="c.-elegans-plate-experiment.html#cb21-12" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="c.-elegans-plate-experiment.html#cb36-1" tabindex="-1"></a>plate_experiment_tidydata <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">log10</span>(compConcentration), </span>
+<span id="cb36-2"><a href="c.-elegans-plate-experiment.html#cb36-2" tabindex="-1"></a>                                     <span class="at">y =</span> RawData_normalized, </span>
+<span id="cb36-3"><a href="c.-elegans-plate-experiment.html#cb36-3" tabindex="-1"></a>                                     <span class="at">color =</span> compName, <span class="at">shape =</span> expType)) <span class="sc">+</span></span>
+<span id="cb36-4"><a href="c.-elegans-plate-experiment.html#cb36-4" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb36-5"><a href="c.-elegans-plate-experiment.html#cb36-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Log10 Concentration of Compound (in nM)&quot;</span>, </span>
+<span id="cb36-6"><a href="c.-elegans-plate-experiment.html#cb36-6" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Normalized Number of Offspring per C. elegans&quot;</span>, </span>
+<span id="cb36-7"><a href="c.-elegans-plate-experiment.html#cb36-7" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">&quot;Compound Name&quot;</span>, <span class="at">shape =</span> <span class="st">&quot;Experiment Type&quot;</span>, </span>
+<span id="cb36-8"><a href="c.-elegans-plate-experiment.html#cb36-8" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Effect of Compound Concentration on Offspring Count in C. elegans&quot;</span>, </span>
+<span id="cb36-9"><a href="c.-elegans-plate-experiment.html#cb36-9" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">&quot;Data provided by J. Louter (INT/ILC)&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb36-10"><a href="c.-elegans-plate-experiment.html#cb36-10" tabindex="-1"></a>  <span class="fu">scale_shape_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Negative Control&quot;</span>, <span class="st">&quot;Positive Control&quot;</span>, </span>
+<span id="cb36-11"><a href="c.-elegans-plate-experiment.html#cb36-11" tabindex="-1"></a>                                   <span class="st">&quot;Vehicle A Control&quot;</span>, <span class="st">&quot;Experiment&quot;</span>)) <span class="sc">+</span> </span>
+<span id="cb36-12"><a href="c.-elegans-plate-experiment.html#cb36-12" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
+<pre><code>## Warning: Removed 5 rows containing missing values or values outside the scale range
+## (`geom_point()`).</code></pre>
 <p><img src="_main_files/figure-html/scatterplot%20with%20normalized%20data-1.png" width="672" /></p>
 <p><em>Figuur 2. Scatterplot of the effect of compound concentration on normalized offspring count in C. elegans.</em></p>
 <p>The normalization process makes it easier to compare the effects of different compounds, accounting for baseline differences in offspring count.</p>
@@ -338,7 +367,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="identificatie-van-antibiotica-resistentie-genen-in-bacteriën-via-wgs-oxford-nanopore-sequencing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="guerilla-analytics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="open-peer-review.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Open Peer Review | Open peer review</title>
-  <meta name="description" content="Open Peer Review | Open peer review" />
+  <title>Open Peer Review | Portfolio Data Science for Biology</title>
+  <meta name="description" content="Open Peer Review | Portfolio Data Science for Biology" />
   <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Open Peer Review | Open peer review" />
+  <meta property="og:title" content="Open Peer Review | Portfolio Data Science for Biology" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Open Peer Review | Open peer review" />
+  <meta name="twitter:title" content="Open Peer Review | Portfolio Data Science for Biology" />
   
   
   
@@ -23,7 +23,6 @@
 <meta name="author" content="Philine van Bekkum" />
 
 
-<meta name="date" content="2024-11-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -153,6 +152,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="identificatie-van-antibiotica-resistentie-genen-in-bacteriën-via-wgs-oxford-nanopore-sequencing.html"><a href="identificatie-van-antibiotica-resistentie-genen-in-bacteriën-via-wgs-oxford-nanopore-sequencing.html#stap-4-data-visualisatie"><i class="fa fa-check"></i>Stap 4: Data visualisatie</a></li>
 <li class="chapter" data-level="" data-path="identificatie-van-antibiotica-resistentie-genen-in-bacteriën-via-wgs-oxford-nanopore-sequencing.html"><a href="identificatie-van-antibiotica-resistentie-genen-in-bacteriën-via-wgs-oxford-nanopore-sequencing.html#references"><i class="fa fa-check"></i>References</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="guerilla-analytics.html"><a href="guerilla-analytics.html"><i class="fa fa-check"></i>Guerilla analytics</a></li>
 <li class="chapter" data-level="" data-path="c.-elegans-plate-experiment.html"><a href="c.-elegans-plate-experiment.html"><i class="fa fa-check"></i><em>C. elegans</em> Plate Experiment</a>
 <ul>
 <li class="chapter" data-level="" data-path="c.-elegans-plate-experiment.html"><a href="c.-elegans-plate-experiment.html#introduction-1"><i class="fa fa-check"></i>Introduction</a></li>
@@ -188,7 +188,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Open peer review</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Portfolio Data Science for Biology</a>
           </h1>
         </div>
 
@@ -271,85 +271,85 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Below you can find some examples from the R code generating figures “Business by country by income” and “Vaccine by country by education”. The full modified code is available as an R script in the GitHub: philinevbekkum/dsfb_workflows_portfolio under scripts/reproducible_research. And the original Rmarkdown and data file are available at <a href="https://osf.io/kzq69/" class="uri">https://osf.io/kzq69/</a>.</p>
 <div id="business-by-country-by-income" class="section level3 unnumbered">
 <h3>Business by country by income</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="open-peer-review.html#cb1-1" tabindex="-1"></a>data<span class="sc">$</span>Busines2_fct <span class="ot">&lt;-</span> <span class="fu">factor</span>(data<span class="sc">$</span>Business2,</span>
-<span id="cb1-2"><a href="open-peer-review.html#cb1-2" tabindex="-1"></a>                            <span class="at">levels =</span> <span class="fu">c</span>(</span>
-<span id="cb1-3"><a href="open-peer-review.html#cb1-3" tabindex="-1"></a>                              <span class="dv">1</span>,</span>
-<span id="cb1-4"><a href="open-peer-review.html#cb1-4" tabindex="-1"></a>                              <span class="dv">2</span>,</span>
-<span id="cb1-5"><a href="open-peer-review.html#cb1-5" tabindex="-1"></a>                              <span class="dv">3</span>,</span>
-<span id="cb1-6"><a href="open-peer-review.html#cb1-6" tabindex="-1"></a>                              <span class="dv">4</span>,</span>
-<span id="cb1-7"><a href="open-peer-review.html#cb1-7" tabindex="-1"></a>                              <span class="dv">5</span></span>
-<span id="cb1-8"><a href="open-peer-review.html#cb1-8" tabindex="-1"></a>                            ),</span>
-<span id="cb1-9"><a href="open-peer-review.html#cb1-9" tabindex="-1"></a>                            <span class="at">labels =</span> <span class="fu">c</span>(</span>
-<span id="cb1-10"><a href="open-peer-review.html#cb1-10" tabindex="-1"></a>                              <span class="st">&quot;Completely disagree&quot;</span>,</span>
-<span id="cb1-11"><a href="open-peer-review.html#cb1-11" tabindex="-1"></a>                              <span class="st">&quot;Somewhat disagree&quot;</span>,</span>
-<span id="cb1-12"><a href="open-peer-review.html#cb1-12" tabindex="-1"></a>                              <span class="st">&quot;Neutral/no opinion&quot;</span>,</span>
-<span id="cb1-13"><a href="open-peer-review.html#cb1-13" tabindex="-1"></a>                              <span class="st">&quot;Somewhat agree&quot;</span>,</span>
-<span id="cb1-14"><a href="open-peer-review.html#cb1-14" tabindex="-1"></a>                              <span class="st">&quot;Completely agree&quot;</span></span>
-<span id="cb1-15"><a href="open-peer-review.html#cb1-15" tabindex="-1"></a>                            ))</span>
-<span id="cb1-16"><a href="open-peer-review.html#cb1-16" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="open-peer-review.html#cb1-17" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="open-peer-review.html#cb1-18" tabindex="-1"></a><span class="fu">summary</span>(data<span class="sc">$</span>Busines2_fct)</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="open-peer-review.html#cb38-1" tabindex="-1"></a>data<span class="sc">$</span>Busines2_fct <span class="ot">&lt;-</span> <span class="fu">factor</span>(data<span class="sc">$</span>Business2,</span>
+<span id="cb38-2"><a href="open-peer-review.html#cb38-2" tabindex="-1"></a>                            <span class="at">levels =</span> <span class="fu">c</span>(</span>
+<span id="cb38-3"><a href="open-peer-review.html#cb38-3" tabindex="-1"></a>                              <span class="dv">1</span>,</span>
+<span id="cb38-4"><a href="open-peer-review.html#cb38-4" tabindex="-1"></a>                              <span class="dv">2</span>,</span>
+<span id="cb38-5"><a href="open-peer-review.html#cb38-5" tabindex="-1"></a>                              <span class="dv">3</span>,</span>
+<span id="cb38-6"><a href="open-peer-review.html#cb38-6" tabindex="-1"></a>                              <span class="dv">4</span>,</span>
+<span id="cb38-7"><a href="open-peer-review.html#cb38-7" tabindex="-1"></a>                              <span class="dv">5</span></span>
+<span id="cb38-8"><a href="open-peer-review.html#cb38-8" tabindex="-1"></a>                            ),</span>
+<span id="cb38-9"><a href="open-peer-review.html#cb38-9" tabindex="-1"></a>                            <span class="at">labels =</span> <span class="fu">c</span>(</span>
+<span id="cb38-10"><a href="open-peer-review.html#cb38-10" tabindex="-1"></a>                              <span class="st">&quot;Completely disagree&quot;</span>,</span>
+<span id="cb38-11"><a href="open-peer-review.html#cb38-11" tabindex="-1"></a>                              <span class="st">&quot;Somewhat disagree&quot;</span>,</span>
+<span id="cb38-12"><a href="open-peer-review.html#cb38-12" tabindex="-1"></a>                              <span class="st">&quot;Neutral/no opinion&quot;</span>,</span>
+<span id="cb38-13"><a href="open-peer-review.html#cb38-13" tabindex="-1"></a>                              <span class="st">&quot;Somewhat agree&quot;</span>,</span>
+<span id="cb38-14"><a href="open-peer-review.html#cb38-14" tabindex="-1"></a>                              <span class="st">&quot;Completely agree&quot;</span></span>
+<span id="cb38-15"><a href="open-peer-review.html#cb38-15" tabindex="-1"></a>                            ))</span>
+<span id="cb38-16"><a href="open-peer-review.html#cb38-16" tabindex="-1"></a></span>
+<span id="cb38-17"><a href="open-peer-review.html#cb38-17" tabindex="-1"></a></span>
+<span id="cb38-18"><a href="open-peer-review.html#cb38-18" tabindex="-1"></a><span class="fu">summary</span>(data<span class="sc">$</span>Busines2_fct)</span></code></pre></div>
 <pre><code>## Completely disagree   Somewhat disagree  Neutral/no opinion      Somewhat agree 
 ##                1179                2299                3488                4579 
 ##    Completely agree 
 ##                1881</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="open-peer-review.html#cb3-1" tabindex="-1"></a>inc <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
-<span id="cb3-2"><a href="open-peer-review.html#cb3-2" tabindex="-1"></a>  <span class="at">data =</span> data</span>
-<span id="cb3-3"><a href="open-peer-review.html#cb3-3" tabindex="-1"></a>)<span class="sc">+</span></span>
-<span id="cb3-4"><a href="open-peer-review.html#cb3-4" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(</span>
-<span id="cb3-5"><a href="open-peer-review.html#cb3-5" tabindex="-1"></a>    <span class="at">x =</span> country_name,</span>
-<span id="cb3-6"><a href="open-peer-review.html#cb3-6" tabindex="-1"></a>    <span class="at">fill =</span> Busines2_fct</span>
-<span id="cb3-7"><a href="open-peer-review.html#cb3-7" tabindex="-1"></a>  ), <span class="at">stat =</span> <span class="st">&#39;count&#39;</span>, <span class="at">position =</span> <span class="st">&#39;fill&#39;</span>)<span class="sc">+</span></span>
-<span id="cb3-8"><a href="open-peer-review.html#cb3-8" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>ww_fct)<span class="sc">+</span></span>
-<span id="cb3-9"><a href="open-peer-review.html#cb3-9" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">size =</span> <span class="dv">10</span>))<span class="sc">+</span></span>
-<span id="cb3-10"><a href="open-peer-review.html#cb3-10" tabindex="-1"></a>  <span class="fu">coord_flip</span>()<span class="sc">+</span></span>
-<span id="cb3-11"><a href="open-peer-review.html#cb3-11" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Business by country by income&quot;</span>)<span class="sc">+</span></span>
-<span id="cb3-12"><a href="open-peer-review.html#cb3-12" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Proportion&quot;</span>)<span class="sc">+</span></span>
-<span id="cb3-13"><a href="open-peer-review.html#cb3-13" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Country&quot;</span>)<span class="sc">+</span></span>
-<span id="cb3-14"><a href="open-peer-review.html#cb3-14" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="st">&quot;Response&quot;</span>, <span class="at">type =</span> <span class="st">&quot;div&quot;</span>, <span class="at">palette =</span> <span class="dv">4</span>)</span>
-<span id="cb3-15"><a href="open-peer-review.html#cb3-15" tabindex="-1"></a>inc</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="open-peer-review.html#cb40-1" tabindex="-1"></a>inc <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
+<span id="cb40-2"><a href="open-peer-review.html#cb40-2" tabindex="-1"></a>  <span class="at">data =</span> data</span>
+<span id="cb40-3"><a href="open-peer-review.html#cb40-3" tabindex="-1"></a>)<span class="sc">+</span></span>
+<span id="cb40-4"><a href="open-peer-review.html#cb40-4" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(</span>
+<span id="cb40-5"><a href="open-peer-review.html#cb40-5" tabindex="-1"></a>    <span class="at">x =</span> country_name,</span>
+<span id="cb40-6"><a href="open-peer-review.html#cb40-6" tabindex="-1"></a>    <span class="at">fill =</span> Busines2_fct</span>
+<span id="cb40-7"><a href="open-peer-review.html#cb40-7" tabindex="-1"></a>  ), <span class="at">stat =</span> <span class="st">&#39;count&#39;</span>, <span class="at">position =</span> <span class="st">&#39;fill&#39;</span>)<span class="sc">+</span></span>
+<span id="cb40-8"><a href="open-peer-review.html#cb40-8" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>ww_fct)<span class="sc">+</span></span>
+<span id="cb40-9"><a href="open-peer-review.html#cb40-9" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">size =</span> <span class="dv">10</span>))<span class="sc">+</span></span>
+<span id="cb40-10"><a href="open-peer-review.html#cb40-10" tabindex="-1"></a>  <span class="fu">coord_flip</span>()<span class="sc">+</span></span>
+<span id="cb40-11"><a href="open-peer-review.html#cb40-11" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Business by country by income&quot;</span>)<span class="sc">+</span></span>
+<span id="cb40-12"><a href="open-peer-review.html#cb40-12" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Proportion&quot;</span>)<span class="sc">+</span></span>
+<span id="cb40-13"><a href="open-peer-review.html#cb40-13" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Country&quot;</span>)<span class="sc">+</span></span>
+<span id="cb40-14"><a href="open-peer-review.html#cb40-14" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="st">&quot;Response&quot;</span>, <span class="at">type =</span> <span class="st">&quot;div&quot;</span>, <span class="at">palette =</span> <span class="dv">4</span>)</span>
+<span id="cb40-15"><a href="open-peer-review.html#cb40-15" tabindex="-1"></a>inc</span></code></pre></div>
 <p><img src="_main_files/figure-html/business%20by%20country%20by%20income-1.png" width="672" /></p>
 <p><em>Figuur 1. Business by country by income.</em></p>
 </div>
 <div id="vaccine-by-country-by-education" class="section level3">
 <h3>Vaccine by country by education</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="open-peer-review.html#cb4-1" tabindex="-1"></a>data<span class="sc">$</span>Vaccine_fct <span class="ot">&lt;-</span> <span class="fu">factor</span>(data<span class="sc">$</span>Vaccine,</span>
-<span id="cb4-2"><a href="open-peer-review.html#cb4-2" tabindex="-1"></a>                           <span class="at">levels =</span> <span class="fu">c</span>(</span>
-<span id="cb4-3"><a href="open-peer-review.html#cb4-3" tabindex="-1"></a>                             <span class="dv">1</span>,</span>
-<span id="cb4-4"><a href="open-peer-review.html#cb4-4" tabindex="-1"></a>                             <span class="dv">2</span>,</span>
-<span id="cb4-5"><a href="open-peer-review.html#cb4-5" tabindex="-1"></a>                             <span class="dv">3</span>,</span>
-<span id="cb4-6"><a href="open-peer-review.html#cb4-6" tabindex="-1"></a>                             <span class="dv">4</span>,</span>
-<span id="cb4-7"><a href="open-peer-review.html#cb4-7" tabindex="-1"></a>                             <span class="dv">5</span></span>
-<span id="cb4-8"><a href="open-peer-review.html#cb4-8" tabindex="-1"></a>                           ),</span>
-<span id="cb4-9"><a href="open-peer-review.html#cb4-9" tabindex="-1"></a>                           <span class="at">labels =</span> <span class="fu">c</span>(</span>
-<span id="cb4-10"><a href="open-peer-review.html#cb4-10" tabindex="-1"></a>                             <span class="st">&quot;Completely disagree&quot;</span>,</span>
-<span id="cb4-11"><a href="open-peer-review.html#cb4-11" tabindex="-1"></a>                             <span class="st">&quot;Somewhat disagree&quot;</span>,</span>
-<span id="cb4-12"><a href="open-peer-review.html#cb4-12" tabindex="-1"></a>                             <span class="st">&quot;Neutral/no opinion&quot;</span>,</span>
-<span id="cb4-13"><a href="open-peer-review.html#cb4-13" tabindex="-1"></a>                             <span class="st">&quot;Somewhat agree&quot;</span>,</span>
-<span id="cb4-14"><a href="open-peer-review.html#cb4-14" tabindex="-1"></a>                             <span class="st">&quot;Completely agree&quot;</span></span>
-<span id="cb4-15"><a href="open-peer-review.html#cb4-15" tabindex="-1"></a>                           ))</span>
-<span id="cb4-16"><a href="open-peer-review.html#cb4-16" tabindex="-1"></a></span>
-<span id="cb4-17"><a href="open-peer-review.html#cb4-17" tabindex="-1"></a></span>
-<span id="cb4-18"><a href="open-peer-review.html#cb4-18" tabindex="-1"></a><span class="fu">summary</span>(data<span class="sc">$</span>Vaccine_fct)</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="open-peer-review.html#cb41-1" tabindex="-1"></a>data<span class="sc">$</span>Vaccine_fct <span class="ot">&lt;-</span> <span class="fu">factor</span>(data<span class="sc">$</span>Vaccine,</span>
+<span id="cb41-2"><a href="open-peer-review.html#cb41-2" tabindex="-1"></a>                           <span class="at">levels =</span> <span class="fu">c</span>(</span>
+<span id="cb41-3"><a href="open-peer-review.html#cb41-3" tabindex="-1"></a>                             <span class="dv">1</span>,</span>
+<span id="cb41-4"><a href="open-peer-review.html#cb41-4" tabindex="-1"></a>                             <span class="dv">2</span>,</span>
+<span id="cb41-5"><a href="open-peer-review.html#cb41-5" tabindex="-1"></a>                             <span class="dv">3</span>,</span>
+<span id="cb41-6"><a href="open-peer-review.html#cb41-6" tabindex="-1"></a>                             <span class="dv">4</span>,</span>
+<span id="cb41-7"><a href="open-peer-review.html#cb41-7" tabindex="-1"></a>                             <span class="dv">5</span></span>
+<span id="cb41-8"><a href="open-peer-review.html#cb41-8" tabindex="-1"></a>                           ),</span>
+<span id="cb41-9"><a href="open-peer-review.html#cb41-9" tabindex="-1"></a>                           <span class="at">labels =</span> <span class="fu">c</span>(</span>
+<span id="cb41-10"><a href="open-peer-review.html#cb41-10" tabindex="-1"></a>                             <span class="st">&quot;Completely disagree&quot;</span>,</span>
+<span id="cb41-11"><a href="open-peer-review.html#cb41-11" tabindex="-1"></a>                             <span class="st">&quot;Somewhat disagree&quot;</span>,</span>
+<span id="cb41-12"><a href="open-peer-review.html#cb41-12" tabindex="-1"></a>                             <span class="st">&quot;Neutral/no opinion&quot;</span>,</span>
+<span id="cb41-13"><a href="open-peer-review.html#cb41-13" tabindex="-1"></a>                             <span class="st">&quot;Somewhat agree&quot;</span>,</span>
+<span id="cb41-14"><a href="open-peer-review.html#cb41-14" tabindex="-1"></a>                             <span class="st">&quot;Completely agree&quot;</span></span>
+<span id="cb41-15"><a href="open-peer-review.html#cb41-15" tabindex="-1"></a>                           ))</span>
+<span id="cb41-16"><a href="open-peer-review.html#cb41-16" tabindex="-1"></a></span>
+<span id="cb41-17"><a href="open-peer-review.html#cb41-17" tabindex="-1"></a></span>
+<span id="cb41-18"><a href="open-peer-review.html#cb41-18" tabindex="-1"></a><span class="fu">summary</span>(data<span class="sc">$</span>Vaccine_fct)</span></code></pre></div>
 <pre><code>## Completely disagree   Somewhat disagree  Neutral/no opinion      Somewhat agree 
 ##                1091                 819                1912                3318 
 ##    Completely agree 
 ##                6286</code></pre>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="open-peer-review.html#cb6-1" tabindex="-1"></a>educ <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
-<span id="cb6-2"><a href="open-peer-review.html#cb6-2" tabindex="-1"></a>  <span class="at">data =</span> data</span>
-<span id="cb6-3"><a href="open-peer-review.html#cb6-3" tabindex="-1"></a>)<span class="sc">+</span></span>
-<span id="cb6-4"><a href="open-peer-review.html#cb6-4" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(</span>
-<span id="cb6-5"><a href="open-peer-review.html#cb6-5" tabindex="-1"></a>    <span class="at">x =</span> country_name,</span>
-<span id="cb6-6"><a href="open-peer-review.html#cb6-6" tabindex="-1"></a>    <span class="at">fill =</span> Vaccine_fct</span>
-<span id="cb6-7"><a href="open-peer-review.html#cb6-7" tabindex="-1"></a>  ), <span class="at">stat =</span> <span class="st">&#39;count&#39;</span>, <span class="at">position =</span> <span class="st">&#39;fill&#39;</span>)<span class="sc">+</span></span>
-<span id="cb6-8"><a href="open-peer-review.html#cb6-8" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>educ_fact)<span class="sc">+</span></span>
-<span id="cb6-9"><a href="open-peer-review.html#cb6-9" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">size =</span> <span class="dv">10</span>))<span class="sc">+</span></span>
-<span id="cb6-10"><a href="open-peer-review.html#cb6-10" tabindex="-1"></a>  <span class="fu">coord_flip</span>()<span class="sc">+</span></span>
-<span id="cb6-11"><a href="open-peer-review.html#cb6-11" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Vaccine by country by education&quot;</span>)<span class="sc">+</span></span>
-<span id="cb6-12"><a href="open-peer-review.html#cb6-12" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Proportion&quot;</span>)<span class="sc">+</span></span>
-<span id="cb6-13"><a href="open-peer-review.html#cb6-13" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Country&quot;</span>)<span class="sc">+</span></span>
-<span id="cb6-14"><a href="open-peer-review.html#cb6-14" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="st">&quot;Response&quot;</span>, <span class="at">type =</span> <span class="st">&quot;div&quot;</span>, <span class="at">palette =</span> <span class="dv">4</span>)</span>
-<span id="cb6-15"><a href="open-peer-review.html#cb6-15" tabindex="-1"></a>educ</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="open-peer-review.html#cb43-1" tabindex="-1"></a>educ <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
+<span id="cb43-2"><a href="open-peer-review.html#cb43-2" tabindex="-1"></a>  <span class="at">data =</span> data</span>
+<span id="cb43-3"><a href="open-peer-review.html#cb43-3" tabindex="-1"></a>)<span class="sc">+</span></span>
+<span id="cb43-4"><a href="open-peer-review.html#cb43-4" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(</span>
+<span id="cb43-5"><a href="open-peer-review.html#cb43-5" tabindex="-1"></a>    <span class="at">x =</span> country_name,</span>
+<span id="cb43-6"><a href="open-peer-review.html#cb43-6" tabindex="-1"></a>    <span class="at">fill =</span> Vaccine_fct</span>
+<span id="cb43-7"><a href="open-peer-review.html#cb43-7" tabindex="-1"></a>  ), <span class="at">stat =</span> <span class="st">&#39;count&#39;</span>, <span class="at">position =</span> <span class="st">&#39;fill&#39;</span>)<span class="sc">+</span></span>
+<span id="cb43-8"><a href="open-peer-review.html#cb43-8" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>educ_fact)<span class="sc">+</span></span>
+<span id="cb43-9"><a href="open-peer-review.html#cb43-9" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">size =</span> <span class="dv">10</span>))<span class="sc">+</span></span>
+<span id="cb43-10"><a href="open-peer-review.html#cb43-10" tabindex="-1"></a>  <span class="fu">coord_flip</span>()<span class="sc">+</span></span>
+<span id="cb43-11"><a href="open-peer-review.html#cb43-11" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Vaccine by country by education&quot;</span>)<span class="sc">+</span></span>
+<span id="cb43-12"><a href="open-peer-review.html#cb43-12" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Proportion&quot;</span>)<span class="sc">+</span></span>
+<span id="cb43-13"><a href="open-peer-review.html#cb43-13" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Country&quot;</span>)<span class="sc">+</span></span>
+<span id="cb43-14"><a href="open-peer-review.html#cb43-14" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="st">&quot;Response&quot;</span>, <span class="at">type =</span> <span class="st">&quot;div&quot;</span>, <span class="at">palette =</span> <span class="dv">4</span>)</span>
+<span id="cb43-15"><a href="open-peer-review.html#cb43-15" tabindex="-1"></a>educ</span></code></pre></div>
 <p><img src="_main_files/figure-html/vaccine%20by%20country%20by%20education-1.png" width="672" /></p>
 <p><em>Figuur 2. Vaccine by country by education.</em></p>
 </div>
