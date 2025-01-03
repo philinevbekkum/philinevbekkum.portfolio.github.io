@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Curriculum Vitae | Portfolio Data Science for Biology</title>
-  <meta name="description" content="Curriculum Vitae | Portfolio Data Science for Biology" />
+  <title>Creating R Packages | Portfolio Data Science for Biology</title>
+  <meta name="description" content="Creating R Packages | Portfolio Data Science for Biology" />
   <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Curriculum Vitae | Portfolio Data Science for Biology" />
+  <meta property="og:title" content="Creating R Packages | Portfolio Data Science for Biology" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Curriculum Vitae | Portfolio Data Science for Biology" />
+  <meta name="twitter:title" content="Creating R Packages | Portfolio Data Science for Biology" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="identification-of-antibiotic-resistance-genes-in-bacteria.html"/>
+<link rel="prev" href="references-1.html"/>
+<link rel="next" href="project-hack-the-vitek.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -253,21 +253,115 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="curriculum-vitae" class="section level1">
-<h1>Curriculum Vitae</h1>
+<div id="creating-r-packages" class="section level1">
+<h1>Creating R Packages</h1>
 <p class="justify">
-Below you can find my CV as a pdf file.
+I developed a R package to do analysis on the Hitters data set that is part of the ISLR package. With this package it is possible tot summarize several variables, calculate correlations between variables, produce the top 10 of several variables, and create scatterplots between variables.
 </p>
-<embed src="data/CV_Philine_van_Bekkum_Portfolio.pdf" width="100%" height="1000px" type="application/pdf" />
+<div id="developing-the-hittersanalytics-package" class="section level2">
+<h2>Developing the HittersAnalytics Package</h2>
+<p class="justify">
+The development of the HittersPackage began with the creation of a new R package project using devtools. By calling create_package(“HittersAnalytics), I established the basic structure of the package. This automatically generated the necessary files and directories, making the project compatible with Rstudio as both an R source package and an Rstudio project. Following this, I initialized the package as a Git repository using use_git() to enable version control.
+</p>
+<p class="justify">
+I implented the first function in the package and generated documentation using devtools::document(). The check() function was run to identify and resolve any errors, warnings, or notes in the package. After resolving all issues, I configured the license using use_mit_license(), establishing the package’s licensing terms.
+</p>
+<p class="justify">
+Next, I expanded the package funtionality by adding three additional functions, one at a time. For each function, I generated the necessary documentation using devtools::document() and performerd testing using check(). Any issues that arose were resolved before moving on to the next step, ensuring the package remained error-free.
+</p>
+<p class="justify">
+Once all functions were complete, I installed the package locally with install() and verified its functionality by loading it with library(HittersAnalytics). To support testing, I initialized the testthat framework using use_testthat(). This allowed me to develop and execute unit tests for the package, further enhancing its reliability.
+</p>
+<p class="justify">
+<p>To provide users with guidance and examples, I developed a vignette for the package. Using Rmarkdown, I created a .Rmd file and placed it in the vignettes/ directory of the package, ensuring it was formatted with the appropriate YAML header. I made the vignette accessible by adding a specific line of the DESCRIPTION file, built it using devtools, and confirmed its accessibility through the browseVignettes() and vignette() functions for the HittersAnalytics package.</p>
+<p class="justify">
+To prepare the package for public distribution, I configured it for GitHub integration using use_github(). Additionally, I created a README.md file using use_readme_rmd(), which provided an overview of the package’s purpose and usage. The build_readme() function was called to generate the rendered README file. Throughout this process, I ran check() regularly to confirm that the package met all standards and guidelines.
+</p>
+<p class="justify">
+Finally, I installed the package again and conducted a final review to ensure it was fully functional and ready to use. By following these steps, I succesfully developed the HittersAnalytics package.
+</p>
+</div>
+<div id="installing-the-hittersanalytics-package" class="section level2">
+<h2>Installing the HittersAnalytics Package</h2>
+<p class="justify">
+To install the HittersAnalytics Package follow the following steps:
+</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="creating-r-packages.html#cb89-1" tabindex="-1"></a><span class="co"># Install the ISLR package (if needed)</span></span>
+<span id="cb89-2"><a href="creating-r-packages.html#cb89-2" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ISLR&quot;</span>)</span>
+<span id="cb89-3"><a href="creating-r-packages.html#cb89-3" tabindex="-1"></a></span>
+<span id="cb89-4"><a href="creating-r-packages.html#cb89-4" tabindex="-1"></a><span class="co"># Install the devtools package (if needed)</span></span>
+<span id="cb89-5"><a href="creating-r-packages.html#cb89-5" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</span>
+<span id="cb89-6"><a href="creating-r-packages.html#cb89-6" tabindex="-1"></a></span>
+<span id="cb89-7"><a href="creating-r-packages.html#cb89-7" tabindex="-1"></a><span class="co"># Install the HittersAnalytics package </span></span>
+<span id="cb89-8"><a href="creating-r-packages.html#cb89-8" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;philinevbekkum/HittersAnalytics&quot;</span>)</span>
+<span id="cb89-9"><a href="creating-r-packages.html#cb89-9" tabindex="-1"></a></span>
+<span id="cb89-10"><a href="creating-r-packages.html#cb89-10" tabindex="-1"></a><span class="co"># To install the HittersAnalytics package with the vignette use the following</span></span>
+<span id="cb89-11"><a href="creating-r-packages.html#cb89-11" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;philinevbekkum/HittersAnalytics&quot;</span>, <span class="at">build_vignettes =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="creating-r-packages.html#cb90-1" tabindex="-1"></a><span class="co"># Load necessary libraries </span></span>
+<span id="cb90-2"><a href="creating-r-packages.html#cb90-2" tabindex="-1"></a><span class="fu">library</span>(ISLR)</span>
+<span id="cb90-3"><a href="creating-r-packages.html#cb90-3" tabindex="-1"></a><span class="fu">library</span>(HittersAnalytics)</span>
+<span id="cb90-4"><a href="creating-r-packages.html#cb90-4" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb90-5"><a href="creating-r-packages.html#cb90-5" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb90-6"><a href="creating-r-packages.html#cb90-6" tabindex="-1"></a></span>
+<span id="cb90-7"><a href="creating-r-packages.html#cb90-7" tabindex="-1"></a><span class="co"># Load the dataset </span></span>
+<span id="cb90-8"><a href="creating-r-packages.html#cb90-8" tabindex="-1"></a><span class="fu">data</span>(Hitters)</span></code></pre></div>
+</div>
+<div id="examples-of-the-functions-in-the-hittersanalytics-package" class="section level2">
+<h2>Examples of the functions in the HittersAnalytics Package</h2>
+<p class="justify">
+Once the necessary packages, libraries, and dataset are installed and loaded, the package is ready to use. Below you can find an example demonstrating each function included in the package. The variables in the examples can be substituted with any column from the Hitters dataset as needed.
+</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="creating-r-packages.html#cb91-1" tabindex="-1"></a><span class="fu">summarize_variable</span>(Hitters, <span class="st">&quot;Salary&quot;</span>)</span></code></pre></div>
+<pre><code>## $summary
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    67.5   190.0   425.0   535.9   750.0  2460.0 
+## 
+## $mean
+## [1] 535.9259
+## 
+## $median
+## [1] 425
+## 
+## $sd
+## [1] 451.1187
+## 
+## $min
+## [1] 67.5
+## 
+## $max
+## [1] 2460</code></pre>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="creating-r-packages.html#cb93-1" tabindex="-1"></a><span class="fu">top_10_variable</span>(Hitters, <span class="st">&quot;Runs&quot;</span>)</span></code></pre></div>
+<pre><code>##                             Player Runs
+## -Rickey Henderson Rickey Henderson  130
+## -Kirby Puckett       Kirby Puckett  119
+## -Don Mattingly       Don Mattingly  117
+## -Joe Carter             Joe Carter  108
+## -Alan Trammell       Alan Trammell  107
+## -Jesse Barfield     Jesse Barfield  107
+## -Tony Gwynn             Tony Gwynn  107
+## -Von Hayes               Von Hayes  107
+## -Wade Boggs             Wade Boggs  107
+## -Oddibe McDowell   Oddibe McDowell  105</code></pre>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="creating-r-packages.html#cb95-1" tabindex="-1"></a><span class="fu">calculate_correlation</span>(Hitters, <span class="st">&quot;Years&quot;</span>, <span class="st">&quot;Hits&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] 0.04476656</code></pre>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="creating-r-packages.html#cb97-1" tabindex="-1"></a><span class="fu">scatterplot</span>(<span class="st">&quot;Years&quot;</span>, <span class="st">&quot;Hits&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/scatterplot%20of%20two%20variables-1.png" width="672" /></p>
+</div>
+<div id="references-2" class="section level2">
+<h2>References</h2>
+<p>1 The whole game – R packages (2e). (z.d.-b). <a href="https://r-pkgs.org/whole-game.html" class="uri">https://r-pkgs.org/whole-game.html</a></p>
+<p>Comprehensive R Archive Network (CRAN). (z.d.). CRAN: Package ISLR. <a href="https://cran.r-project.org/web/packages/ISLR/index.html" class="uri">https://cran.r-project.org/web/packages/ISLR/index.html</a></p>
+<p>R: Baseball data. (z.d.). <a href="https://search.r-project.org/CRAN/refmans/ISLR/html/Hitters.html" class="uri">https://search.r-project.org/CRAN/refmans/ISLR/html/Hitters.html</a></p>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="identification-of-antibiotic-resistance-genes-in-bacteria.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="references-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="project-hack-the-vitek.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

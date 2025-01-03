@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Identification of Antibiotic Resistance Genes in Bacteria | Portfolio Data Science for Biology</title>
+  <meta name="description" content="Identification of Antibiotic Resistance Genes in Bacteria | Portfolio Data Science for Biology" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Identification of Antibiotic Resistance Genes in Bacteria | Portfolio Data Science for Biology" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Identification of Antibiotic Resistance Genes in Bacteria | Portfolio Data Science for Biology" />
+  
+  
+  
+
+<meta name="author" content="Philine van Bekkum" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="curriculum-vitae.html"/>
+<link rel="next" href="guerilla-analytics.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.10.4/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="curriculum-vitae.html"><a href="curriculum-vitae.html"><i class="fa fa-check"></i>Curriculum Vitae</a></li>
+<li class="chapter" data-level="" data-path="identification-of-antibiotic-resistance-genes-in-bacteria.html"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html"><i class="fa fa-check"></i>Identification of Antibiotic Resistance Genes in Bacteria</a>
+<ul>
+<li class="chapter" data-level="" data-path="identification-of-antibiotic-resistance-genes-in-bacteria.html"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#amr-package-in-r"><i class="fa fa-check"></i>AMR package in R</a>
+<ul>
+<li class="chapter" data-level="" data-path="identification-of-antibiotic-resistance-genes-in-bacteria.html"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#tidy-data"><i class="fa fa-check"></i>Tidy data</a></li>
+<li class="chapter" data-level="" data-path="identification-of-antibiotic-resistance-genes-in-bacteria.html"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#tidy-data-per-bacteria"><i class="fa fa-check"></i>Tidy data per bacteria</a></li>
+<li class="chapter" data-level="" data-path="identification-of-antibiotic-resistance-genes-in-bacteria.html"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#combined-tidy-data-of-every-bacteria"><i class="fa fa-check"></i>Combined tidy data of every bacteria</a></li>
+<li class="chapter" data-level="" data-path="identification-of-antibiotic-resistance-genes-in-bacteria.html"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#wide-data-for-amr-package-functions"><i class="fa fa-check"></i>Wide data for AMR package functions</a></li>
+<li class="chapter" data-level="" data-path="identification-of-antibiotic-resistance-genes-in-bacteria.html"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#antibiogram"><i class="fa fa-check"></i>Antibiogram</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="identification-of-antibiotic-resistance-genes-in-bacteria.html"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#quality-control-with-nanoplot-and-nanofilt"><i class="fa fa-check"></i>Quality control with NanoPlot and NanoFilt</a>
+<ul>
+<li class="chapter" data-level="" data-path="identification-of-antibiotic-resistance-genes-in-bacteria.html"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#fastqc-report-per-base-sequence-quality"><i class="fa fa-check"></i>FastQC Report: per base sequence quality</a></li>
+<li class="chapter" data-level="" data-path="identification-of-antibiotic-resistance-genes-in-bacteria.html"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#fastqc-report-per-sequence-quality-scores"><i class="fa fa-check"></i>FastQC Report: per sequence quality scores</a></li>
+<li class="chapter" data-level="" data-path="identification-of-antibiotic-resistance-genes-in-bacteria.html"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#nanoplot-weighted-histogram-of-read-lengths"><i class="fa fa-check"></i>NanoPlot: Weighted histogram of read lengths</a></li>
+<li class="chapter" data-level="" data-path="identification-of-antibiotic-resistance-genes-in-bacteria.html"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#nanoplot-weighted-histogram-of-read-lengths-after-log-transformation"><i class="fa fa-check"></i>NanoPlot: Weighted histogram of read lengths after log transformation</a></li>
+<li class="chapter" data-level="" data-path="identification-of-antibiotic-resistance-genes-in-bacteria.html"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#nanoplot-non-weighted-histogram-of-read-lengths"><i class="fa fa-check"></i>NanoPlot: Non weighted histogram of read lengths</a></li>
+<li class="chapter" data-level="" data-path="identification-of-antibiotic-resistance-genes-in-bacteria.html"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#nanoplot-non-weighted-histogram-of-read-lengths-after-log-transformation"><i class="fa fa-check"></i>NanoPlot: Non weighted histogram of read lengths after log transformation</a></li>
+<li class="chapter" data-level="" data-path="identification-of-antibiotic-resistance-genes-in-bacteria.html"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#nanoplot-yield-by-length"><i class="fa fa-check"></i>NanoPlot: Yield by length</a></li>
+<li class="chapter" data-level="" data-path="identification-of-antibiotic-resistance-genes-in-bacteria.html"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#nanoplot-read-lengths-vs-average-read-quality-kde-plot"><i class="fa fa-check"></i>Nanoplot: Read lengths vs Average read quality kde plot</a></li>
+<li class="chapter" data-level="" data-path="identification-of-antibiotic-resistance-genes-in-bacteria.html"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#nanoplot-read-lengths-vs-average-read-quality-using-dots"><i class="fa fa-check"></i>NanoPlot: Read lengths vs Average read quality using dots</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="identification-of-antibiotic-resistance-genes-in-bacteria.html"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#references"><i class="fa fa-check"></i>References</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="guerilla-analytics.html"><a href="guerilla-analytics.html"><i class="fa fa-check"></i>Guerilla analytics</a></li>
+<li class="chapter" data-level="" data-path="c.-elegans-plate-experiment.html"><a href="c.-elegans-plate-experiment.html"><i class="fa fa-check"></i><em>C. elegans</em> Plate Experiment</a>
+<ul>
+<li class="chapter" data-level="" data-path="c.-elegans-plate-experiment.html"><a href="c.-elegans-plate-experiment.html#introduction-1"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="c.-elegans-plate-experiment.html"><a href="c.-elegans-plate-experiment.html#set-up"><i class="fa fa-check"></i>Set up</a></li>
+<li class="chapter" data-level="" data-path="c.-elegans-plate-experiment.html"><a href="c.-elegans-plate-experiment.html#importing-the-data"><i class="fa fa-check"></i>Importing the data</a></li>
+<li class="chapter" data-level="" data-path="c.-elegans-plate-experiment.html"><a href="c.-elegans-plate-experiment.html#inspecting-the-data-types"><i class="fa fa-check"></i>Inspecting the data types</a></li>
+<li class="chapter" data-level="" data-path="c.-elegans-plate-experiment.html"><a href="c.-elegans-plate-experiment.html#scatterplot-of-c.-elegans-plate-experiment"><i class="fa fa-check"></i>Scatterplot of <em>C. elegans</em> plate experiment</a></li>
+<li class="chapter" data-level="" data-path="c.-elegans-plate-experiment.html"><a href="c.-elegans-plate-experiment.html#normalizing-the-data-for-the-negative-control"><i class="fa fa-check"></i>Normalizing the data for the negative control</a></li>
+<li class="chapter" data-level="" data-path="c.-elegans-plate-experiment.html"><a href="c.-elegans-plate-experiment.html#scatterplot-of-c.-elegans-plate-experiment-with-normalized-data"><i class="fa fa-check"></i>Scatterplot of <em>C. elegans</em> plate experiment with normalized data</a></li>
+<li class="chapter" data-level="" data-path="c.-elegans-plate-experiment.html"><a href="c.-elegans-plate-experiment.html#analyzing-the-c.-elegans-experiment"><i class="fa fa-check"></i>Analyzing the <em>C. elegans</em> experiment</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="open-peer-review.html"><a href="open-peer-review.html"><i class="fa fa-check"></i>Open Peer Review</a>
+<ul>
+<li class="chapter" data-level="" data-path="open-peer-review.html"><a href="open-peer-review.html#evaluation-of-transparency-and-reproducibility"><i class="fa fa-check"></i>Evaluation of Transparency and Reproducibility</a>
+<ul>
+<li class="chapter" data-level="" data-path="open-peer-review.html"><a href="open-peer-review.html#general-aim"><i class="fa fa-check"></i>General Aim</a></li>
+<li class="chapter" data-level="" data-path="open-peer-review.html"><a href="open-peer-review.html#methods"><i class="fa fa-check"></i>Methods</a></li>
+<li class="chapter" data-level="" data-path="open-peer-review.html"><a href="open-peer-review.html#results"><i class="fa fa-check"></i>Results</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="open-peer-review.html"><a href="open-peer-review.html#evaluation-of-code-quality-and-reproducibility"><i class="fa fa-check"></i>Evaluation of Code Quality and Reproducibility</a>
+<ul>
+<li class="chapter" data-level="" data-path="open-peer-review.html"><a href="open-peer-review.html#business-by-country-by-income"><i class="fa fa-check"></i>Business by country by income</a></li>
+<li class="chapter" data-level="" data-path="open-peer-review.html"><a href="open-peer-review.html#vaccine-by-country-by-education"><i class="fa fa-check"></i>Vaccine by country by education</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references-1.html"><a href="references-1.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="" data-path="creating-r-packages.html"><a href="creating-r-packages.html"><i class="fa fa-check"></i>Creating R Packages</a>
+<ul>
+<li class="chapter" data-level="" data-path="creating-r-packages.html"><a href="creating-r-packages.html#developing-the-hittersanalytics-package"><i class="fa fa-check"></i>Developing the HittersAnalytics Package</a></li>
+<li class="chapter" data-level="" data-path="creating-r-packages.html"><a href="creating-r-packages.html#installing-the-hittersanalytics-package"><i class="fa fa-check"></i>Installing the HittersAnalytics Package</a></li>
+<li class="chapter" data-level="" data-path="creating-r-packages.html"><a href="creating-r-packages.html#examples-of-the-functions-in-the-hittersanalytics-package"><i class="fa fa-check"></i>Examples of the functions in the HittersAnalytics Package</a></li>
+<li class="chapter" data-level="" data-path="creating-r-packages.html"><a href="creating-r-packages.html#references-2"><i class="fa fa-check"></i>References</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="project-hack-the-vitek.html"><a href="project-hack-the-vitek.html"><i class="fa fa-check"></i>Project “Hack the VITEK”</a>
+<ul>
+<li class="chapter" data-level="" data-path="project-hack-the-vitek.html"><a href="project-hack-the-vitek.html#vitek2-compact"><i class="fa fa-check"></i>VITEK®2 Compact</a></li>
+<li class="chapter" data-level="" data-path="project-hack-the-vitek.html"><a href="project-hack-the-vitek.html#hack-the-vitek"><i class="fa fa-check"></i>Hack the VITEK</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="parameterized-report-of-covid-19-data-from-ecdc.html"><a href="parameterized-report-of-covid-19-data-from-ecdc.html"><i class="fa fa-check"></i>Parameterized report of COVID-19 data from ECDC</a>
+<ul>
+<li class="chapter" data-level="" data-path="parameterized-report-of-covid-19-data-from-ecdc.html"><a href="parameterized-report-of-covid-19-data-from-ecdc.html#set-up-1"><i class="fa fa-check"></i>Set up</a></li>
+<li class="chapter" data-level="" data-path="parameterized-report-of-covid-19-data-from-ecdc.html"><a href="parameterized-report-of-covid-19-data-from-ecdc.html#load-and-filter-the-covid-19-dataset"><i class="fa fa-check"></i>Load and filter the COVID-19 dataset</a></li>
+<li class="chapter" data-level="" data-path="parameterized-report-of-covid-19-data-from-ecdc.html"><a href="parameterized-report-of-covid-19-data-from-ecdc.html#plots-of-the-covid-19-dataset"><i class="fa fa-check"></i>Plots of the COVID-19 dataset</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Portfolio Data Science for Biology</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="identification-of-antibiotic-resistance-genes-in-bacteria" class="section level1">
+<h1>Identification of Antibiotic Resistance Genes in Bacteria</h1>
+<p class="justify">
+During my internship I am going to determine relatedness and resistance within bacteria using Oxford Nanopore whole genome sequencing. During the course Data Science for Biology 2 - Workflows, we got the opportunity to spend extra time developing a skill or make a head start on this that contributes to our future perspective. I chose to focus on the AMR package in R and the NanoPlot/NanoFilt packages from bioconda.
+</p>
+<p class="justify">
+The AMR package in R was developed to enable standardized and reproducible AMR data analysis. To be able to learn how to work with this package, I followed the tutorial “How to conduct AMR data analysis” [HowConductAMR]. After following the tutorial, I searched for a dataset that meets the requirements to work with this package. I used a dataset from the European Centre for Disease Prevention and Control. The dataset shows the occurrence and spread of antimicrobial (antibiotic) resistance in Europe in the years 2012-2015. The data was collected on the resistance to seven microorganisms: Escherichia coli, Klebsiella pneumoniae, Pseudomonas aeruginosa, Acinetobacter species, Streptococcus pneumoniae, Staphylococcus aureus, and Enterococci.
+</p>
+<p class="justify">
+The NanoPlot package is a package that was specifically developed as a plotting suite for long-read sequencing data and alignments. The NanoFilt package is a package that was developed to filter and trim Oxford Nanopore sequencing data. To be able to work with the NanoPlot and NanoFilt packages, I used a different dataset. This dataset contained data from the study “Whole genome sequencing of antimicrobial resistant organisms from an Australian ICU.” The sample used was from the bacteria Klebsiella pneumoniae. The technique used was Oxford Nanopore MinION whole genome sequencing. The run I used from this experiment is “ERR10367339.”
+</p>
+<p class="justify">
+Below you can find the R code on how I applied the packages to the data.
+</p>
+<div id="amr-package-in-r" class="section level2 unnumbered">
+<h2>AMR package in R</h2>
+<p class="justify">
+To work with the AMR package in R, you need a dataset that contains phenotypic antimicrobial susceptibility test results, organized around clinical isolates, with the data following standardized guidelines from organizations like EUCAST. The susceptibility result is a column where “S” means susceptible, “R” means resistant, and “I” means intermediate. This is determined by the resistance percentage (R) of isolates to a specific antibiotic, with “S” indicating low resistance (e.g., R &lt; 30%), “R” indicating high resistance (e.g., R &gt; 50%), and “I” indicating intermediate resistance (e.g., 30% ≤ R ≤ 50%). The exact guidelines weren’t available, but based on established practices, the resistance percentage (R) thresholds can be used to categorize the susceptibility results and be used to practice with the package.
+</p>
+<div id="tidy-data" class="section level3 unnumbered">
+<h3>Tidy data</h3>
+<p class="justify">
+After the dataset was selected and the susceptibility results were categorized, the data needed to be tidied. Below you can find the R code on how I did this.
+</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-1" tabindex="-1"></a><span class="co"># Define function for tidy data</span></span>
+<span id="cb1-2"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-2" tabindex="-1"></a>tidy_data_function <span class="ot">&lt;-</span> <span class="cf">function</span>(file_path, sheet_number, bacteria, antibioticum, <span class="at">row_range =</span> <span class="st">&quot;A4:M35&quot;</span>) {</span>
+<span id="cb1-3"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-3" tabindex="-1"></a>  <span class="co"># Load raw data from the specified file, sheet, and range</span></span>
+<span id="cb1-4"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-4" tabindex="-1"></a>  raw_data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(file_path, <span class="at">sheet =</span> sheet_number, <span class="at">range =</span> row_range)</span>
+<span id="cb1-5"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-5" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-6" tabindex="-1"></a>  <span class="co"># Print column names for inspection</span></span>
+<span id="cb1-7"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-7" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">colnames</span>(raw_data))</span>
+<span id="cb1-8"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-8" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-9" tabindex="-1"></a>  <span class="co"># Rename columns to ensure unique and consistent names</span></span>
+<span id="cb1-10"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-10" tabindex="-1"></a>  <span class="fu">colnames</span>(raw_data) <span class="ot">&lt;-</span> <span class="fu">make.unique</span>(<span class="fu">c</span>(<span class="st">&quot;Country&quot;</span>, <span class="st">&quot;N_2012&quot;</span>, <span class="st">&quot;R_2012&quot;</span>, <span class="st">&quot;CI_2012&quot;</span>, </span>
+<span id="cb1-11"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-11" tabindex="-1"></a>                                      <span class="st">&quot;N_2013&quot;</span>, <span class="st">&quot;R_2013&quot;</span>, <span class="st">&quot;CI_2013&quot;</span>,</span>
+<span id="cb1-12"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-12" tabindex="-1"></a>                                      <span class="st">&quot;N_2014&quot;</span>, <span class="st">&quot;R_2014&quot;</span>, <span class="st">&quot;CI_2014&quot;</span>, </span>
+<span id="cb1-13"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-13" tabindex="-1"></a>                                      <span class="st">&quot;N_2015&quot;</span>, <span class="st">&quot;R_2015&quot;</span>, <span class="st">&quot;CI_2015&quot;</span>))</span>
+<span id="cb1-14"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-14" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-15" tabindex="-1"></a>  <span class="co"># Process and clean the data</span></span>
+<span id="cb1-16"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-16" tabindex="-1"></a>  cleaned_data <span class="ot">&lt;-</span> raw_data <span class="sc">%&gt;%</span> </span>
+<span id="cb1-17"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-17" tabindex="-1"></a>    <span class="fu">filter</span>(Country <span class="sc">!=</span> <span class="st">&quot;EU/EEA (population-</span><span class="sc">\r\n</span><span class="st">weighted mean)&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-18"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-18" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">starts_with</span>(<span class="st">&quot;N_&quot;</span>), <span class="sc">~</span> <span class="fu">as.numeric</span>(<span class="fu">replace</span>(., . <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;.&quot;</span>, <span class="st">&quot;.-&quot;</span>, <span class="st">&quot;.-.&quot;</span>, <span class="st">&quot;**&quot;</span>, <span class="st">&quot;-&quot;</span>, <span class="st">&quot;(-)&quot;</span>), <span class="cn">NA</span>)))) <span class="sc">%&gt;%</span></span>
+<span id="cb1-19"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-19" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">starts_with</span>(<span class="st">&quot;R_&quot;</span>), <span class="sc">~</span> {</span>
+<span id="cb1-20"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-20" tabindex="-1"></a>      value <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">replace</span>(., . <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;.&quot;</span>, <span class="st">&quot;.-&quot;</span>, <span class="st">&quot;.-.&quot;</span>, <span class="st">&quot;**&quot;</span>, <span class="st">&quot;-&quot;</span>, <span class="st">&quot;(-)&quot;</span>), <span class="cn">NA</span>))</span>
+<span id="cb1-21"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-21" tabindex="-1"></a>      value[<span class="fu">grepl</span>(<span class="st">&quot;^&lt;&quot;</span>, .)] <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">&quot;&lt;&quot;</span>, <span class="st">&quot;&quot;</span>, .[<span class="fu">grepl</span>(<span class="st">&quot;^&lt;&quot;</span>, .)]))</span>
+<span id="cb1-22"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-22" tabindex="-1"></a>      <span class="fu">return</span>(value)</span>
+<span id="cb1-23"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-23" tabindex="-1"></a>    })) <span class="sc">%&gt;%</span></span>
+<span id="cb1-24"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-24" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">starts_with</span>(<span class="st">&quot;CI_&quot;</span>), <span class="sc">~</span> <span class="fu">gsub</span>(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">(|</span><span class="sc">\\</span><span class="st">)&quot;</span>, <span class="st">&quot;&quot;</span>, .))) <span class="sc">%&gt;%</span></span>
+<span id="cb1-25"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-25" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">starts_with</span>(<span class="st">&quot;CI_&quot;</span>), <span class="sc">~</span> <span class="fu">replace</span>(., . <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;.&quot;</span>, <span class="st">&quot;.-&quot;</span>, <span class="st">&quot;.-.&quot;</span>, <span class="st">&quot;**&quot;</span>, <span class="st">&quot;-&quot;</span>, <span class="st">&quot;(-)&quot;</span>), <span class="cn">NA</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb1-26"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-26" tabindex="-1"></a>    <span class="fu">pivot_longer</span>(</span>
+<span id="cb1-27"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-27" tabindex="-1"></a>      <span class="at">cols =</span> <span class="fu">matches</span>(<span class="st">&quot;^N_|^CI_|^R_&quot;</span>),  </span>
+<span id="cb1-28"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-28" tabindex="-1"></a>      <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">&quot;.value&quot;</span>, <span class="st">&quot;year&quot;</span>),  </span>
+<span id="cb1-29"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-29" tabindex="-1"></a>      <span class="at">names_pattern =</span> <span class="st">&quot;([A-Z]+)_(</span><span class="sc">\\</span><span class="st">d+)&quot;</span>  </span>
+<span id="cb1-30"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-30" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb1-31"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-31" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb1-32"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-32" tabindex="-1"></a>      <span class="at">bacteria =</span> bacteria,  </span>
+<span id="cb1-33"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-33" tabindex="-1"></a>      <span class="at">antibioticum =</span> antibioticum,  </span>
+<span id="cb1-34"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-34" tabindex="-1"></a>      <span class="at">SIR =</span> <span class="fu">case_when</span>(</span>
+<span id="cb1-35"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-35" tabindex="-1"></a>        R <span class="sc">&gt;</span> <span class="dv">50</span> <span class="sc">~</span> <span class="st">&quot;R&quot;</span>,                 </span>
+<span id="cb1-36"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-36" tabindex="-1"></a>        R <span class="sc">&gt;=</span> <span class="dv">30</span> <span class="sc">&amp;</span> R <span class="sc">&lt;=</span> <span class="dv">50</span> <span class="sc">~</span> <span class="st">&quot;I&quot;</span>,      </span>
+<span id="cb1-37"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-37" tabindex="-1"></a>        R <span class="sc">&lt;</span> <span class="dv">30</span> <span class="sc">~</span> <span class="st">&quot;S&quot;</span>,                 </span>
+<span id="cb1-38"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-38" tabindex="-1"></a>        <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA_character_</span>          </span>
+<span id="cb1-39"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-39" tabindex="-1"></a>      )</span>
+<span id="cb1-40"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-40" tabindex="-1"></a>    )</span>
+<span id="cb1-41"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-41" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-42" tabindex="-1"></a>  <span class="fu">return</span>(cleaned_data)</span>
+<span id="cb1-43"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb1-43" tabindex="-1"></a>}</span></code></pre></div>
+</div>
+<div id="tidy-data-per-bacteria" class="section level3 unnumbered">
+<h3>Tidy data per bacteria</h3>
+<p class="justify">
+After writing the function to tidy the data, the object could be defined for every bacteria.
+</p>
+<div id="tidy-data-escherichia-coli" class="section level4 unnumbered">
+<h4>Tidy data Escherichia coli</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb2-1" tabindex="-1"></a><span class="co"># Define the file path for the Excel file</span></span>
+<span id="cb2-2"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb2-2" tabindex="-1"></a>file_path_e_coli <span class="ot">&lt;-</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;E_coli.xlsx&quot;</span>)</span>
+<span id="cb2-3"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb2-3" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb2-4" tabindex="-1"></a><span class="co"># Define the bacteria name </span></span>
+<span id="cb2-5"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb2-5" tabindex="-1"></a>bacteria_e_coli <span class="ot">&lt;-</span> <span class="st">&quot;Escherichia coli&quot;</span></span>
+<span id="cb2-6"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb2-6" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb2-7" tabindex="-1"></a><span class="co"># Combine data from multiple sheet of the Excel files into a single dataset</span></span>
+<span id="cb2-8"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb2-8" tabindex="-1"></a>e_coli <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
+<span id="cb2-9"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb2-9" tabindex="-1"></a>  <span class="fu">tidy_data_function</span>(<span class="at">file_path =</span> file_path_e_coli, <span class="at">sheet_number =</span> <span class="dv">1</span>, </span>
+<span id="cb2-10"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb2-10" tabindex="-1"></a>                     <span class="at">bacteria =</span> bacteria_e_coli, </span>
+<span id="cb2-11"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb2-11" tabindex="-1"></a>                     <span class="at">antibioticum =</span> <span class="st">&quot;aminopenicillins&quot;</span>),</span>
+<span id="cb2-12"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb2-12" tabindex="-1"></a>  <span class="fu">tidy_data_function</span>(<span class="at">file_path =</span> file_path_e_coli, <span class="at">sheet_number =</span> <span class="dv">2</span>, </span>
+<span id="cb2-13"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb2-13" tabindex="-1"></a>                     <span class="at">bacteria =</span> bacteria_e_coli, </span>
+<span id="cb2-14"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb2-14" tabindex="-1"></a>                     <span class="at">antibioticum =</span> <span class="st">&quot;fluoroquinolones&quot;</span>),</span>
+<span id="cb2-15"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb2-15" tabindex="-1"></a>  <span class="fu">tidy_data_function</span>(<span class="at">file_path =</span> file_path_e_coli, <span class="at">sheet_number =</span> <span class="dv">3</span>, </span>
+<span id="cb2-16"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb2-16" tabindex="-1"></a>                     <span class="at">bacteria =</span> bacteria_e_coli, </span>
+<span id="cb2-17"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb2-17" tabindex="-1"></a>                     <span class="at">antibioticum =</span> <span class="st">&quot;cephalosporins&quot;</span>),</span>
+<span id="cb2-18"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb2-18" tabindex="-1"></a>  <span class="fu">tidy_data_function</span>(<span class="at">file_path =</span> file_path_e_coli, <span class="at">sheet_number =</span> <span class="dv">4</span>, </span>
+<span id="cb2-19"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb2-19" tabindex="-1"></a>                     <span class="at">bacteria =</span> bacteria_e_coli, </span>
+<span id="cb2-20"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb2-20" tabindex="-1"></a>                     <span class="at">antibioticum =</span> <span class="st">&quot;aminoglycosides&quot;</span>),</span>
+<span id="cb2-21"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb2-21" tabindex="-1"></a>  <span class="fu">tidy_data_function</span>(<span class="at">file_path =</span> file_path_e_coli, <span class="at">sheet_number =</span> <span class="dv">5</span>, </span>
+<span id="cb2-22"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb2-22" tabindex="-1"></a>                     <span class="at">bacteria =</span> bacteria_e_coli, </span>
+<span id="cb2-23"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb2-23" tabindex="-1"></a>                     <span class="at">antibioticum =</span> <span class="st">&quot;carbapenems&quot;</span>),</span>
+<span id="cb2-24"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb2-24" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>##  [1] &quot;Country&quot;       &quot;N...2&quot;         &quot;%R...3&quot;        &quot;(95% CI)...4&quot;  &quot;N...5&quot;        
+##  [6] &quot;%R...6&quot;        &quot;(95% CI)...7&quot;  &quot;N...8&quot;         &quot;%R...9&quot;        &quot;(95% CI)...10&quot;
+## [11] &quot;N...11&quot;        &quot;%R...12&quot;       &quot;(95% CI)...13&quot;</code></pre>
+<pre><code>##  [1] &quot;Country&quot;       &quot;N...2&quot;         &quot;%R...3&quot;        &quot;(95% CI)...4&quot;  &quot;N...5&quot;        
+##  [6] &quot;%R...6&quot;        &quot;(95% CI)...7&quot;  &quot;N...8&quot;         &quot;%R...9&quot;        &quot;(95% CI)...10&quot;
+## [11] &quot;N...11&quot;        &quot;%R...12&quot;       &quot;(95% CI)...13&quot;</code></pre>
+<pre><code>##  [1] &quot;Country&quot;       &quot;N...2&quot;         &quot;%R...3&quot;        &quot;(95% CI)...4&quot;  &quot;N...5&quot;        
+##  [6] &quot;%R...6&quot;        &quot;(95% CI)...7&quot;  &quot;N...8&quot;         &quot;%R...9&quot;        &quot;(95% CI)...10&quot;
+## [11] &quot;N...11&quot;        &quot;%R...12&quot;       &quot;(95% CI)...13&quot;</code></pre>
+<pre><code>##  [1] &quot;Country&quot;       &quot;N...2&quot;         &quot;%R...3&quot;        &quot;(95% CI)...4&quot;  &quot;N...5&quot;        
+##  [6] &quot;%R...6&quot;        &quot;(95% CI)...7&quot;  &quot;N...8&quot;         &quot;%R...9&quot;        &quot;(95% CI)...10&quot;
+## [11] &quot;N...11&quot;        &quot;%R...12&quot;       &quot;(95% CI)...13&quot;</code></pre>
+<pre><code>##  [1] &quot;Country&quot;       &quot;N...2&quot;         &quot;%R...3&quot;        &quot;(95% CI)...4&quot;  &quot;N...5&quot;        
+##  [6] &quot;%R...6&quot;        &quot;(95% CI)...7&quot;  &quot;N...8&quot;         &quot;%R...9&quot;        &quot;(95% CI)...10&quot;
+## [11] &quot;N...11&quot;        &quot;%R...12&quot;       &quot;(95% CI)...13&quot;</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb8-1" tabindex="-1"></a><span class="co"># View the combined dataset</span></span>
+<span id="cb8-2"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb8-2" tabindex="-1"></a><span class="fu">print</span>(e_coli)</span></code></pre></div>
+<pre><code>## # A tibble: 600 × 8
+##    Country year      N     R CI    bacteria         antibioticum     SIR  
+##    &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;
+##  1 Sweden  2012    230  28.3 23-35 Escherichia coli aminopenicillins S    
+##  2 Sweden  2013    452  34.1 30-39 Escherichia coli aminopenicillins I    
+##  3 Sweden  2014     NA  NA   &lt;NA&gt;  Escherichia coli aminopenicillins &lt;NA&gt; 
+##  4 Sweden  2015    396  34.1 29-39 Escherichia coli aminopenicillins I    
+##  5 Finland 2012   2090  39.7 38-42 Escherichia coli aminopenicillins I    
+##  6 Finland 2013   2124  37.3 35-39 Escherichia coli aminopenicillins I    
+##  7 Finland 2014   2365  34.7 33-37 Escherichia coli aminopenicillins I    
+##  8 Finland 2015   2472  36   34-38 Escherichia coli aminopenicillins I    
+##  9 Iceland 2012    131  44.3 36-53 Escherichia coli aminopenicillins I    
+## 10 Iceland 2013    121  46.3 37-56 Escherichia coli aminopenicillins I    
+## # ℹ 590 more rows</code></pre>
+</div>
+<div id="tidy-data-klebsiella-pneumoniae" class="section level4 unnumbered">
+<h4>Tidy data Klebsiella pneumoniae</h4>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb10-1" tabindex="-1"></a><span class="co"># Define the file path for the Excel file</span></span>
+<span id="cb10-2"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb10-2" tabindex="-1"></a>file_path_k_pneumoniae <span class="ot">&lt;-</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;K_pneumoniae.xlsx&quot;</span>)</span>
+<span id="cb10-3"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb10-3" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb10-4" tabindex="-1"></a><span class="co"># Define the bacteria name</span></span>
+<span id="cb10-5"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb10-5" tabindex="-1"></a>bacteria_k_pneumoniae <span class="ot">&lt;-</span> <span class="st">&quot;Klebsiella pneumoniae&quot;</span></span>
+<span id="cb10-6"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb10-6" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb10-7" tabindex="-1"></a><span class="co"># Combine data from multiple sheet of the Excel files into a single dataset</span></span>
+<span id="cb10-8"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb10-8" tabindex="-1"></a>k_pneumoniae <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
+<span id="cb10-9"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb10-9" tabindex="-1"></a>  <span class="fu">tidy_data_function</span>(<span class="at">file_path =</span> file_path_k_pneumoniae, <span class="at">sheet_number =</span> <span class="dv">1</span>, </span>
+<span id="cb10-10"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb10-10" tabindex="-1"></a>                     <span class="at">bacteria =</span> bacteria_k_pneumoniae,</span>
+<span id="cb10-11"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb10-11" tabindex="-1"></a>                     <span class="at">antibioticum =</span> <span class="st">&quot;fluoroquinolones&quot;</span>),</span>
+<span id="cb10-12"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb10-12" tabindex="-1"></a>  <span class="fu">tidy_data_function</span>(<span class="at">file_path =</span> file_path_k_pneumoniae, <span class="at">sheet_number =</span> <span class="dv">2</span>, </span>
+<span id="cb10-13"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb10-13" tabindex="-1"></a>                     <span class="at">bacteria =</span> bacteria_k_pneumoniae, </span>
+<span id="cb10-14"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb10-14" tabindex="-1"></a>                     <span class="at">antibioticum =</span> <span class="st">&quot;cephalosporins&quot;</span>),</span>
+<span id="cb10-15"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb10-15" tabindex="-1"></a>  <span class="fu">tidy_data_function</span>(<span class="at">file_path =</span> file_path_k_pneumoniae, <span class="at">sheet_number =</span> <span class="dv">3</span>, </span>
+<span id="cb10-16"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb10-16" tabindex="-1"></a>                     <span class="at">bacteria =</span> bacteria_k_pneumoniae, </span>
+<span id="cb10-17"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb10-17" tabindex="-1"></a>                     <span class="at">antibioticum =</span> <span class="st">&quot;aminoglycosides&quot;</span>),</span>
+<span id="cb10-18"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb10-18" tabindex="-1"></a>  <span class="fu">tidy_data_function</span>(<span class="at">file_path =</span> file_path_k_pneumoniae, <span class="at">sheet_number =</span> <span class="dv">4</span>, </span>
+<span id="cb10-19"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb10-19" tabindex="-1"></a>                     <span class="at">bacteria =</span> bacteria_k_pneumoniae, </span>
+<span id="cb10-20"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb10-20" tabindex="-1"></a>                     <span class="at">antibioticum =</span> <span class="st">&quot;carbapenems&quot;</span>)</span>
+<span id="cb10-21"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb10-21" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>##  [1] &quot;Country&quot;       &quot;N...2&quot;         &quot;%R...3&quot;        &quot;(95% CI)...4&quot;  &quot;N...5&quot;        
+##  [6] &quot;%R...6&quot;        &quot;(95% CI)...7&quot;  &quot;N...8&quot;         &quot;%R...9&quot;        &quot;(95% CI)...10&quot;
+## [11] &quot;N...11&quot;        &quot;%R...12&quot;       &quot;(95% CI)...13&quot;</code></pre>
+<pre><code>##  [1] &quot;Country&quot;       &quot;N...2&quot;         &quot;%R...3&quot;        &quot;(95% CI)...4&quot;  &quot;N...5&quot;        
+##  [6] &quot;%R...6&quot;        &quot;(95% CI)...7&quot;  &quot;N...8&quot;         &quot;%R...9&quot;        &quot;(95% CI)...10&quot;
+## [11] &quot;N...11&quot;        &quot;%R...12&quot;       &quot;(95% CI)...13&quot;</code></pre>
+<pre><code>##  [1] &quot;Country&quot;       &quot;N...2&quot;         &quot;%R...3&quot;        &quot;(95% CI)...4&quot;  &quot;N...5&quot;        
+##  [6] &quot;%R...6&quot;        &quot;(95% CI)...7&quot;  &quot;N...8&quot;         &quot;%R...9&quot;        &quot;(95% CI)...10&quot;
+## [11] &quot;N...11&quot;        &quot;%R...12&quot;       &quot;(95% CI)...13&quot;</code></pre>
+<pre><code>##  [1] &quot;Country&quot;       &quot;N...2&quot;         &quot;%R...3&quot;        &quot;(95% CI)...4&quot;  &quot;N...5&quot;        
+##  [6] &quot;%R...6&quot;        &quot;(95% CI)...7&quot;  &quot;N...8&quot;         &quot;%R...9&quot;        &quot;(95% CI)...10&quot;
+## [11] &quot;N...11&quot;        &quot;%R...12&quot;       &quot;(95% CI)...13&quot;</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb15-1" tabindex="-1"></a><span class="co"># View the combined dataset</span></span>
+<span id="cb15-2"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb15-2" tabindex="-1"></a><span class="fu">print</span>(k_pneumoniae)</span></code></pre></div>
+<pre><code>## # A tibble: 480 × 8
+##    Country year      N     R CI    bacteria              antibioticum     SIR  
+##    &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;                 &lt;chr&gt;            &lt;chr&gt;
+##  1 Iceland 2012     14   7.1 0-34  Klebsiella pneumoniae fluoroquinolones S    
+##  2 Iceland 2013     28   0   0-12  Klebsiella pneumoniae fluoroquinolones S    
+##  3 Iceland 2014     28   3.6 0-18  Klebsiella pneumoniae fluoroquinolones S    
+##  4 Iceland 2015     35   2.9 0-15  Klebsiella pneumoniae fluoroquinolones S    
+##  5 Finland 2012    536   2.1 1-4   Klebsiella pneumoniae fluoroquinolones S    
+##  6 Finland 2013    537   2.6 1-4   Klebsiella pneumoniae fluoroquinolones S    
+##  7 Finland 2014    581   4.6 3-7   Klebsiella pneumoniae fluoroquinolones S    
+##  8 Finland 2015    658   3.3 2-5   Klebsiella pneumoniae fluoroquinolones S    
+##  9 Sweden  2012    977   3.7 3-5   Klebsiella pneumoniae fluoroquinolones S    
+## 10 Sweden  2013   1270   3.9 3-5   Klebsiella pneumoniae fluoroquinolones S    
+## # ℹ 470 more rows</code></pre>
+</div>
+<div id="tidy-data-pseudomonas-aeruginosa" class="section level4 unnumbered">
+<h4>Tidy data Pseudomonas aeruginosa</h4>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb17-1" tabindex="-1"></a><span class="co"># Define the file path for the Excel file</span></span>
+<span id="cb17-2"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb17-2" tabindex="-1"></a>file_path_p_aeruginosa <span class="ot">&lt;-</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;P_aeruginosa.xlsx&quot;</span>)</span>
+<span id="cb17-3"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb17-3" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb17-4" tabindex="-1"></a><span class="co"># Define the bacteria name</span></span>
+<span id="cb17-5"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb17-5" tabindex="-1"></a>bacteria_p_aeruginosa <span class="ot">&lt;-</span> <span class="st">&quot;Pseudomonas aeruginosa&quot;</span></span>
+<span id="cb17-6"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb17-6" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb17-7" tabindex="-1"></a><span class="co"># Combine data from multiple sheet of the Excel files into a single dataset</span></span>
+<span id="cb17-8"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb17-8" tabindex="-1"></a>p_aeruginosa <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
+<span id="cb17-9"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb17-9" tabindex="-1"></a>  <span class="fu">tidy_data_function</span>(<span class="at">file_path =</span> file_path_p_aeruginosa, <span class="at">sheet_number =</span> <span class="dv">2</span>, </span>
+<span id="cb17-10"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb17-10" tabindex="-1"></a>                     <span class="at">bacteria =</span> bacteria_p_aeruginosa, </span>
+<span id="cb17-11"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb17-11" tabindex="-1"></a>                     <span class="at">antibioticum =</span> <span class="st">&quot;fluoroquinolones&quot;</span>, </span>
+<span id="cb17-12"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb17-12" tabindex="-1"></a>                     <span class="at">row_range =</span> <span class="st">&quot;A5:M36&quot;</span>),</span>
+<span id="cb17-13"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb17-13" tabindex="-1"></a>  <span class="fu">tidy_data_function</span>(<span class="at">file_path =</span> file_path_p_aeruginosa, <span class="at">sheet_number =</span> <span class="dv">3</span>, </span>
+<span id="cb17-14"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb17-14" tabindex="-1"></a>                     <span class="at">bacteria =</span> bacteria_p_aeruginosa, </span>
+<span id="cb17-15"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb17-15" tabindex="-1"></a>                     <span class="at">antibioticum =</span> <span class="st">&quot;ceftazidime&quot;</span>,</span>
+<span id="cb17-16"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb17-16" tabindex="-1"></a>                     <span class="at">row_range =</span> <span class="st">&quot;A5:M36&quot;</span>),</span>
+<span id="cb17-17"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb17-17" tabindex="-1"></a>  <span class="fu">tidy_data_function</span>(<span class="at">file_path =</span> file_path_p_aeruginosa, <span class="at">sheet_number =</span> <span class="dv">4</span>, </span>
+<span id="cb17-18"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb17-18" tabindex="-1"></a>                     <span class="at">bacteria =</span> bacteria_p_aeruginosa, </span>
+<span id="cb17-19"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb17-19" tabindex="-1"></a>                     <span class="at">antibioticum =</span> <span class="st">&quot;aminoglycosides&quot;</span>,</span>
+<span id="cb17-20"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb17-20" tabindex="-1"></a>                     <span class="at">row_range =</span> <span class="st">&quot;A5:M36&quot;</span>),</span>
+<span id="cb17-21"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb17-21" tabindex="-1"></a>  <span class="fu">tidy_data_function</span>(<span class="at">file_path =</span> file_path_p_aeruginosa, <span class="at">sheet_number =</span> <span class="dv">5</span>, </span>
+<span id="cb17-22"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb17-22" tabindex="-1"></a>                     <span class="at">bacteria =</span> bacteria_p_aeruginosa, </span>
+<span id="cb17-23"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb17-23" tabindex="-1"></a>                     <span class="at">antibioticum =</span> <span class="st">&quot;carbapenems&quot;</span>,</span>
+<span id="cb17-24"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb17-24" tabindex="-1"></a>                     <span class="at">row_range =</span> <span class="st">&quot;A5:M36&quot;</span>)</span>
+<span id="cb17-25"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb17-25" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>##  [1] &quot;Country&quot;       &quot;N...2&quot;         &quot;%R...3&quot;        &quot;(95% CI)...4&quot;  &quot;N...5&quot;        
+##  [6] &quot;%R...6&quot;        &quot;(95% CI)...7&quot;  &quot;N...8&quot;         &quot;%R...9&quot;        &quot;(95% CI)...10&quot;
+## [11] &quot;N...11&quot;        &quot;%R...12&quot;       &quot;(95% CI)...13&quot;</code></pre>
+<pre><code>##  [1] &quot;Country&quot;       &quot;N...2&quot;         &quot;%R...3&quot;        &quot;(95% CI)...4&quot;  &quot;N...5&quot;        
+##  [6] &quot;%R...6&quot;        &quot;(95% CI)...7&quot;  &quot;N...8&quot;         &quot;%R...9&quot;        &quot;(95% CI)...10&quot;
+## [11] &quot;N...11&quot;        &quot;%R...12&quot;       &quot;(95% CI)...13&quot;
+##  [1] &quot;Cyprus&quot; &quot;52&quot;     &quot;15.4&quot;   &quot;(7-28)&quot; &quot;47&quot;     &quot;4.3&quot;    &quot;(1-15)&quot; &quot;42&quot;     &quot;9.5&quot;   
+## [10] &quot;(3-23)&quot; &quot;43&quot;     &quot;0&quot;      &quot;(0-8)&quot;</code></pre>
+<pre><code>##  [1] &quot;Country&quot;       &quot;N...2&quot;         &quot;%R...3&quot;        &quot;(95% CI)...4&quot;  &quot;N...5&quot;        
+##  [6] &quot;%R...6&quot;        &quot;(95% CI)...7&quot;  &quot;N...8&quot;         &quot;%R...9&quot;        &quot;(95% CI)...10&quot;
+## [11] &quot;N...11&quot;        &quot;%R...12&quot;       &quot;(95% CI)...13&quot;</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb21-1" tabindex="-1"></a><span class="co"># View the combined dataset</span></span>
+<span id="cb21-2"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb21-2" tabindex="-1"></a><span class="fu">print</span>(p_aeruginosa)</span></code></pre></div>
+<pre><code>## # A tibble: 476 × 8
+##    Country year      N     R CI    bacteria               antibioticum     SIR  
+##    &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;                  &lt;chr&gt;            &lt;chr&gt;
+##  1 Estonia 2012     32  15.6 5-33  Pseudomonas aeruginosa fluoroquinolones S    
+##  2 Estonia 2013     20  25   9-49  Pseudomonas aeruginosa fluoroquinolones S    
+##  3 Estonia 2014     39  10.3 3-24  Pseudomonas aeruginosa fluoroquinolones S    
+##  4 Estonia 2015     18   0   0-19  Pseudomonas aeruginosa fluoroquinolones S    
+##  5 Sweden  2012    357   6.7 4-10  Pseudomonas aeruginosa fluoroquinolones S    
+##  6 Sweden  2013    531   6   4-8   Pseudomonas aeruginosa fluoroquinolones S    
+##  7 Sweden  2014    338   7.7 5-11  Pseudomonas aeruginosa fluoroquinolones S    
+##  8 Sweden  2015    382   4.7 3-7   Pseudomonas aeruginosa fluoroquinolones S    
+##  9 Denmark 2012    389   4.1 2-7   Pseudomonas aeruginosa fluoroquinolones S    
+## 10 Denmark 2013    408   3.2 2-5   Pseudomonas aeruginosa fluoroquinolones S    
+## # ℹ 466 more rows</code></pre>
+</div>
+<div id="tidy-data-acinetobacter-spp." class="section level4 unnumbered">
+<h4>Tidy data Acinetobacter spp.</h4>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb23-1" tabindex="-1"></a><span class="co"># Define the file path for the Excel file</span></span>
+<span id="cb23-2"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb23-2" tabindex="-1"></a>file_path_acinetobacter_spp <span class="ot">&lt;-</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;Acinetobacter_spp.xlsx&quot;</span>)</span>
+<span id="cb23-3"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb23-3" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb23-4" tabindex="-1"></a><span class="co"># Define the bacteria name</span></span>
+<span id="cb23-5"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb23-5" tabindex="-1"></a>bacteria_acinetobacter_spp <span class="ot">&lt;-</span> <span class="st">&quot;Acinetobacter spp&quot;</span></span>
+<span id="cb23-6"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb23-6" tabindex="-1"></a></span>
+<span id="cb23-7"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb23-7" tabindex="-1"></a><span class="co"># Combine data from multiple sheet of the Excel files into a single dataset</span></span>
+<span id="cb23-8"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb23-8" tabindex="-1"></a>acinetobacter_spp <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
+<span id="cb23-9"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb23-9" tabindex="-1"></a>  <span class="fu">tidy_data_function</span>(<span class="at">file_path =</span> file_path_acinetobacter_spp, <span class="at">sheet_number =</span> <span class="dv">1</span>, </span>
+<span id="cb23-10"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb23-10" tabindex="-1"></a>                     <span class="at">bacteria =</span> bacteria_acinetobacter_spp, </span>
+<span id="cb23-11"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb23-11" tabindex="-1"></a>                     <span class="at">antibioticum =</span> <span class="st">&quot;fluoroquinolones&quot;</span>,</span>
+<span id="cb23-12"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb23-12" tabindex="-1"></a>                     <span class="at">row_range =</span> <span class="st">&quot;A4:M34&quot;</span>),</span>
+<span id="cb23-13"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb23-13" tabindex="-1"></a>  <span class="fu">tidy_data_function</span>(<span class="at">file_path =</span> file_path_acinetobacter_spp, <span class="at">sheet_number =</span> <span class="dv">2</span>, </span>
+<span id="cb23-14"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb23-14" tabindex="-1"></a>                     <span class="at">bacteria =</span> bacteria_acinetobacter_spp, </span>
+<span id="cb23-15"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb23-15" tabindex="-1"></a>                     <span class="at">antibioticum =</span> <span class="st">&quot;aminoglycosides&quot;</span>,</span>
+<span id="cb23-16"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb23-16" tabindex="-1"></a>                     <span class="at">row_range =</span> <span class="st">&quot;A4:M34&quot;</span>),</span>
+<span id="cb23-17"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb23-17" tabindex="-1"></a>  <span class="fu">tidy_data_function</span>(<span class="at">file_path =</span> file_path_acinetobacter_spp, <span class="at">sheet_number =</span> <span class="dv">3</span>, </span>
+<span id="cb23-18"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb23-18" tabindex="-1"></a>                     <span class="at">bacteria =</span> bacteria_acinetobacter_spp, </span>
+<span id="cb23-19"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb23-19" tabindex="-1"></a>                     <span class="at">antibioticum =</span> <span class="st">&quot;carbapenems&quot;</span>,</span>
+<span id="cb23-20"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb23-20" tabindex="-1"></a>                     <span class="at">row_range =</span> <span class="st">&quot;A4:M34&quot;</span>)</span>
+<span id="cb23-21"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb23-21" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>##  [1] &quot;Country&quot;       &quot;N...2&quot;         &quot;%R...3&quot;        &quot;(95% CI)...4&quot;  &quot;N...5&quot;        
+##  [6] &quot;%R...6&quot;        &quot;(95% CI)...7&quot;  &quot;N...8&quot;         &quot;%R...9&quot;        &quot;(95% CI)...10&quot;
+## [11] &quot;N...11&quot;        &quot;%R...12&quot;       &quot;(95% CI)...13&quot;</code></pre>
+<pre><code>##  [1] &quot;Country&quot;       &quot;N...2&quot;         &quot;%R...3&quot;        &quot;(95% CI)...4&quot;  &quot;N...5&quot;        
+##  [6] &quot;%R...6&quot;        &quot;(95% CI)...7&quot;  &quot;N...8&quot;         &quot;%R...9&quot;        &quot;(95% CI)...10&quot;
+## [11] &quot;N...11&quot;        &quot;%R...12&quot;       &quot;(95% CI)...13&quot;</code></pre>
+<pre><code>##  [1] &quot;Country&quot;       &quot;N...2&quot;         &quot;%R...3&quot;        &quot;(95% CI)...4&quot;  &quot;N...5&quot;        
+##  [6] &quot;%R...6&quot;        &quot;(95% CI)...7&quot;  &quot;N...8&quot;         &quot;%R...9&quot;        &quot;(95% CI)...10&quot;
+## [11] &quot;N...11&quot;        &quot;%R...12&quot;       &quot;(95% CI)...13&quot;</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb27-1" tabindex="-1"></a><span class="co"># View the combined dataset</span></span>
+<span id="cb27-2"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb27-2" tabindex="-1"></a><span class="fu">print</span>(acinetobacter_spp)</span></code></pre></div>
+<pre><code>## # A tibble: 360 × 8
+##    Country year      N     R CI    bacteria          antibioticum     SIR  
+##    &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;             &lt;chr&gt;            &lt;chr&gt;
+##  1 Belgium 2012     NA  NA   &lt;NA&gt;  Acinetobacter spp fluoroquinolones &lt;NA&gt; 
+##  2 Belgium 2013      3  NA   &lt;NA&gt;  Acinetobacter spp fluoroquinolones &lt;NA&gt; 
+##  3 Belgium 2014      4  NA   &lt;NA&gt;  Acinetobacter spp fluoroquinolones &lt;NA&gt; 
+##  4 Belgium 2015     26   0   0-13  Acinetobacter spp fluoroquinolones S    
+##  5 Finland 2012     NA  NA   &lt;NA&gt;  Acinetobacter spp fluoroquinolones &lt;NA&gt; 
+##  6 Finland 2013     36   2.8 0-15  Acinetobacter spp fluoroquinolones S    
+##  7 Finland 2014     31   6.5 1-21  Acinetobacter spp fluoroquinolones S    
+##  8 Finland 2015     43   2.3 0-12  Acinetobacter spp fluoroquinolones S    
+##  9 Sweden  2012     NA  NA   &lt;NA&gt;  Acinetobacter spp fluoroquinolones &lt;NA&gt; 
+## 10 Sweden  2013     74   5.4 1-13  Acinetobacter spp fluoroquinolones S    
+## # ℹ 350 more rows</code></pre>
+</div>
+<div id="tidy-data-streptococcus-pneumoniae" class="section level4 unnumbered">
+<h4>Tidy data Streptococcus pneumoniae</h4>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb29-1" tabindex="-1"></a><span class="co"># Define the file path for the Excel file</span></span>
+<span id="cb29-2"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb29-2" tabindex="-1"></a>file_path_s_pneumoniae <span class="ot">&lt;-</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;S_pneumoniae.xlsx&quot;</span>)</span>
+<span id="cb29-3"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb29-3" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb29-4" tabindex="-1"></a><span class="co"># Define the bacteria name</span></span>
+<span id="cb29-5"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb29-5" tabindex="-1"></a>bacteria_s_pneumoniae <span class="ot">&lt;-</span> <span class="st">&quot;Streptococcus pneumoniae&quot;</span></span>
+<span id="cb29-6"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb29-6" tabindex="-1"></a></span>
+<span id="cb29-7"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb29-7" tabindex="-1"></a><span class="co"># Combine data from multiple sheet of the Excel files into a single dataset</span></span>
+<span id="cb29-8"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb29-8" tabindex="-1"></a>s_pneumoniae <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
+<span id="cb29-9"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb29-9" tabindex="-1"></a>  <span class="fu">tidy_data_function</span>(<span class="at">file_path =</span> file_path_s_pneumoniae, <span class="at">sheet_number =</span> <span class="dv">1</span>, </span>
+<span id="cb29-10"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb29-10" tabindex="-1"></a>                     <span class="at">bacteria =</span> bacteria_s_pneumoniae, </span>
+<span id="cb29-11"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb29-11" tabindex="-1"></a>                     <span class="at">antibioticum =</span> <span class="st">&quot;penicillin&quot;</span>, </span>
+<span id="cb29-12"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb29-12" tabindex="-1"></a>                     <span class="at">row_range =</span> <span class="st">&quot;A4:M33&quot;</span>),</span>
+<span id="cb29-13"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb29-13" tabindex="-1"></a>  <span class="fu">tidy_data_function</span>(<span class="at">file_path =</span> file_path_s_pneumoniae, <span class="at">sheet_number =</span> <span class="dv">2</span>, </span>
+<span id="cb29-14"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb29-14" tabindex="-1"></a>                     <span class="at">bacteria =</span> bacteria_s_pneumoniae, </span>
+<span id="cb29-15"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb29-15" tabindex="-1"></a>                     <span class="at">antibioticum =</span> <span class="st">&quot;macrolides&quot;</span>, </span>
+<span id="cb29-16"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb29-16" tabindex="-1"></a>                     <span class="at">row_range =</span> <span class="st">&quot;A4:M33&quot;</span>)</span>
+<span id="cb29-17"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb29-17" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>##  [1] &quot;Country&quot;       &quot;N...2&quot;         &quot;%R...3&quot;        &quot;(95% CI)...4&quot;  &quot;N...5&quot;        
+##  [6] &quot;%R...6&quot;        &quot;(95% CI)...7&quot;  &quot;N...8&quot;         &quot;%R...9&quot;        &quot;(95% CI)...10&quot;
+## [11] &quot;N...11&quot;        &quot;%R...12&quot;       &quot;(95% CI)...13&quot;</code></pre>
+<pre><code>##  [1] &quot;Country&quot;       &quot;N...2&quot;         &quot;%R...3&quot;        &quot;(95% CI)...4&quot;  &quot;N...5&quot;        
+##  [6] &quot;%R...6&quot;        &quot;(95% CI)...7&quot;  &quot;N...8&quot;         &quot;%R...9&quot;        &quot;(95% CI)...10&quot;
+## [11] &quot;N...11&quot;        &quot;%R...12&quot;       &quot;(95% CI)...13&quot;</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb32-1" tabindex="-1"></a><span class="co"># View the combined dataset</span></span>
+<span id="cb32-2"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb32-2" tabindex="-1"></a><span class="fu">print</span>(s_pneumoniae)</span></code></pre></div>
+<pre><code>## # A tibble: 232 × 8
+##    Country     year      N     R CI    bacteria                 antibioticum SIR  
+##    &lt;chr&gt;       &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;                    &lt;chr&gt;        &lt;chr&gt;
+##  1 Belgium     2012   1658   1.5 1-2   Streptococcus pneumoniae penicillin   S    
+##  2 Belgium     2013   1536   1.7 1-2   Streptococcus pneumoniae penicillin   S    
+##  3 Belgium     2014   1110   1.3 1-2   Streptococcus pneumoniae penicillin   S    
+##  4 Belgium     2015   1361   0.6 1-2   Streptococcus pneumoniae penicillin   S    
+##  5 Netherlands 2012   1063   1.5 1-2   Streptococcus pneumoniae penicillin   S    
+##  6 Netherlands 2013   1032   1.1 1-2   Streptococcus pneumoniae penicillin   S    
+##  7 Netherlands 2014   1139   2.1 1-3   Streptococcus pneumoniae penicillin   S    
+##  8 Netherlands 2015   1163   1.8 1-2   Streptococcus pneumoniae penicillin   S    
+##  9 Estonia     2012     53   0   0-7   Streptococcus pneumoniae penicillin   S    
+## 10 Estonia     2013     78   1.3 0-7   Streptococcus pneumoniae penicillin   S    
+## # ℹ 222 more rows</code></pre>
+</div>
+<div id="tidy-data-staphylococcus-aureus" class="section level4 unnumbered">
+<h4>Tidy data Staphylococcus aureus</h4>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb34-1" tabindex="-1"></a><span class="co"># Define the file path for the Excel file</span></span>
+<span id="cb34-2"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb34-2" tabindex="-1"></a>file_path_s_aureus <span class="ot">&lt;-</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;S_aureus.xlsx&quot;</span>)</span>
+<span id="cb34-3"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb34-3" tabindex="-1"></a></span>
+<span id="cb34-4"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb34-4" tabindex="-1"></a><span class="co"># Define the bacteria name</span></span>
+<span id="cb34-5"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb34-5" tabindex="-1"></a>bacteria_s_aureus <span class="ot">&lt;-</span> <span class="st">&quot;Staphylococcus aureus&quot;</span></span>
+<span id="cb34-6"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb34-6" tabindex="-1"></a></span>
+<span id="cb34-7"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb34-7" tabindex="-1"></a><span class="co"># Combine data from multiple sheet of the Excel files into a single dataset</span></span>
+<span id="cb34-8"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb34-8" tabindex="-1"></a>s_aureus <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
+<span id="cb34-9"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb34-9" tabindex="-1"></a>  <span class="fu">tidy_data_function</span>(<span class="at">file_path =</span> file_path_s_aureus, <span class="at">sheet_number =</span> <span class="dv">1</span>, </span>
+<span id="cb34-10"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb34-10" tabindex="-1"></a>                     <span class="at">bacteria =</span> bacteria_s_aureus, </span>
+<span id="cb34-11"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb34-11" tabindex="-1"></a>                     <span class="at">antibioticum =</span> <span class="st">&quot;meticillin&quot;</span>)</span>
+<span id="cb34-12"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb34-12" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>##  [1] &quot;Country&quot;       &quot;N...2&quot;         &quot;%R...3&quot;        &quot;(95% CI)...4&quot;  &quot;N...5&quot;        
+##  [6] &quot;%R...6&quot;        &quot;(95% CI)...7&quot;  &quot;N...8&quot;         &quot;%R...9&quot;        &quot;(95% CI)...10&quot;
+## [11] &quot;N...11&quot;        &quot;%R...12&quot;       &quot;(95% CI)...13&quot;</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb36-1" tabindex="-1"></a><span class="co"># View the combined dataset</span></span>
+<span id="cb36-2"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb36-2" tabindex="-1"></a><span class="fu">print</span>(s_aureus)</span></code></pre></div>
+<pre><code>## # A tibble: 120 × 8
+##    Country year      N     R CI    bacteria              antibioticum SIR  
+##    &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;                 &lt;chr&gt;        &lt;chr&gt;
+##  1 Iceland 2012     58   1.7 0-9   Staphylococcus aureus meticillin   S    
+##  2 Iceland 2013     69   0   0-5   Staphylococcus aureus meticillin   S    
+##  3 Iceland 2014     61   3.3 0-11  Staphylococcus aureus meticillin   S    
+##  4 Iceland 2015     88   0   0-4   Staphylococcus aureus meticillin   S    
+##  5 Sweden  2012   3263   0.7 0-1   Staphylococcus aureus meticillin   S    
+##  6 Sweden  2013   4099   1   1-1   Staphylococcus aureus meticillin   S    
+##  7 Sweden  2014   2745   1   1-1   Staphylococcus aureus meticillin   S    
+##  8 Sweden  2015   3124   0.8 1-1   Staphylococcus aureus meticillin   S    
+##  9 Norway  2012   1430   1.3 1-2   Staphylococcus aureus meticillin   S    
+## 10 Norway  2013   1473   0.7 0-1   Staphylococcus aureus meticillin   S    
+## # ℹ 110 more rows</code></pre>
+</div>
+<div id="tidy-data-enterococcus-faecalis" class="section level4 unnumbered">
+<h4>Tidy data Enterococcus faecalis</h4>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb38-1" tabindex="-1"></a><span class="co"># Define the file path for the Excel file</span></span>
+<span id="cb38-2"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb38-2" tabindex="-1"></a>file_path_e_faecalis <span class="ot">&lt;-</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;E_faecalis.xlsx&quot;</span>)</span>
+<span id="cb38-3"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb38-3" tabindex="-1"></a></span>
+<span id="cb38-4"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb38-4" tabindex="-1"></a><span class="co"># Define the bacteria name</span></span>
+<span id="cb38-5"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb38-5" tabindex="-1"></a>bacteria_e_faecalis <span class="ot">&lt;-</span> <span class="st">&quot;Enterococcus faecalis&quot;</span></span>
+<span id="cb38-6"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb38-6" tabindex="-1"></a></span>
+<span id="cb38-7"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb38-7" tabindex="-1"></a><span class="co"># Combine data from multiple sheet of the Excel files into a single dataset</span></span>
+<span id="cb38-8"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb38-8" tabindex="-1"></a>e_faecalis <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
+<span id="cb38-9"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb38-9" tabindex="-1"></a>  <span class="fu">tidy_data_function</span>(<span class="at">file_path =</span> file_path_e_faecalis, <span class="at">sheet_number =</span> <span class="dv">1</span>, </span>
+<span id="cb38-10"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb38-10" tabindex="-1"></a>                     <span class="at">bacteria =</span> bacteria_e_faecalis, </span>
+<span id="cb38-11"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb38-11" tabindex="-1"></a>                     <span class="at">antibioticum =</span> <span class="st">&quot;gentamicin&quot;</span>),</span>
+<span id="cb38-12"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb38-12" tabindex="-1"></a>  <span class="fu">tidy_data_function</span>(<span class="at">file_path =</span> file_path_e_faecalis, <span class="at">sheet_number =</span> <span class="dv">2</span>, </span>
+<span id="cb38-13"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb38-13" tabindex="-1"></a>                     <span class="at">bacteria =</span> bacteria_e_faecalis, </span>
+<span id="cb38-14"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb38-14" tabindex="-1"></a>                     <span class="at">antibioticum =</span> <span class="st">&quot;vancomycin&quot;</span>)</span>
+<span id="cb38-15"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb38-15" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>##  [1] &quot;Country&quot;       &quot;N...2&quot;         &quot;%R...3&quot;        &quot;(95% CI)...4&quot;  &quot;N...5&quot;        
+##  [6] &quot;%R...6&quot;        &quot;(95% CI)...7&quot;  &quot;N...8&quot;         &quot;%R...9&quot;        &quot;(95% CI)...10&quot;
+## [11] &quot;N...11&quot;        &quot;%R...12&quot;       &quot;(95% CI)...13&quot;</code></pre>
+<pre><code>##  [1] &quot;Country&quot;       &quot;N...2&quot;         &quot;%R...3&quot;        &quot;(95% CI)...4&quot;  &quot;N...5&quot;        
+##  [6] &quot;%R...6&quot;        &quot;(95% CI)...7&quot;  &quot;N...8&quot;         &quot;%R...9&quot;        &quot;(95% CI)...10&quot;
+## [11] &quot;N...11&quot;        &quot;%R...12&quot;       &quot;(95% CI)...13&quot;</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb41-1" tabindex="-1"></a><span class="co"># View the combined dataset</span></span>
+<span id="cb41-2"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb41-2" tabindex="-1"></a><span class="fu">print</span>(e_faecalis)</span></code></pre></div>
+<pre><code>## # A tibble: 240 × 8
+##    Country year      N     R CI    bacteria              antibioticum SIR  
+##    &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;                 &lt;chr&gt;        &lt;chr&gt;
+##  1 Cyprus  2012     77  10.4 5-19  Enterococcus faecalis gentamicin   S    
+##  2 Cyprus  2013     67  26.9 17-39 Enterococcus faecalis gentamicin   S    
+##  3 Cyprus  2014     80  17.5 10-28 Enterococcus faecalis gentamicin   S    
+##  4 Cyprus  2015     58   8.6 3-19  Enterococcus faecalis gentamicin   S    
+##  5 Norway  2012    123  30.1 22-39 Enterococcus faecalis gentamicin   I    
+##  6 Norway  2013    168  26.8 20-34 Enterococcus faecalis gentamicin   S    
+##  7 Norway  2014    270  20.7 16-26 Enterococcus faecalis gentamicin   S    
+##  8 Norway  2015    163   9.8 6-15  Enterococcus faecalis gentamicin   S    
+##  9 France  2012   1528  16.7 15-19 Enterococcus faecalis gentamicin   S    
+## 10 France  2013   1639  14.7 13-17 Enterococcus faecalis gentamicin   S    
+## # ℹ 230 more rows</code></pre>
+</div>
+</div>
+<div id="combined-tidy-data-of-every-bacteria" class="section level3 unnumbered">
+<h3>Combined tidy data of every bacteria</h3>
+<p class="justify">
+Combine the datasets of every bacteria.
+</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb43-1" tabindex="-1"></a><span class="co"># Combine the datasets of every bacteria </span></span>
+<span id="cb43-2"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb43-2" tabindex="-1"></a>combined_data <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
+<span id="cb43-3"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb43-3" tabindex="-1"></a>  e_coli, </span>
+<span id="cb43-4"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb43-4" tabindex="-1"></a>  k_pneumoniae, </span>
+<span id="cb43-5"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb43-5" tabindex="-1"></a>  p_aeruginosa, </span>
+<span id="cb43-6"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb43-6" tabindex="-1"></a>  acinetobacter_spp, </span>
+<span id="cb43-7"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb43-7" tabindex="-1"></a>  s_pneumoniae, </span>
+<span id="cb43-8"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb43-8" tabindex="-1"></a>  s_aureus, </span>
+<span id="cb43-9"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb43-9" tabindex="-1"></a>  e_faecalis</span>
+<span id="cb43-10"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb43-10" tabindex="-1"></a>)</span>
+<span id="cb43-11"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb43-11" tabindex="-1"></a></span>
+<span id="cb43-12"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb43-12" tabindex="-1"></a><span class="co"># View the combined dataset</span></span>
+<span id="cb43-13"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb43-13" tabindex="-1"></a><span class="fu">print</span>(combined_data)</span></code></pre></div>
+<pre><code>## # A tibble: 2,508 × 8
+##    Country year      N     R CI    bacteria         antibioticum     SIR  
+##    &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;
+##  1 Sweden  2012    230  28.3 23-35 Escherichia coli aminopenicillins S    
+##  2 Sweden  2013    452  34.1 30-39 Escherichia coli aminopenicillins I    
+##  3 Sweden  2014     NA  NA   &lt;NA&gt;  Escherichia coli aminopenicillins &lt;NA&gt; 
+##  4 Sweden  2015    396  34.1 29-39 Escherichia coli aminopenicillins I    
+##  5 Finland 2012   2090  39.7 38-42 Escherichia coli aminopenicillins I    
+##  6 Finland 2013   2124  37.3 35-39 Escherichia coli aminopenicillins I    
+##  7 Finland 2014   2365  34.7 33-37 Escherichia coli aminopenicillins I    
+##  8 Finland 2015   2472  36   34-38 Escherichia coli aminopenicillins I    
+##  9 Iceland 2012    131  44.3 36-53 Escherichia coli aminopenicillins I    
+## 10 Iceland 2013    121  46.3 37-56 Escherichia coli aminopenicillins I    
+## # ℹ 2,498 more rows</code></pre>
+</div>
+<div id="wide-data-for-amr-package-functions" class="section level3 unnumbered">
+<h3>Wide data for AMR package functions</h3>
+<p class="justify">
+To be able to analyze the data with the AMR package, the data needs to be in a wide format.
+</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb45-1" tabindex="-1"></a><span class="co"># Define the function to create a wide format</span></span>
+<span id="cb45-2"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb45-2" tabindex="-1"></a>create_wide_format <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
+<span id="cb45-3"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb45-3" tabindex="-1"></a>  data <span class="sc">%&gt;%</span></span>
+<span id="cb45-4"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb45-4" tabindex="-1"></a>    <span class="fu">distinct</span>(Country, year, bacteria, antibioticum, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb45-5"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb45-5" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(</span>
+<span id="cb45-6"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb45-6" tabindex="-1"></a>      <span class="at">names_from =</span> antibioticum,  <span class="co"># Pivot antibiotics into columns</span></span>
+<span id="cb45-7"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb45-7" tabindex="-1"></a>      <span class="at">values_from =</span> SIR,          <span class="co"># Fill columns with SIR values</span></span>
+<span id="cb45-8"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb45-8" tabindex="-1"></a>      <span class="at">values_fill =</span> <span class="fu">list</span>(<span class="at">SIR =</span> <span class="cn">NA</span>) <span class="co"># Fill missing SIR values with NA</span></span>
+<span id="cb45-9"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb45-9" tabindex="-1"></a>    )</span>
+<span id="cb45-10"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb45-10" tabindex="-1"></a>}</span>
+<span id="cb45-11"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb45-11" tabindex="-1"></a></span>
+<span id="cb45-12"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb45-12" tabindex="-1"></a>wide_data <span class="ot">&lt;-</span> <span class="fu">create_wide_format</span>(combined_data)</span>
+<span id="cb45-13"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb45-13" tabindex="-1"></a><span class="fu">print</span>(wide_data)</span></code></pre></div>
+<pre><code>## # A tibble: 2,411 × 17
+##    Country year      N     R CI    bacteria         aminopenicillins fluoroquinolones
+##    &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;           
+##  1 Sweden  2012    230  28.3 23-35 Escherichia coli S                &lt;NA&gt;            
+##  2 Sweden  2013    452  34.1 30-39 Escherichia coli I                &lt;NA&gt;            
+##  3 Sweden  2014     NA  NA   &lt;NA&gt;  Escherichia coli &lt;NA&gt;             &lt;NA&gt;            
+##  4 Sweden  2015    396  34.1 29-39 Escherichia coli I                &lt;NA&gt;            
+##  5 Finland 2012   2090  39.7 38-42 Escherichia coli I                &lt;NA&gt;            
+##  6 Finland 2013   2124  37.3 35-39 Escherichia coli I                &lt;NA&gt;            
+##  7 Finland 2014   2365  34.7 33-37 Escherichia coli I                &lt;NA&gt;            
+##  8 Finland 2015   2472  36   34-38 Escherichia coli I                &lt;NA&gt;            
+##  9 Iceland 2012    131  44.3 36-53 Escherichia coli I                &lt;NA&gt;            
+## 10 Iceland 2013    121  46.3 37-56 Escherichia coli I                &lt;NA&gt;            
+## # ℹ 2,401 more rows
+## # ℹ 9 more variables: cephalosporins &lt;chr&gt;, aminoglycosides &lt;chr&gt;, carbapenems &lt;chr&gt;,
+## #   ceftazidime &lt;chr&gt;, penicillin &lt;chr&gt;, macrolides &lt;chr&gt;, meticillin &lt;chr&gt;,
+## #   gentamicin &lt;chr&gt;, vancomycin &lt;chr&gt;</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb47-1" tabindex="-1"></a>wide_data<span class="sc">$</span>bacteria <span class="ot">&lt;-</span> <span class="fu">as.mo</span>(wide_data<span class="sc">$</span>bacteria, <span class="at">info =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb47-2"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb47-2" tabindex="-1"></a></span>
+<span id="cb47-3"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb47-3" tabindex="-1"></a>wide_data <span class="ot">&lt;-</span> wide_data <span class="sc">%&gt;%</span></span>
+<span id="cb47-4"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb47-4" tabindex="-1"></a>  <span class="fu">mutate_if</span>(is_sir_eligible, as.sir)</span>
+<span id="cb47-5"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb47-5" tabindex="-1"></a></span>
+<span id="cb47-6"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb47-6" tabindex="-1"></a>wide_data</span></code></pre></div>
+<pre><code>## # A tibble: 2,411 × 17
+##    Country year      N     R CI    bacteria     aminopenicillins fluoroquinolones
+##    &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;mo&gt;         &lt;sir&gt;            &lt;sir&gt;           
+##  1 Sweden  2012    230  28.3 23-35 B_ESCHR_COLI S                NA              
+##  2 Sweden  2013    452  34.1 30-39 B_ESCHR_COLI I                NA              
+##  3 Sweden  2014     NA  NA   &lt;NA&gt;  B_ESCHR_COLI NA               NA              
+##  4 Sweden  2015    396  34.1 29-39 B_ESCHR_COLI I                NA              
+##  5 Finland 2012   2090  39.7 38-42 B_ESCHR_COLI I                NA              
+##  6 Finland 2013   2124  37.3 35-39 B_ESCHR_COLI I                NA              
+##  7 Finland 2014   2365  34.7 33-37 B_ESCHR_COLI I                NA              
+##  8 Finland 2015   2472  36   34-38 B_ESCHR_COLI I                NA              
+##  9 Iceland 2012    131  44.3 36-53 B_ESCHR_COLI I                NA              
+## 10 Iceland 2013    121  46.3 37-56 B_ESCHR_COLI I                NA              
+## # ℹ 2,401 more rows
+## # ℹ 9 more variables: cephalosporins &lt;sir&gt;, aminoglycosides &lt;sir&gt;, carbapenems &lt;sir&gt;,
+## #   ceftazidime &lt;sir&gt;, penicillin &lt;sir&gt;, macrolides &lt;sir&gt;, meticillin &lt;sir&gt;,
+## #   gentamicin &lt;sir&gt;, vancomycin &lt;sir&gt;</code></pre>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb49-1" tabindex="-1"></a><span class="fu">summary</span>(wide_data)</span></code></pre></div>
+<pre><code>##    Country              year                 N                 R        
+##  Length:2411        Length:2411        Min.   :    1.0   Min.   : 0.00  
+##  Class :character   Class :character   1st Qu.:  132.0   1st Qu.: 5.80  
+##  Mode  :character   Mode  :character   Median :  390.5   Median :15.05  
+##                                        Mean   : 1020.6   Mean   :22.35  
+##                                        3rd Qu.: 1041.5   3rd Qu.:32.60  
+##                                        Max.   :11055.0   Max.   :95.30  
+##                                        NA&#39;s   :25        NA&#39;s   :53     
+##       CI              bacteria            aminopenicillins     fluoroquinolones     
+##  Length:2411        Class :mo             Class:sir            Class:sir            
+##  Class :character   &lt;NA&gt;  :0              %R   :73.9% (n=88)   %R   :16.4% (n=74)   
+##  Mode  :character   Unique:7              %SI  :26.1% (n=31)   %SI  :83.6% (n=377)  
+##                     #1    :B_ESCHR_COLI   - %S : 0.8% (n=1)    - %S :64.3% (n=290)  
+##                     #2    :B_KLBSL_PNMN   - %I :25.2% (n=30)   - %I :19.3% (n=87)   
+##                     #3    :B_PSDMN_AERG                                             
+##                                                                                     
+##  cephalosporins        aminoglycosides       carbapenems           ceftazidime          
+##  Class:sir             Class:sir             Class:sir             Class:sir            
+##  %R   :14.2% (n=34)    %R   :15.7% (n=70)    %R   :10.6% (n=48)    %R   : 3.3% (n=4)    
+##  %SI  :85.8% (n=206)   %SI  :84.3% (n=377)   %SI  :89.4% (n=403)   %SI  :96.7% (n=116)  
+##  - %S :72.9% (n=175)   - %S :74.7% (n=334)   - %S :83.4% (n=376)   - %S :91.7% (n=110)  
+##  - %I :12.9% (n=31)    - %I : 9.6% (n=43)    - %I : 6.0% (n=27)    - %I : 5.0% (n=6)    
+##                                                                                         
+##                                                                                         
+##  penicillin             macrolides             meticillin            gentamicin           
+##  Class:sir              Class:sir              Class:sir             Class:sir            
+##  %R   : 0.0% (n=0)      %R   : 0.0% (n=0)      %R   : 5.0% (n=6)     %R   :10.6% (n=12)   
+##  %SI  :100.0% (n=113)   %SI  :100.0% (n=112)   %SI  :95.0% (n=114)   %SI  :89.4% (n=101)  
+##  - %S :92.0% (n=104)    - %S :89.3% (n=100)    - %S :80.0% (n=96)    - %S :39.8% (n=45)   
+##  - %I : 8.0% (n=9)      - %I :10.7% (n=12)     - %I :15.0% (n=18)    - %I :49.6% (n=56)   
+##                                                                                           
+##                                                                                           
+##  vancomycin            
+##  Class:sir             
+##  %R   : 0.0% (n=0)     
+##  %SI  :100.0% (n=118)  
+##  - %S :95.8% (n=113)   
+##  - %I : 4.2% (n=5)     
+##                        
+## </code></pre>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb51-1" tabindex="-1"></a><span class="fu">sapply</span>(wide_data, n_distinct)</span></code></pre></div>
+<pre><code>##          Country             year                N                R               CI 
+##               31                4             1200              663              982 
+##         bacteria aminopenicillins fluoroquinolones   cephalosporins  aminoglycosides 
+##                7                4                4                4                4 
+##      carbapenems      ceftazidime       penicillin       macrolides       meticillin 
+##                4                4                3                3                4 
+##       gentamicin       vancomycin 
+##                4                3</code></pre>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb53-1" tabindex="-1"></a>wide_data <span class="sc">%&gt;%</span></span>
+<span id="cb53-2"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb53-2" tabindex="-1"></a>  <span class="fu">count</span>(<span class="fu">mo_name</span>(bacteria), <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 7 × 2
+##   `mo_name(bacteria)`          n
+##   &lt;chr&gt;                    &lt;int&gt;
+## 1 Escherichia coli           599
+## 2 Klebsiella pneumoniae      470
+## 3 Pseudomonas aeruginosa     456
+## 4 Acinetobacter              296
+## 5 Enterococcus faecalis      240
+## 6 Streptococcus pneumoniae   230
+## 7 Staphylococcus aureus      120</code></pre>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb55-1" tabindex="-1"></a>wide_data <span class="sc">%&gt;%</span></span>
+<span id="cb55-2"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb55-2" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">any</span>(<span class="fu">aminoglycosides</span>() <span class="sc">==</span> <span class="st">&quot;R&quot;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 12 × 17
+##    Country         year      N     R CI    bacteria     aminopenicillins fluoroquinolones
+##    &lt;chr&gt;           &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;mo&gt;         &lt;sir&gt;            &lt;sir&gt;           
+##  1 Latvia          2013     54  61.1 47-74 B_ENTRC_FCLS NA               NA              
+##  2 Lithuania       2012     59  50.8 37-64 B_ENTRC_FCLS NA               NA              
+##  3 Lithuania       2013     44  54.5 39-70 B_ENTRC_FCLS NA               NA              
+##  4 Hungary         2012    452  56.2 51-61 B_ENTRC_FCLS NA               NA              
+##  5 Hungary         2013    602  51.7 48-56 B_ENTRC_FCLS NA               NA              
+##  6 Italy           2012    301  50.8 45-57 B_ENTRC_FCLS NA               NA              
+##  7 Italy           2014    516  55.2 51-60 B_ENTRC_FCLS NA               NA              
+##  8 Slovak Republic 2012    179  50.3 43-58 B_ENTRC_FCLS NA               NA              
+##  9 Slovak Republic 2013    209  57.4 50-64 B_ENTRC_FCLS NA               NA              
+## 10 Romania         2012     51  56.9 42-71 B_ENTRC_FCLS NA               NA              
+## 11 Romania         2013     80  58.8 47-70 B_ENTRC_FCLS NA               NA              
+## 12 Romania         2014     34  76.5 59-89 B_ENTRC_FCLS NA               NA              
+## # ℹ 9 more variables: cephalosporins &lt;sir&gt;, aminoglycosides &lt;sir&gt;, carbapenems &lt;sir&gt;,
+## #   ceftazidime &lt;sir&gt;, penicillin &lt;sir&gt;, macrolides &lt;sir&gt;, meticillin &lt;sir&gt;,
+## #   gentamicin &lt;sir&gt;, vancomycin &lt;sir&gt;</code></pre>
+</div>
+<div id="antibiogram" class="section level3 unnumbered">
+<h3>Antibiogram</h3>
+<p class="justify">
+To be able to make an antibiogram, first the resistance percentage was calculated from the combined data.
+</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb57-1" tabindex="-1"></a><span class="co"># Calculate the resistance percentage</span></span>
+<span id="cb57-2"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb57-2" tabindex="-1"></a>resistance_analysis <span class="ot">&lt;-</span> combined_data <span class="sc">%&gt;%</span></span>
+<span id="cb57-3"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb57-3" tabindex="-1"></a>  <span class="fu">filter</span>(SIR <span class="sc">==</span> <span class="st">&quot;R&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb57-4"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb57-4" tabindex="-1"></a>  <span class="fu">group_by</span>(bacteria, antibioticum) <span class="sc">%&gt;%</span> </span>
+<span id="cb57-5"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb57-5" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">R_count =</span> <span class="fu">n</span>(), <span class="at">.groups =</span> <span class="st">&#39;drop&#39;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb57-6"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb57-6" tabindex="-1"></a>  <span class="fu">left_join</span>(</span>
+<span id="cb57-7"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb57-7" tabindex="-1"></a>    combined_data <span class="sc">%&gt;%</span></span>
+<span id="cb57-8"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb57-8" tabindex="-1"></a>      <span class="fu">group_by</span>(bacteria, antibioticum) <span class="sc">%&gt;%</span></span>
+<span id="cb57-9"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb57-9" tabindex="-1"></a>      <span class="fu">summarise</span>(<span class="at">total_count =</span> <span class="fu">n</span>(), <span class="at">.groups =</span> <span class="st">&#39;drop&#39;</span>),</span>
+<span id="cb57-10"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb57-10" tabindex="-1"></a>    <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;bacteria&quot;</span>, <span class="st">&quot;antibioticum&quot;</span>)</span>
+<span id="cb57-11"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb57-11" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb57-12"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb57-12" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">resistance_percentage =</span> (R_count <span class="sc">/</span> total_count) <span class="sc">*</span> <span class="dv">100</span>)</span>
+<span id="cb57-13"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb57-13" tabindex="-1"></a></span>
+<span id="cb57-14"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb57-14" tabindex="-1"></a><span class="co"># Create an antibiogram</span></span>
+<span id="cb57-15"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb57-15" tabindex="-1"></a>antibiogram <span class="ot">&lt;-</span> resistance_analysis <span class="sc">%&gt;%</span></span>
+<span id="cb57-16"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb57-16" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(bacteria, antibioticum, resistance_percentage) <span class="sc">%&gt;%</span></span>
+<span id="cb57-17"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb57-17" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb57-18"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb57-18" tabindex="-1"></a>    <span class="at">names_from =</span> antibioticum, </span>
+<span id="cb57-19"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb57-19" tabindex="-1"></a>    <span class="at">values_from =</span> resistance_percentage, </span>
+<span id="cb57-20"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb57-20" tabindex="-1"></a>    <span class="at">values_fill =</span> <span class="dv">0</span></span>
+<span id="cb57-21"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb57-21" tabindex="-1"></a>  )</span>
+<span id="cb57-22"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb57-22" tabindex="-1"></a></span>
+<span id="cb57-23"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb57-23" tabindex="-1"></a><span class="co"># View the antibiogram</span></span>
+<span id="cb57-24"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb57-24" tabindex="-1"></a><span class="fu">print</span>(antibiogram)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 9
+##   bacteria         aminoglycosides carbapenems fluoroquinolones gentamicin aminopenicillins
+##   &lt;chr&gt;                      &lt;dbl&gt;       &lt;dbl&gt;            &lt;dbl&gt;      &lt;dbl&gt;            &lt;dbl&gt;
+## 1 Acinetobacter s…           32.5        31.7            38.3            0              0  
+## 2 Enterococcus fa…            0           0               0             10              0  
+## 3 Escherichia coli            0           0               0.833          0             73.3
+## 4 Klebsiella pneu…           22.5         3.33           17.5            0              0  
+## 5 Pseudomonas aer…            3.45        5               5              0              0  
+## 6 Staphylococcus …            0           0               0              0              0  
+## # ℹ 3 more variables: cephalosporins &lt;dbl&gt;, ceftazidime &lt;dbl&gt;, meticillin &lt;dbl&gt;</code></pre>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb59-1" tabindex="-1"></a><span class="co"># Plot resistance analysis </span></span>
+<span id="cb59-2"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb59-2" tabindex="-1"></a><span class="fu">ggplot</span>(resistance_analysis, <span class="fu">aes</span>(<span class="at">x =</span> antibioticum, <span class="at">y =</span> bacteria, <span class="at">fill =</span> resistance_percentage)) <span class="sc">+</span></span>
+<span id="cb59-3"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb59-3" tabindex="-1"></a>  <span class="fu">geom_tile</span>() <span class="sc">+</span></span>
+<span id="cb59-4"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb59-4" tabindex="-1"></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">&quot;white&quot;</span>, <span class="at">high =</span> <span class="st">&quot;darkgreen&quot;</span>) <span class="sc">+</span></span>
+<span id="cb59-5"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb59-5" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb59-6"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb59-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Resistentiepercentages per bacterie/antibioticum&quot;</span>, </span>
+<span id="cb59-7"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb59-7" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Antibioticum&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Bacterie&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+</div>
+</div>
+<div id="quality-control-with-nanoplot-and-nanofilt" class="section level2 unnumbered">
+<h2>Quality control with NanoPlot and NanoFilt</h2>
+<p class="justify">
+The quality control of the ERR10367339 dataset was done on a server and not in this bookdown locally. This was done because the server has more computational power which made it easier to work with this data. Below you can find the code I executed and the results.
+</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb60-1"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb60-1" tabindex="-1"></a><span class="co"># Create a new conda environment</span></span>
+<span id="cb60-2"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb60-2" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">--name</span> amr_analysis </span>
+<span id="cb60-3"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb60-3" tabindex="-1"></a></span>
+<span id="cb60-4"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb60-4" tabindex="-1"></a><span class="co"># Activate the newly created conda environment</span></span>
+<span id="cb60-5"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb60-5" tabindex="-1"></a><span class="ex">conda</span> activate amr_analysis </span>
+<span id="cb60-6"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb60-6" tabindex="-1"></a></span>
+<span id="cb60-7"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb60-7" tabindex="-1"></a><span class="co"># Install the SRA tolls from bioconda </span></span>
+<span id="cb60-8"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb60-8" tabindex="-1"></a><span class="ex">conda</span> install <span class="at">-c</span> bioconda sra-tools</span>
+<span id="cb60-9"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb60-9" tabindex="-1"></a></span>
+<span id="cb60-10"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb60-10" tabindex="-1"></a><span class="co"># Prefetch the SRA file</span></span>
+<span id="cb60-11"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb60-11" tabindex="-1"></a><span class="ex">prefetch</span> ERR10367339</span>
+<span id="cb60-12"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb60-12" tabindex="-1"></a></span>
+<span id="cb60-13"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb60-13" tabindex="-1"></a><span class="co"># Convert the downloaded SRA file to fastq format</span></span>
+<span id="cb60-14"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb60-14" tabindex="-1"></a><span class="ex">fastq-dump</span> <span class="at">--split-files</span> <span class="at">--outdir</span> <span class="st">&quot;./data&quot;</span> <span class="st">&quot;./data/ERR10367339.sra&quot;</span></span>
+<span id="cb60-15"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb60-15" tabindex="-1"></a></span>
+<span id="cb60-16"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb60-16" tabindex="-1"></a><span class="co"># Run fastqc on the fastq file to assess the quality of the sequencing data</span></span>
+<span id="cb60-17"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb60-17" tabindex="-1"></a><span class="ex">fastqc</span> ERR10367339</span>
+<span id="cb60-18"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb60-18" tabindex="-1"></a></span>
+<span id="cb60-19"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb60-19" tabindex="-1"></a><span class="co"># Install NanoPlot</span></span>
+<span id="cb60-20"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb60-20" tabindex="-1"></a><span class="ex">pip</span> install NanoPlot </span>
+<span id="cb60-21"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb60-21" tabindex="-1"></a></span>
+<span id="cb60-22"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb60-22" tabindex="-1"></a><span class="co"># List available color options and color maps for NanoPlot</span></span>
+<span id="cb60-23"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb60-23" tabindex="-1"></a><span class="ex">NanoPlot</span> <span class="at">--listcolors</span> </span>
+<span id="cb60-24"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb60-24" tabindex="-1"></a><span class="ex">NanoPlot</span> <span class="at">--listcolormaps</span> </span>
+<span id="cb60-25"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb60-25" tabindex="-1"></a></span>
+<span id="cb60-26"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb60-26" tabindex="-1"></a><span class="co"># Generate kde plots </span></span>
+<span id="cb60-27"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb60-27" tabindex="-1"></a><span class="ex">NanoPlot</span> <span class="at">--fastq</span> ERR10367339.fastq <span class="at">--plots</span> kde <span class="at">-o</span> plots_kde </span>
+<span id="cb60-28"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb60-28" tabindex="-1"></a></span>
+<span id="cb60-29"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb60-29" tabindex="-1"></a><span class="co"># Generate dot plots with navy color </span></span>
+<span id="cb60-30"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb60-30" tabindex="-1"></a><span class="ex">NanoPlot</span> <span class="at">--fastq</span> ERR10367339.fastq <span class="at">--plots</span> dot <span class="at">-o</span> plots_dot <span class="at">-c</span> navy </span>
+<span id="cb60-31"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb60-31" tabindex="-1"></a></span>
+<span id="cb60-32"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb60-32" tabindex="-1"></a><span class="co"># Generate quality control results of the fastq file</span></span>
+<span id="cb60-33"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb60-33" tabindex="-1"></a><span class="co"># When using this, the different kde and dot plots will be generated </span></span>
+<span id="cb60-34"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb60-34" tabindex="-1"></a><span class="ex">NanoPlot</span> <span class="at">--fastq</span> ERR10367339.fastq <span class="at">-o</span> QC_Results</span>
+<span id="cb60-35"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb60-35" tabindex="-1"></a></span>
+<span id="cb60-36"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb60-36" tabindex="-1"></a><span class="co"># Install NanoFilt </span></span>
+<span id="cb60-37"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb60-37" tabindex="-1"></a><span class="ex">pip</span> install nanofilt</span>
+<span id="cb60-38"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb60-38" tabindex="-1"></a></span>
+<span id="cb60-39"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb60-39" tabindex="-1"></a><span class="co"># Filter the fastq files to retain reads with a quality score of 10 or higher </span></span>
+<span id="cb60-40"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#cb60-40" tabindex="-1"></a><span class="fu">cat</span> ERR10367339.fastq <span class="kw">|</span> <span class="ex">NanoFilt</span> <span class="at">-q</span> 10 <span class="op">&gt;</span> filtered_reads.fastq</span></code></pre></div>
+<p class="justify">
+Below you can find part of the FastQC Report.
+</p>
+<div id="fastqc-report-per-base-sequence-quality" class="section level3 unnumbered">
+<h3>FastQC Report: per base sequence quality</h3>
+<div class="figure">
+<img src="figures/fastqc_per_base_sequence_quality.png" alt="Figure 1. Per base sequence quality" width="496" />
+<p class="caption">
+(#fig:per base sequence quality)Figure 1. Per base sequence quality
+</p>
+</div>
+<p class="justify">
+Figure 1 shows that the average quality of the sequences is good with scores in the green area (indicative of high quality). When the bases get further into the sequence, the quality decreases, which shows a lower quality. This pattern is typical for sequence data because the quality decreases with longer read lengths. The fluctuations and broader interquartile ranges in the later bases indicate inconsistent and potentially unreliable data in those regions.
+</p>
+</div>
+<div id="fastqc-report-per-sequence-quality-scores" class="section level3 unnumbered">
+<h3>FastQC Report: per sequence quality scores</h3>
+<div class="figure">
+<img src="figures/fastqc_per_sequence_quality_scores.png" alt="Figure 2. Per sequence quality scores" width="425" />
+<p class="caption">
+(#fig:per sequence quality quality scores)Figure 2. Per sequence quality scores
+</p>
+</div>
+<p class="justify">
+Figure 2 shows a high peak with low-quality scores at around a Phred score of 7-10, which shows that a large amount of sequences has a low quality. The second peak at higher quality scores around a Phred score of 22-30 shows that there is a subset of sequences with a better, acceptable quality. This distribution could possibly be a technical problem.
+</p>
+<p class="justify">
+Below you can the NanoPlot output. The full NanoPlot report is available on my github page under “data/NanoPlot-report.html”.
+</p>
+</div>
+<div id="nanoplot-weighted-histogram-of-read-lengths" class="section level3 unnumbered">
+<h3>NanoPlot: Weighted histogram of read lengths</h3>
+<div class="figure">
+<img src="figures/WeightedHistogramReadlength.png" alt="Figure 3. Weighted histogram of reads length" width="350" />
+<p class="caption">
+(#fig:weighted histogram of reads length)Figure 3. Weighted histogram of reads length
+</p>
+</div>
+<p class="justify">
+Figure 3 shows the weighted histogram of read lengths. The distribution of read lengths shows that there is a high frequency of short reads, with a decrease when the read length increases. Most reads are shorter than 20k, while the longer reads (80-100k) are significantly less frequent.
+</p>
+</div>
+<div id="nanoplot-weighted-histogram-of-read-lengths-after-log-transformation" class="section level3 unnumbered">
+<h3>NanoPlot: Weighted histogram of read lengths after log transformation</h3>
+<div class="figure">
+<img src="figures/WeightedLogTransformed_HistogramReadlength.png" alt="Figure 4. Weighted histogram of reads length after log transformation" width="350" />
+<p class="caption">
+(#fig:weighted histogram of reads length after log transformation)Figure 4. Weighted histogram of reads length after log transformation
+</p>
+</div>
+<p class="justify">
+Figure 4 shows the weighted histogram of read lengths after log transformation. After log transformation, the distribution of read lengths is more even. This indicates that the distribution is log-normal. This pattern is typical for sequencing data, where a wide range of lengths occurs, but most values concentrate around a specific range.
+</p>
+</div>
+<div id="nanoplot-non-weighted-histogram-of-read-lengths" class="section level3 unnumbered">
+<h3>NanoPlot: Non weighted histogram of read lengths</h3>
+<div class="figure">
+<img src="figures/Non_weightedHistogramReadlength.png" alt="Figure 5. Non weighted histogram of reads length" width="350" />
+<p class="caption">
+(#fig:non weighted histogram of reads length)Figure 5. Non weighted histogram of reads length
+</p>
+</div>
+<p class="justify">
+Figure 5 shows the non-weighted histogram of reads length. The majority of the reads are short, under 20k, with a distinct peak around the shortest reads. The frequency decreases when the read lengths increase. This results in a strongly right-skewed distribution.
+</p>
+</div>
+<div id="nanoplot-non-weighted-histogram-of-read-lengths-after-log-transformation" class="section level3 unnumbered">
+<h3>NanoPlot: Non weighted histogram of read lengths after log transformation</h3>
+<div class="figure">
+<img src="figures/Non_weightedLogTransformed_HistogramReadlength.png" alt="Figure 6. Non weighted histogram of reads length after log transformation" width="350" />
+<p class="caption">
+(#fig:non weighted histogram of reads length after log transformation)Figure 6. Non weighted histogram of reads length after log transformation
+</p>
+</div>
+<p class="justify">
+Figure 6 shows the non-weighted histogram of reads length after log transformation. This results in a more evenly distributed plot than figure 5. This gives a better insight into the distribution of the read lengths across different scales. The majority of the reads are between 100 and 10,000 (after log transformation), with a peak around a few hundred base pairs. The tail of the distribution shows that longer reads are less frequent but still present.
+</p>
+</div>
+<div id="nanoplot-yield-by-length" class="section level3 unnumbered">
+<h3>NanoPlot: Yield by length</h3>
+<div class="figure">
+<img src="figures/Yield_By_Length.png" alt="Figure 7. Yield by length" width="350" />
+<p class="caption">
+(#fig:yield by length)Figure 7. Yield by length
+</p>
+</div>
+<p class="justify">
+Figure 7 shows the yield by length. The cumulative yield shows that the majority of the total sequence data is provided by shorter reads. Beyond approximately 40k, further lengthening of the reads contributes only minimally to the total yield.
+</p>
+</div>
+<div id="nanoplot-read-lengths-vs-average-read-quality-kde-plot" class="section level3 unnumbered">
+<h3>Nanoplot: Read lengths vs Average read quality kde plot</h3>
+<div class="figure">
+<img src="figures/LengthvsQualityScatterPlot_kde.png" alt="Figure 8. Read lengths vs Average read quality kde plot" width="300" />
+<p class="caption">
+(#fig:read lengths vs average quality kde plot)Figure 8. Read lengths vs Average read quality kde plot
+</p>
+</div>
+<p class="justify">
+Figure 8 shows the read length vs. average read length generated with kernel density estimation. The plot shows that there is a high concentration of short reads with an average read length between 10-15. The distribution of long reads shows a lower density, which suggests that long reads have a lower and less consistent quality.
+</p>
+</div>
+<div id="nanoplot-read-lengths-vs-average-read-quality-using-dots" class="section level3 unnumbered">
+<h3>NanoPlot: Read lengths vs Average read quality using dots</h3>
+<div class="figure">
+<img src="figures/LengthvsQualityScatterPlot_dot.png" alt="Figure 9. Read lengths vs Average read quality using dots" width="350" />
+<p class="caption">
+(#fig:read lengths vs average quality using dots)Figure 9. Read lengths vs Average read quality using dots
+</p>
+</div>
+<p class="justify">
+Figure 9 shows the read length vs. average read length generated with data points (dots). As the read lengths increase, the data points become more sparsely distributed, indicating that longer reads occur less frequently. The average read quality stays under 20 and varies less for longer reads.
+</p>
+</div>
+</div>
+<div id="references" class="section level2 unnumbered">
+<h2>References</h2>
+<p>Antimicrobial Resistance data analysis. (z.d.). <a href="https://msberends.github.io/AMR/" class="uri">https://msberends.github.io/AMR/</a></p>
+<p>Bioinformatics for Beginners. (2023, 22 juni). Quality Control of Long Reads Data using NanoPlot and FiltLong [Video]. YouTube. <a href="https://www.youtube.com/watch?v=Zf0xX2CqkLw" class="uri">https://www.youtube.com/watch?v=Zf0xX2CqkLw</a></p>
+<p>De Coster, W., D’Hert, S., Schultz, D. T., Cruts, M., &amp; Van Broeckhoven, C. (2018). NanoPack: visualizing and processing long-read sequencing data. Bioinformatics, 34(15), 2666–2669. <a href="https://doi.org/10.1093/bioinformatics/bty149" class="uri">https://doi.org/10.1093/bioinformatics/bty149</a></p>
+<p>Embl-Ebi. (z.d.). ENA Browser. <a href="https://www.ebi.ac.uk/ena/browser/home" class="uri">https://www.ebi.ac.uk/ena/browser/home</a></p>
+<p>Galaxy Training Network. (2024, 13 maart). Assembly / Genome Assembly of MRSA from Oxford Nanopore MinION data (and optionally Illumina data) / Hands-on: Genome Assembly of MRSA from Oxford Nanopore MinION data (and optionally Illumina data). <a href="https://training.galaxyproject.org/training-material/topics/assembly/tutorials/mrsa-nanopore/tutorial.html#assembly" class="uri">https://training.galaxyproject.org/training-material/topics/assembly/tutorials/mrsa-nanopore/tutorial.html#assembly</a></p>
+<p>Home - SRA - NCBI. (z.d.). <a href="https://www.ncbi.nlm.nih.gov/sra" class="uri">https://www.ncbi.nlm.nih.gov/sra</a></p>
+<p>NanoFilt | Anaconda.org. (z.d.). <a href="https://anaconda.org/bioconda/nanofilt" class="uri">https://anaconda.org/bioconda/nanofilt</a></p>
+<p>Nanoplot | Anaconda.org. (z.d.). <a href="https://anaconda.org/bioconda/nanoplot" class="uri">https://anaconda.org/bioconda/nanoplot</a></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="curriculum-vitae.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="guerilla-analytics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

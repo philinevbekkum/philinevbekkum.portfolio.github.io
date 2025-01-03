@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Curriculum Vitae | Portfolio Data Science for Biology</title>
-  <meta name="description" content="Curriculum Vitae | Portfolio Data Science for Biology" />
+  <title>Project “Hack the VITEK” | Portfolio Data Science for Biology</title>
+  <meta name="description" content="Project “Hack the VITEK” | Portfolio Data Science for Biology" />
   <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Curriculum Vitae | Portfolio Data Science for Biology" />
+  <meta property="og:title" content="Project “Hack the VITEK” | Portfolio Data Science for Biology" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Curriculum Vitae | Portfolio Data Science for Biology" />
+  <meta name="twitter:title" content="Project “Hack the VITEK” | Portfolio Data Science for Biology" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="identification-of-antibiotic-resistance-genes-in-bacteria.html"/>
+<link rel="prev" href="creating-r-packages.html"/>
+<link rel="next" href="parameterized-report-of-covid-19-data-from-ecdc.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -253,21 +253,41 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="curriculum-vitae" class="section level1">
-<h1>Curriculum Vitae</h1>
+<div id="project-hack-the-vitek" class="section level1">
+<h1>Project “Hack the VITEK”</h1>
+<div id="vitek2-compact" class="section level2">
+<h2>VITEK®2 Compact</h2>
 <p class="justify">
-Below you can find my CV as a pdf file.
+The VITEK®2 Compact, from bioMérieux, is an automatized microbiological system for identification and antibiotic susceptibility testing of microorganisms based on growth. <span class="citation">(Jia, Li, and Wang 2014)</span> This system uses colorimetric reagent cards which measure optical density and color change at different wavelengths. <span class="citation">(Wallet et al. 2005)</span> Identification cards have 64 wells for a variety of metabolic tests, such as enzymatic reactions, growth in specific media, and changes in pH. The measurements are done every 15 minutes until the maximum incubation time is reached. <span class="citation">(Jia, Li, and Wang 2014)</span>
 </p>
-<embed src="data/CV_Philine_van_Bekkum_Portfolio.pdf" width="100%" height="1000px" type="application/pdf" />
+<p class="justify">
+The AST card is used in the sensitivity test, while the result is read as sensitive, intermediate, or resistant using EUCAST guidelines for the MIC. <span class="citation">(Humphries et al. 2021)</span> Every card tests approximately 19 antibiotics at different concentrations and also contains a growth control. The MIC is calculated using OD values and the growth rate of the microorganism based on known calibration measurements from the database. The VITEK®2 utilizes an Expert System-AES-that provides guidelines for the interpretation of antibiotic results and the detection of resistance mechanisms. Each card has a barcode for identification and a pre-placed transfer tube for inoculation. Microorganisms are transferred to a sterile saline solution, the turbidity of which is adjusted to the correct McFarland value. <span class="citation">(Ligozzi et al. 2002)</span>
+</p>
+<p class="justify">
+The inoculated cards are then placed in a vacuum station where the suspension is pressed into the test openings of the card. The transfer tube is cut and the cards placed in a carousel incubator where they are incubated at 35.5 ± 1.0 ºC. Results are read every 15 minutes and are displayed as “+”, “-”, “(-)” or “(+)”, in which the parentheses denote if the reaction result is too near the threshold.
+</p>
+<p class="justify">
+The databases of the VITEK®2 consist of well-characterized microorganisms. The test data from the unknown organisms are compared with these databases to identify the organism. If the discrimination is low, several possible organisms will appear, and further tests may be necessary to obtain a definite identification.
+</p>
+<p class="justify">
+Several cards are available for the identification of different types of organisms. GN cards are utilized for Gram-negative rods, including 135 fermenting and non-fermenting Gram-negative bacilli, and contain 47 biochemical tests, plus one negative. GP cards are utilized for Gram-positive cocci and bacilli and are focused on 115 non-spore-forming Gram-positive bacteria, mainly cocci, containing 43 biochemical tests. The NH cards are specific for identification of the slow-growing Gram-negative bacteria, the YST card is for yeast identification, the BCL cards are used to identify Bacillus spp. while ANC is utilized in identifying anaerobes and microaerophilic bacteria. <span class="citation">(Pincus, n.d.)</span>
+</p>
+</div>
+<div id="hack-the-vitek" class="section level2">
+<h2>Hack the VITEK</h2>
+<p class="justify">
+The goal of this project is to design a tool that enhances the utility of the raw data output from the VITEK®2 system. While the final report from the VITEK®2 delivers a quick summary of microbial identification and antibiotic susceptibility, it lacks the ability to explain how such conclusions were drawn. This would further enable the visualization of reaction kinetics and improve the identification accuracy and reliability. Development of an RShiny dashboard will be done, allowing researchers to upload raw log files from the VITEK®2 to view signal change of each well over time. This dashboard will then allow researchers to study dynamic changes in microbial growth patterns that can help identify which variable-specific wells are best for microorganism identification.
+</p>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="identification-of-antibiotic-resistance-genes-in-bacteria.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="creating-r-packages.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="parameterized-report-of-covid-19-data-from-ecdc.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

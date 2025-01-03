@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="open-peer-review.html"/>
-
+<link rel="next" href="creating-r-packages.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -48,6 +48,14 @@
 
 
 
+<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.10.4/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
@@ -119,6 +127,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 </style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
@@ -134,23 +165,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
-<li class="chapter" data-level="" data-path="curriculum-vitae.html"><a href="curriculum-vitae.html"><i class="fa fa-check"></i>Curriculum Vitae</a>
+<li class="chapter" data-level="" data-path="curriculum-vitae.html"><a href="curriculum-vitae.html"><i class="fa fa-check"></i>Curriculum Vitae</a></li>
+<li class="chapter" data-level="" data-path="identification-of-antibiotic-resistance-genes-in-bacteria.html"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html"><i class="fa fa-check"></i>Identification of Antibiotic Resistance Genes in Bacteria</a>
 <ul>
-<li class="chapter" data-level="" data-path="curriculum-vitae.html"><a href="curriculum-vitae.html#personal-information"><i class="fa fa-check"></i>Personal Information</a></li>
-<li class="chapter" data-level="" data-path="curriculum-vitae.html"><a href="curriculum-vitae.html#education"><i class="fa fa-check"></i>Education</a></li>
-<li class="chapter" data-level="" data-path="curriculum-vitae.html"><a href="curriculum-vitae.html#work-experience"><i class="fa fa-check"></i>Work Experience</a></li>
-<li class="chapter" data-level="" data-path="curriculum-vitae.html"><a href="curriculum-vitae.html#skills"><i class="fa fa-check"></i>Skills</a></li>
-<li class="chapter" data-level="" data-path="curriculum-vitae.html"><a href="curriculum-vitae.html#theoretical-knowledge"><i class="fa fa-check"></i>Theoretical Knowledge</a></li>
-<li class="chapter" data-level="" data-path="curriculum-vitae.html"><a href="curriculum-vitae.html#languages"><i class="fa fa-check"></i>Languages</a></li>
-<li class="chapter" data-level="" data-path="curriculum-vitae.html"><a href="curriculum-vitae.html#hobbies"><i class="fa fa-check"></i>Hobbies</a></li>
+<li class="chapter" data-level="" data-path="identification-of-antibiotic-resistance-genes-in-bacteria.html"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#amr-package-in-r"><i class="fa fa-check"></i>AMR package in R</a>
+<ul>
+<li class="chapter" data-level="" data-path="identification-of-antibiotic-resistance-genes-in-bacteria.html"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#tidy-data"><i class="fa fa-check"></i>Tidy data</a></li>
+<li class="chapter" data-level="" data-path="identification-of-antibiotic-resistance-genes-in-bacteria.html"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#tidy-data-per-bacteria"><i class="fa fa-check"></i>Tidy data per bacteria</a></li>
+<li class="chapter" data-level="" data-path="identification-of-antibiotic-resistance-genes-in-bacteria.html"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#combined-tidy-data-of-every-bacteria"><i class="fa fa-check"></i>Combined tidy data of every bacteria</a></li>
+<li class="chapter" data-level="" data-path="identification-of-antibiotic-resistance-genes-in-bacteria.html"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#wide-data-for-amr-package-functions"><i class="fa fa-check"></i>Wide data for AMR package functions</a></li>
+<li class="chapter" data-level="" data-path="identification-of-antibiotic-resistance-genes-in-bacteria.html"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#antibiogram"><i class="fa fa-check"></i>Antibiogram</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="identificatie-van-antibiotica-resistentie-genen-in-bacteriën-via-wgs-oxford-nanopore-sequencing.html"><a href="identificatie-van-antibiotica-resistentie-genen-in-bacteriën-via-wgs-oxford-nanopore-sequencing.html"><i class="fa fa-check"></i>Identificatie van antibiotica resistentie genen in bacteriën via WGS Oxford Nanopore sequencing</a>
+<li class="chapter" data-level="" data-path="identification-of-antibiotic-resistance-genes-in-bacteria.html"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#quality-control-with-nanoplot-and-nanofilt"><i class="fa fa-check"></i>Quality control with NanoPlot and NanoFilt</a>
 <ul>
-<li class="chapter" data-level="" data-path="identificatie-van-antibiotica-resistentie-genen-in-bacteriën-via-wgs-oxford-nanopore-sequencing.html"><a href="identificatie-van-antibiotica-resistentie-genen-in-bacteriën-via-wgs-oxford-nanopore-sequencing.html#stap-1-selecteren-van-de-dataset"><i class="fa fa-check"></i>Stap 1: Selecteren van de dataset</a></li>
-<li class="chapter" data-level="" data-path="identificatie-van-antibiotica-resistentie-genen-in-bacteriën-via-wgs-oxford-nanopore-sequencing.html"><a href="identificatie-van-antibiotica-resistentie-genen-in-bacteriën-via-wgs-oxford-nanopore-sequencing.html#stap-2-kwaliteitscontrole"><i class="fa fa-check"></i>Stap 2: Kwaliteitscontrole</a></li>
-<li class="chapter" data-level="" data-path="identificatie-van-antibiotica-resistentie-genen-in-bacteriën-via-wgs-oxford-nanopore-sequencing.html"><a href="identificatie-van-antibiotica-resistentie-genen-in-bacteriën-via-wgs-oxford-nanopore-sequencing.html#stap-3-identificatie-van-antibiotica-resistentie-genen"><i class="fa fa-check"></i>Stap 3: Identificatie van antibiotica resistentie genen</a></li>
-<li class="chapter" data-level="" data-path="identificatie-van-antibiotica-resistentie-genen-in-bacteriën-via-wgs-oxford-nanopore-sequencing.html"><a href="identificatie-van-antibiotica-resistentie-genen-in-bacteriën-via-wgs-oxford-nanopore-sequencing.html#stap-4-data-visualisatie"><i class="fa fa-check"></i>Stap 4: Data visualisatie</a></li>
-<li class="chapter" data-level="" data-path="identificatie-van-antibiotica-resistentie-genen-in-bacteriën-via-wgs-oxford-nanopore-sequencing.html"><a href="identificatie-van-antibiotica-resistentie-genen-in-bacteriën-via-wgs-oxford-nanopore-sequencing.html#references"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="" data-path="identification-of-antibiotic-resistance-genes-in-bacteria.html"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#fastqc-report-per-base-sequence-quality"><i class="fa fa-check"></i>FastQC Report: per base sequence quality</a></li>
+<li class="chapter" data-level="" data-path="identification-of-antibiotic-resistance-genes-in-bacteria.html"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#fastqc-report-per-sequence-quality-scores"><i class="fa fa-check"></i>FastQC Report: per sequence quality scores</a></li>
+<li class="chapter" data-level="" data-path="identification-of-antibiotic-resistance-genes-in-bacteria.html"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#nanoplot-weighted-histogram-of-read-lengths"><i class="fa fa-check"></i>NanoPlot: Weighted histogram of read lengths</a></li>
+<li class="chapter" data-level="" data-path="identification-of-antibiotic-resistance-genes-in-bacteria.html"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#nanoplot-weighted-histogram-of-read-lengths-after-log-transformation"><i class="fa fa-check"></i>NanoPlot: Weighted histogram of read lengths after log transformation</a></li>
+<li class="chapter" data-level="" data-path="identification-of-antibiotic-resistance-genes-in-bacteria.html"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#nanoplot-non-weighted-histogram-of-read-lengths"><i class="fa fa-check"></i>NanoPlot: Non weighted histogram of read lengths</a></li>
+<li class="chapter" data-level="" data-path="identification-of-antibiotic-resistance-genes-in-bacteria.html"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#nanoplot-non-weighted-histogram-of-read-lengths-after-log-transformation"><i class="fa fa-check"></i>NanoPlot: Non weighted histogram of read lengths after log transformation</a></li>
+<li class="chapter" data-level="" data-path="identification-of-antibiotic-resistance-genes-in-bacteria.html"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#nanoplot-yield-by-length"><i class="fa fa-check"></i>NanoPlot: Yield by length</a></li>
+<li class="chapter" data-level="" data-path="identification-of-antibiotic-resistance-genes-in-bacteria.html"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#nanoplot-read-lengths-vs-average-read-quality-kde-plot"><i class="fa fa-check"></i>Nanoplot: Read lengths vs Average read quality kde plot</a></li>
+<li class="chapter" data-level="" data-path="identification-of-antibiotic-resistance-genes-in-bacteria.html"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#nanoplot-read-lengths-vs-average-read-quality-using-dots"><i class="fa fa-check"></i>NanoPlot: Read lengths vs Average read quality using dots</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="identification-of-antibiotic-resistance-genes-in-bacteria.html"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#references"><i class="fa fa-check"></i>References</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="guerilla-analytics.html"><a href="guerilla-analytics.html"><i class="fa fa-check"></i>Guerilla analytics</a></li>
 <li class="chapter" data-level="" data-path="c.-elegans-plate-experiment.html"><a href="c.-elegans-plate-experiment.html"><i class="fa fa-check"></i><em>C. elegans</em> Plate Experiment</a>
@@ -162,7 +200,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="c.-elegans-plate-experiment.html"><a href="c.-elegans-plate-experiment.html#scatterplot-of-c.-elegans-plate-experiment"><i class="fa fa-check"></i>Scatterplot of <em>C. elegans</em> plate experiment</a></li>
 <li class="chapter" data-level="" data-path="c.-elegans-plate-experiment.html"><a href="c.-elegans-plate-experiment.html#normalizing-the-data-for-the-negative-control"><i class="fa fa-check"></i>Normalizing the data for the negative control</a></li>
 <li class="chapter" data-level="" data-path="c.-elegans-plate-experiment.html"><a href="c.-elegans-plate-experiment.html#scatterplot-of-c.-elegans-plate-experiment-with-normalized-data"><i class="fa fa-check"></i>Scatterplot of <em>C. elegans</em> plate experiment with normalized data</a></li>
-<li class="chapter" data-level="" data-path="c.-elegans-plate-experiment.html"><a href="c.-elegans-plate-experiment.html#dosis-response-analysis-using-the-drc-package"><i class="fa fa-check"></i>Dosis-response analysis using the drc package</a></li>
+<li class="chapter" data-level="" data-path="c.-elegans-plate-experiment.html"><a href="c.-elegans-plate-experiment.html#analyzing-the-c.-elegans-experiment"><i class="fa fa-check"></i>Analyzing the <em>C. elegans</em> experiment</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="open-peer-review.html"><a href="open-peer-review.html"><i class="fa fa-check"></i>Open Peer Review</a>
 <ul>
@@ -179,6 +217,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references-1.html"><a href="references-1.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="" data-path="creating-r-packages.html"><a href="creating-r-packages.html"><i class="fa fa-check"></i>Creating R Packages</a>
+<ul>
+<li class="chapter" data-level="" data-path="creating-r-packages.html"><a href="creating-r-packages.html#developing-the-hittersanalytics-package"><i class="fa fa-check"></i>Developing the HittersAnalytics Package</a></li>
+<li class="chapter" data-level="" data-path="creating-r-packages.html"><a href="creating-r-packages.html#installing-the-hittersanalytics-package"><i class="fa fa-check"></i>Installing the HittersAnalytics Package</a></li>
+<li class="chapter" data-level="" data-path="creating-r-packages.html"><a href="creating-r-packages.html#examples-of-the-functions-in-the-hittersanalytics-package"><i class="fa fa-check"></i>Examples of the functions in the HittersAnalytics Package</a></li>
+<li class="chapter" data-level="" data-path="creating-r-packages.html"><a href="creating-r-packages.html#references-2"><i class="fa fa-check"></i>References</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="project-hack-the-vitek.html"><a href="project-hack-the-vitek.html"><i class="fa fa-check"></i>Project “Hack the VITEK”</a>
+<ul>
+<li class="chapter" data-level="" data-path="project-hack-the-vitek.html"><a href="project-hack-the-vitek.html#vitek2-compact"><i class="fa fa-check"></i>VITEK®2 Compact</a></li>
+<li class="chapter" data-level="" data-path="project-hack-the-vitek.html"><a href="project-hack-the-vitek.html#hack-the-vitek"><i class="fa fa-check"></i>Hack the VITEK</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="parameterized-report-of-covid-19-data-from-ecdc.html"><a href="parameterized-report-of-covid-19-data-from-ecdc.html"><i class="fa fa-check"></i>Parameterized report of COVID-19 data from ECDC</a>
+<ul>
+<li class="chapter" data-level="" data-path="parameterized-report-of-covid-19-data-from-ecdc.html"><a href="parameterized-report-of-covid-19-data-from-ecdc.html#set-up-1"><i class="fa fa-check"></i>Set up</a></li>
+<li class="chapter" data-level="" data-path="parameterized-report-of-covid-19-data-from-ecdc.html"><a href="parameterized-report-of-covid-19-data-from-ecdc.html#load-and-filter-the-covid-19-dataset"><i class="fa fa-check"></i>Load and filter the COVID-19 dataset</a></li>
+<li class="chapter" data-level="" data-path="parameterized-report-of-covid-19-data-from-ecdc.html"><a href="parameterized-report-of-covid-19-data-from-ecdc.html#plots-of-the-covid-19-dataset"><i class="fa fa-check"></i>Plots of the COVID-19 dataset</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
 </ul>
 
       </nav>
@@ -209,8 +266,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="open-peer-review.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="open-peer-review.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="creating-r-packages.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
