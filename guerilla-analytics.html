@@ -12,7 +12,7 @@
   <meta property="og:type" content="book" />
   
   
-  
+  <meta name="github-repo" content="philinevbekkum/dsfb2_workflows_portfolio" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Guerilla analytics | Portfolio Data Science for Biology" />
@@ -164,6 +164,8 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
+<li class="toc"><h2>Portfolio</h2></li>
+<li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
 <li class="chapter" data-level="" data-path="curriculum-vitae.html"><a href="curriculum-vitae.html"><i class="fa fa-check"></i>Curriculum Vitae</a></li>
 <li class="chapter" data-level="" data-path="identification-of-antibiotic-resistance-genes-in-bacteria.html"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html"><i class="fa fa-check"></i>Identification of Antibiotic Resistance Genes in Bacteria</a>
@@ -253,18 +255,13 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="guerilla-analytics" class="section level1">
+<div id="guerilla-analytics" class="section level1 unnumbered">
 <h1>Guerilla analytics</h1>
 <p class="justify">
 The Guerrilla Analytics principles, written by Enda Ridge, offer a practical and hands-on framework for setting up a data management workflow. This framework is particularly useful for teams and helps create a structured work environment. Below, you can find an example of the Guerrilla Analytics principles applied to a past project.
 </p>
 <div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="guerilla-analytics.html#cb61-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;figures&quot;</span>, <span class="st">&quot;guerilla_analytics_daur2.png&quot;</span>))</span></code></pre></div>
-<div class="figure">
-<img src="figures/guerilla_analytics_daur2.png" alt="Figure 1. Guerilla analytics applied to a past project." width="167" />
-<p class="caption">
-(#fig:querilla analytics)Figure 1. Guerilla analytics applied to a past project.
-</p>
-</div>
+<p><em>Figure 1. Guerilla analytics applied to a past project.</em></p>
 <p class="justify">
 Below you can also find the structure of this bookdown project following the Guerrilla Analytics principle.
 </p>
@@ -324,7 +321,9 @@ gitbook.start({
 "options": null
 },
 "toc": {
-"collapse": "subsection"
+"collapse": "section",
+"scroll_highlight": true,
+"toc_depth": 3
 }
 });
 });

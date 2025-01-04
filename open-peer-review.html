@@ -12,7 +12,7 @@
   <meta property="og:type" content="book" />
   
   
-  
+  <meta name="github-repo" content="philinevbekkum/dsfb2_workflows_portfolio" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Open Peer Review | Portfolio Data Science for Biology" />
@@ -164,6 +164,8 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
+<li class="toc"><h2>Portfolio</h2></li>
+<li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
 <li class="chapter" data-level="" data-path="curriculum-vitae.html"><a href="curriculum-vitae.html"><i class="fa fa-check"></i>Curriculum Vitae</a></li>
 <li class="chapter" data-level="" data-path="identification-of-antibiotic-resistance-genes-in-bacteria.html"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html"><i class="fa fa-check"></i>Identification of Antibiotic Resistance Genes in Bacteria</a>
@@ -253,15 +255,15 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="open-peer-review" class="section level1">
+<div id="open-peer-review" class="section level1 unnumbered">
 <h1>Open Peer Review</h1>
 <div id="evaluation-of-transparency-and-reproducibility" class="section level2">
 <h2>Evaluation of Transparency and Reproducibility</h2>
 <p class="justify">
-The selected article, “A virus that has gone viral: Amino acid mutation in S protein of Indian isolate of Coronavirus COVID-19 might impact receptor binding and thus infectivity”, examines amino acid mutations in the spike protein of SARS-CoV-2 isolates from India and their potential impact on receptor binding and infectivity. (Saha et al., 2020)
+The selected article, “A virus that has gone viral: Amino acid mutation in S protein of Indian isolate of Coronavirus COVID-19 might impact receptor binding and thus infectivity”, examines amino acid mutations in the spike protein of SARS-CoV-2 isolates from India and their potential impact on receptor binding and infectivity <span class="citation">(Saha et al. 2020)</span>.
 </p>
 <p class="justify">
-The transparency of the selected study was evaluated based on predefined criteria for reproducibility and reporting practices, as described by Summer et al. (2020) in their work on reproducibility and reporting practices in COVID-19 preprint manuscripts. The table below summaries the findings.
+The transparency of the selected study was evaluated based on predefined criteria for reproducibility and reporting practices, as described by Summer et al. (2020) <span class="citation">(<span>“Reproducibility and Reporting Practices in <span>COVID-19</span> Preprint Manuscripts”</span> n.d.)</span> in their work on reproducibility and reporting practices in COVID-19 preprint manuscripts. The table below summaries the findings.
 </p>
 <p><em>Table 1. Transparency Criteria</em></p>
 <table>
@@ -332,10 +334,10 @@ All 17 sequences from Wuhan were identical and matched completely with the seque
 <div id="evaluation-of-code-quality-and-reproducibility" class="section level2">
 <h2>Evaluation of Code Quality and Reproducibility</h2>
 <p class="justify">
-The selected article, “A global survey of potential acceptance of a COVID-19 vaccine”, examines global COVID-19 vaccine acceptance rates and factors influencing willingness to vaccinate, based on a survey of 13,426 people across 19 countries. (Lazarus et al., 2020)
+The selected article, “A global survey of potential acceptance of a COVID-19 vaccine”, examines global COVID-19 vaccine acceptance rates and factors influencing willingness to vaccinate, based on a survey of 13,426 people across 19 countries <span class="citation">(Lazarus et al. 2021)</span>.
 </p>
 <p class="justify">
-The quality of the code from the selected study was examined by downloading the code from the OSF website and executing the code in R. The R code is designed to evaluate survey data on attitudes toward COVID-19 vaccination. The code includes data preprocessing, visualization, and statistic modeling. The code starts with loading a CSV file with the data and sets up various demographic and survey response variables, like gender, income, education, age group, and country. The data is transformed into categorical variables for better interpretation. (Palayew, 2020)
+The quality of the code from the selected study was examined by downloading the code from the OSF website and executing the code in R. The R code is designed to evaluate survey data on attitudes toward COVID-19 vaccination. The code includes data preprocessing, visualization, and statistic modeling. The code starts with loading a CSV file with the data and sets up various demographic and survey response variables, like gender, income, education, age group, and country. The data is transformed into categorical variables for better interpretation <span class="citation">(<span>“<span>OSF</span> <span></span> <span>COVID-19 Vaccine</span> Paper”</span> n.d.)</span>.
 </p>
 <p class="justify">
 The analysis covers two main survey question: one about the willingness to follow an employers recommendation and the other about the willingness to take the vaccine after it was proven safe and effective. The responses to these questions are visualized in bar graphs segmented by demographics and country. Logistic regression models are used to show the relationship between demographic factors and the acceptance of the vaccines by country.
@@ -344,9 +346,9 @@ The analysis covers two main survey question: one about the willingness to follo
 To successfully execute the code, I made several adjustments: I modified the file path to the data, I commented out the case factor because it wasn’t necessary to proceed with the code, and I commented out the ggsave() function because this was also not necessary to proceed with the code and the given file path didn’t exist. To save the pdf file it is also possible to change the file path. Lastly, I installed the tableone package because it wasn’t installed yet. Overall, it was easy to reproduce the code. I would score the reproducibility of the visualization of this project at a 4, with 1 being very hard and 5 being very easy.
 </p>
 <p class="justify">
-Below you can find some examples from the R code generating figures “Business by country by income” and “Vaccine by country by education”. The full modified code is available as an R script in the GitHub: philinevbekkum/dsfb_workflows_portfolio under scripts/reproducible_research. And the original Rmarkdown and data file are available at <a href="https://osf.io/kzq69/" class="uri">https://osf.io/kzq69/</a>.
+Below you can find some examples from the R code generating figures “Business by country by income” and “Vaccine by country by education”.
 </p>
-<div id="business-by-country-by-income" class="section level3 unnumbered">
+<div id="business-by-country-by-income" class="section level3">
 <h3>Business by country by income</h3>
 <div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="open-peer-review.html#cb83-1" tabindex="-1"></a>data<span class="sc">$</span>Busines2_fct <span class="ot">&lt;-</span> <span class="fu">factor</span>(data<span class="sc">$</span>Business2,</span>
 <span id="cb83-2"><a href="open-peer-review.html#cb83-2" tabindex="-1"></a>                            <span class="at">levels =</span> <span class="fu">c</span>(</span>
@@ -385,12 +387,7 @@ Below you can find some examples from the R code generating figures “Business 
 <span id="cb85-13"><a href="open-peer-review.html#cb85-13" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Country&quot;</span>)<span class="sc">+</span></span>
 <span id="cb85-14"><a href="open-peer-review.html#cb85-14" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="st">&quot;Response&quot;</span>, <span class="at">type =</span> <span class="st">&quot;div&quot;</span>, <span class="at">palette =</span> <span class="dv">4</span>)</span>
 <span id="cb85-15"><a href="open-peer-review.html#cb85-15" tabindex="-1"></a>inc</span></code></pre></div>
-<div class="figure">
-<img src="figures/business%20by%20country%20by%20income-1.png" alt="Figuur 1. Business by country by income." width="672" />
-<p class="caption">
-(#fig:business by country by income)Figuur 1. Business by country by income.
-</p>
-</div>
+<p><img src="figures/business%20by%20country%20by%20income-1.png" width="672" /></p>
 <p><em>Figuur 1. Business by country by income.</em></p>
 </div>
 <div id="vaccine-by-country-by-education" class="section level3">
@@ -432,12 +429,7 @@ Below you can find some examples from the R code generating figures “Business 
 <span id="cb88-13"><a href="open-peer-review.html#cb88-13" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Country&quot;</span>)<span class="sc">+</span></span>
 <span id="cb88-14"><a href="open-peer-review.html#cb88-14" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="st">&quot;Response&quot;</span>, <span class="at">type =</span> <span class="st">&quot;div&quot;</span>, <span class="at">palette =</span> <span class="dv">4</span>)</span>
 <span id="cb88-15"><a href="open-peer-review.html#cb88-15" tabindex="-1"></a>educ</span></code></pre></div>
-<div class="figure">
-<img src="figures/vaccine%20by%20country%20by%20education-1.png" alt="Figuur 2. Vaccine by country by education." width="672" />
-<p class="caption">
-(#fig:vaccine by country by education)Figuur 2. Vaccine by country by education.
-</p>
-</div>
+<p><img src="figures/vaccine%20by%20country%20by%20education-1.png" width="672" /></p>
 <p><em>Figuur 2. Vaccine by country by education.</em></p>
 </div>
 </div>
@@ -496,7 +488,9 @@ gitbook.start({
 "options": null
 },
 "toc": {
-"collapse": "subsection"
+"collapse": "section",
+"scroll_highlight": true,
+"toc_depth": 3
 }
 });
 });
