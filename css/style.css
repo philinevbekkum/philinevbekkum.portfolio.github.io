@@ -1,36 +1,48 @@
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: #000; /* Changed to black */
-    background-color: #f9f9f9;
-    margin: 0;
-    padding: 20px;
+.justify {
+  text-align: justify;
+  text-justify: inter-word;
 }
 
-/* Headings */
-h1, h2, h3, h4 {
-    color: #000; /* Changed to black */
-    margin-top: 20px;
+.toc {
+  padding-left: 15px;
+}
+
+.important {
+  color: red;
+  font-weight: bold;
+  text-shadow: 2px 2px black;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+h1.title {
+  color: rgb(0, 42, 86);
+  font-weight: 1000;
 }
 
 h1 {
-    font-size: 2.5em;
-    /* Removed the border-bottom */
-    padding-bottom: 10px;
+  color: rgb(0, 52, 106);
+  /*font-family: "Highman", Times, serif;*/
 }
 
-h2 {
-    font-size: 2em;
-    margin-top: 30px;
+h2, h3, h4 {
+  color: rgb(0, 68, 141);
+  /*font-family: "Times New Roman", Times, serif;*/
 }
 
-h3 {
-    font-size: 1.5em;
-    margin-top: 25px;
+/*
+h1 {
+    font-family: Helvetica, Arial, sans-serif;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px black;
+    background: url(images/gradient.jpg) no-repeat;
+    border: 2px solid #000;
+    border-radius: 10px;
+    padding: 0px;
+    width: 100%;
 }
 
-/* Custom Classes */
-.justify {
-    text-align: justify;
+.title{
+display: none;
 }
+*/
