@@ -23,6 +23,7 @@
 <meta name="author" content="Philine van Bekkum" />
 
 
+<meta name="date" content="2025-05-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -193,7 +194,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="" data-path="identification-of-antibiotic-resistance-genes-in-bacteria.html"><a href="identification-of-antibiotic-resistance-genes-in-bacteria.html#future-perspective"><i class="fa fa-check"></i>Future perspective</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="guerilla-analytics.html"><a href="guerilla-analytics.html"><i class="fa fa-check"></i>Guerilla analytics</a></li>
+<li class="chapter" data-level="" data-path="guerilla-analytics.html"><a href="guerilla-analytics.html"><i class="fa fa-check"></i>Guerilla Analytics</a></li>
 <li class="chapter" data-level="" data-path="c.-elegans-plate-experiment.html"><a href="c.-elegans-plate-experiment.html"><i class="fa fa-check"></i><em>C. elegans</em> Plate Experiment</a>
 <ul>
 <li class="chapter" data-level="" data-path="c.-elegans-plate-experiment.html"><a href="c.-elegans-plate-experiment.html#introduction-1"><i class="fa fa-check"></i>Introduction</a></li>
@@ -231,7 +232,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="project-hack-the-vitek.html"><a href="project-hack-the-vitek.html#vitek2-compact"><i class="fa fa-check"></i>VITEK®2 Compact</a></li>
 <li class="chapter" data-level="" data-path="project-hack-the-vitek.html"><a href="project-hack-the-vitek.html#hack-the-vitek"><i class="fa fa-check"></i>Hack the VITEK</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="parameterized-report-of-covid-19-data-from-ecdc.html"><a href="parameterized-report-of-covid-19-data-from-ecdc.html"><i class="fa fa-check"></i>Parameterized report of COVID-19 data from ECDC</a>
+<li class="chapter" data-level="" data-path="parameterized-report-of-covid-19-data-from-ecdc.html"><a href="parameterized-report-of-covid-19-data-from-ecdc.html"><i class="fa fa-check"></i>Parameterized Report of COVID-19 data from ECDC</a>
 <ul>
 <li class="chapter" data-level="" data-path="parameterized-report-of-covid-19-data-from-ecdc.html"><a href="parameterized-report-of-covid-19-data-from-ecdc.html#set-up-3"><i class="fa fa-check"></i>Set up</a></li>
 <li class="chapter" data-level="" data-path="parameterized-report-of-covid-19-data-from-ecdc.html"><a href="parameterized-report-of-covid-19-data-from-ecdc.html#load-and-filter-the-covid-19-dataset"><i class="fa fa-check"></i>Load and filter the COVID-19 dataset</a></li>
@@ -416,33 +417,33 @@ The normalization process makes it easier to compare the effects of different co
 <p class="justify">
 Below you can find a stepwise plan to analyze the experiment and determine the effect of different concentrations on offspring count and whether the different compounds have different IC50 curves.
 </p>
-<p>Step 1: Data exploration</p>
+<p><strong>Step 1: Data exploration</strong></p>
 <ul>
 <li>Ensure all data columns are complete and correctly formatted.</li>
 <li>Calculate mean, median, and range of offspring counts (RawData) by compound and concentration.</li>
 <li>Use visualizations and statistical tests to check if the data is normally distributed.</li>
 </ul>
-<p>Step 2: Investigating dose-response relationships</p>
+<p><strong>Step 2: Investigating dose-response relationships</strong></p>
 <ul>
 <li>Apply log transformation to compound concentrations for variance stabilization.</li>
 <li>Create scatterplots or smoothed curves to visualize relationships between concentration and offspring counts for each compound.</li>
 </ul>
-<p>Step 3: Statistical tests for effects of concentration</p>
+<p><strong>Step 3: Statistical tests for effects of concentration</strong></p>
 <ul>
 <li>Use ANOVA to test for significant differences in offspring counts across concentrations and compounds.</li>
 <li>If ANOVA is significant, perform post-hoc tests to identify significant differences between groups.</li>
 </ul>
-<p>Step 4: Estimation of dose-response curves</p>
+<p><strong>Step 4: Estimation of dose-response curves</strong></p>
 <ul>
 <li>Use the drc package to fit dose-response models and estimate IC50 values for each compound.</li>
 <li>Statistically compare IC50 values across compounds to determine which are more or less potent.</li>
 </ul>
-<p>Step 5: Visualizing results</p>
+<p><strong>Step 5: Visualizing results</strong></p>
 <ul>
 <li>Plot fitted dose-response curves for all compounds, including confidence intervals, to facilitate comparisons.</li>
 <li>Compile IC50 values and confidence intervals into a clear summary table.</li>
 </ul>
-<p>Step 6: Interpretation and conclusions</p>
+<p><strong>Step 6: Interpretation and conclusions</strong></p>
 <ul>
 <li>Highlight key results, including significant effects of concentrations and differences in IC50 values.</li>
 <li>Discuss the implications of findings for understanding the effects of compounds on <em>C. elegans</em>.</li>
