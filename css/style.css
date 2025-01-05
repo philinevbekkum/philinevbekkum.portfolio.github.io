@@ -1,10 +1,12 @@
 .justify {
   text-align: justify;
   text-justify: inter-word;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 .toc {
   padding-left: 15px;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 .important {
@@ -17,19 +19,21 @@
 h1.title {
   color: rgb(0, 42, 86);
   font-weight: 1000;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 h1 {
   color: rgb(0, 52, 106);
-  /*font-family: "Highman", Times, serif;*/
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 h2, h3, h4 {
   color: rgb(0, 68, 141);
-  /*font-family: "Times New Roman", Times, serif;*/
+  font-family: Helvetica, Arial, sans-serif;
 }
 
-/*
+/* Commented-out section retained for reference */
+ /*
 h1 {
     font-family: Helvetica, Arial, sans-serif;
     text-align: center;
@@ -42,7 +46,7 @@ h1 {
     width: 100%;
 }
 
-.title{
-display: none;
+.title {
+  display: none;
 }
 */
